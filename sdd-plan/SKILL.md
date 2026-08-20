@@ -28,7 +28,11 @@ para `/sdd-spec`, não ser decidida ad-hoc nesta fase.
 ## Passo 2 — Entrevista
 
 Uma pergunta de cada vez. Sempre que houver mais de uma abordagem técnica razoável, apresente
-as alternativas com uma recomendação e o porquê — mas a decisão final é do usuário.
+as alternativas com uma recomendação e o porquê — mas a decisão final é do usuário. Sempre que
+o ambiente oferecer uma interface de opções selecionáveis para perguntas ao usuário (ex.:
+`AskUserQuestion` na extensão Claude Code no VSCode), use-a para apresentar essas alternativas
+— é mais rápido e reduz ambiguidade de leitura. Só faça a pergunta em texto livre pelo chat
+quando esse tipo de interface não estiver disponível no ambiente atual.
 
 1. **Pontos de integração.** Este plano toca sistemas/serviços/módulos existentes? Quais?
 2. **Decisões de arquitetura em aberto.** Existe alguma decisão técnica que a spec não resolve

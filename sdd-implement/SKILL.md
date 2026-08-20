@@ -25,7 +25,11 @@ sozinho que "também vale a pena fazer X enquanto está aqui".
 ## Passo 2 — Entrevista curta
 
 Diferente das fases anteriores, aqui a entrevista é mínima — a maior parte já foi decidida em
-`sdd-tasks`. Confirme só o que muda a execução:
+`sdd-tasks`. Confirme só o que muda a execução. Sempre que o ambiente oferecer uma interface de
+opções selecionáveis para perguntas ao usuário (ex.: `AskUserQuestion` na extensão Claude Code
+no VSCode), use-a para apresentar as alternativas das perguntas abaixo — cada uma já vem com
+uma recomendação, encaixe natural para esse tipo de interface. Só faça a pergunta em texto
+livre pelo chat quando essa interface não estiver disponível no ambiente atual.
 
 1. **Modo de execução.** Se o arquivo de tarefas marcou "Paralelização: sim", confirme:
    quer que eu já despache os grupos independentes em paralelo, ou prefere acompanhar tarefa

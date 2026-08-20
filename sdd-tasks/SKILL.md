@@ -24,6 +24,12 @@ escopo — nesse caso, pare e avise o usuário em vez de criar a tarefa mesmo as
 
 ## Passo 2 — Entrevista
 
+Sempre que o ambiente oferecer uma interface de opções selecionáveis para perguntas ao usuário
+(ex.: `AskUserQuestion` na extensão Claude Code no VSCode), use-a para apresentar as
+alternativas das perguntas abaixo — é mais rápido e reduz ambiguidade de leitura. Só faça a
+pergunta em texto livre pelo chat quando esse tipo de interface não estiver disponível no
+ambiente atual.
+
 1. **Granularidade.** Prefere tarefas bem pequenas (uma função/endpoint por tarefa, mais
    controle e mais gates informais) ou tarefas maiores por área (menos overhead, menos
    granularidade)? Recomendação padrão: tarefas pequenas o bastante para serem implementadas

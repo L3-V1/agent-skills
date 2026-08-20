@@ -23,6 +23,12 @@ um relatório incompleto.
 
 ## Passo 2 — Entrevista curta
 
+Sempre que o ambiente oferecer uma interface de opções selecionáveis para perguntas ao usuário
+(ex.: `AskUserQuestion` na extensão Claude Code no VSCode), use-a para apresentar as
+alternativas das perguntas abaixo — cada uma já vem com uma recomendação, encaixe natural para
+esse tipo de interface. Só faça a pergunta em texto livre pelo chat quando essa interface não
+estiver disponível no ambiente atual.
+
 1. **Escopo da auditoria.** Auditar todos os critérios (AC-XX) desta feature, ou só um
    subconjunto (ex.: revisão parcial antes de continuar implementando o resto)?
    Recomendação: auditoria completa antes do merge; parcial só faz sentido como checkpoint
