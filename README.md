@@ -1,4 +1,4 @@
-# skills
+# Skills
 
 Coleção pessoal de skills do [Claude Code](https://claude.com/claude-code), mantida como fonte única de verdade e reaproveitada conforme novos projetos são criados.
 
