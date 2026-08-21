@@ -51,6 +51,12 @@ Reutilizadas pelos workflows acima, mas também podem ser invocadas diretamente.
 | [`brainstorming`](./brainstorming/) | Conduz uma sessão de brainstorming de produto/solução a partir de um tema. |
 | [`interview`](./interview/) | Conduz uma entrevista de levantamento de requisitos e gera um `PRD.md`. |
 
+### Design systems
+
+| Skill | Descrição |
+|---|---|
+| [`vilt-design-system`](./vilt-design-system/) | Padrões técnicos e de layout para sistemas Vue + Inertia + Laravel + Tailwind (PrimeVue/PrimeIcons), arquitetura Controller→Service→Repository e tema claro/escuro. |
+
 ### Utilitários de projeto
 
 | Skill | Descrição |
