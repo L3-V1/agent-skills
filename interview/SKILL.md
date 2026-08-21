@@ -10,8 +10,44 @@ disable-model-invocation: true
 
 ## Instruções
 
-- Com base em uma proposta inicial, conduza uma entrevista técnica de levantamento de requisitos com o usuário para definir um escopo para o projeto a ser desenvolvido, bem como detalhes técnicos e funcionais do mesmo.
+- Com base em uma proposta inicial, conduza uma entrevista técnica de levantamento de requisitos com o usuário para definir um escopo para o projeto a ser desenvolvido, bem como detalhes técnicos e funcionais do mesmo. Use como roteiro mínimo as categorias abaixo, pulando as que não se aplicarem ao projeto:
+  1. **Problema e público-alvo** — que problema isso resolve, e para quem?
+  2. **Escopo** — o que está dentro e o que está explicitamente fora desta versão?
+  3. **Requisitos funcionais** — o que o sistema precisa fazer?
+  4. **Requisitos não funcionais** — performance, segurança, escala, disponibilidade, quando relevantes.
+  5. **Stack técnica e restrições** — tecnologias já definidas, integrações existentes, prazo, time.
+  6. **Critérios de sucesso** — como saberemos que está pronto?
+  7. **Riscos e casos de borda conhecidos** — o que pode dar errado, o que não deve acontecer.
 - Assuma que a profundidade da entrevista não será elevada e limite-se à um máximo de 15 a 30 perguntas no total, a não ser que o usuário solicite mais perguntas.
-- Para cada pergunta exiba uma recomendação de resposta e utilize, quando disponível no ambiente, uma interface de menu de opções clicáveis para facilitar a resposta do usuário.
-- Mostre o progresso das perguntas respondidas e das que ainda faltam ser respondidas com base em uma estimativa feita previamente.
-- Ao final da entrevista, gere um arquivo de PRD (Product Requirements Document), em formato markdown, com base nas respostas fornecidas pelo usuário, contendo o escopo do projeto, requisitos funcionais e não funcionais, stack técnica e quaisquer outras informações relevantes levantadas durante a entrevista.
+- Faça as perguntas **uma de cada vez**, aguardando resposta antes de seguir para a próxima — não dispare todas de uma vez em uma lista. Se a resposta do usuário já responder uma pergunta futura, não pergunte de novo — confirme o que você entendeu e siga.
+- Para cada pergunta exiba uma recomendação de resposta. Sempre que o ambiente oferecer uma interface de opções selecionáveis para perguntas ao usuário (ex.: `AskUserQuestion` na extensão Claude Code no VSCode), use-a para apresentar as alternativas de resposta — é mais rápido e reduz ambiguidade de leitura. Só faça a pergunta em texto livre pelo chat quando esse tipo de interface não estiver disponível no ambiente atual.
+- Mostre o progresso das perguntas respondidas e das que ainda faltam, com base numa estimativa feita previamente (ex.: "Pergunta 4 de ~20").
+- Ao final da entrevista, gere um arquivo `PRD.md` (Product Requirements Document) com as respostas fornecidas pelo usuário, seguindo este esqueleto:
+
+```markdown
+# PRD: <nome do projeto>
+
+## Problema e público-alvo
+<resumo do problema e para quem>
+
+## Escopo
+### Dentro
+- ...
+### Fora
+- ...
+
+## Requisitos funcionais
+- ...
+
+## Requisitos não funcionais
+- ...
+
+## Stack técnica e restrições
+- ...
+
+## Critérios de sucesso
+- ...
+
+## Riscos e casos de borda conhecidos
+- ...
+```
