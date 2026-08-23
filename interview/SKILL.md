@@ -1,6 +1,6 @@
 ---
 name: interview
-description: "Utilize essa skill somente quando invocada explicitamente via comando do usuário, pois ela iniciará um fluxo extenso de perguntas e respostas. Pode ser invocada diretamente pelo usuário ou por outra skill, como `quick-dev-workflow`, como parte de um fluxo já iniciado por ele explicitamente."
+description: "Utilize essa skill somente quando invocada explicitamente via comando do usuário, pois ela iniciará um fluxo extenso de perguntas e respostas. Pode ser invocada diretamente pelo usuário ou por outra skill, como parte de um fluxo já iniciado por ele explicitamente."
 disable-model-invocation: true
 ---
 

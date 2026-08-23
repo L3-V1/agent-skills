@@ -35,7 +35,6 @@ Depois de criar ou atualizar os symlinks, rode `/reload-skills` no Claude Code p
 
 | Skill | Descrição |
 |---|---|
-| [`quick-dev-workflow`](./quick-dev-workflow/) | Fluxo leve de desenvolvimento: brainstorming → PRD → kanban, sem gates formais de aprovação por fase. |
 | [`sdd-spec`](./sdd-spec/) | 1ª fase do workflow spec-anchored: especificação formal em notação EARS via entrevista guiada. |
 | [`sdd-plan`](./sdd-plan/) | 2ª fase: deriva o plano técnico a partir de uma spec aprovada. |
 | [`sdd-tasks`](./sdd-tasks/) | 3ª fase: decompõe o plano em tarefas atômicas e rastreáveis. |
