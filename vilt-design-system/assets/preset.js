@@ -1,7 +1,7 @@
-// Preset customizado do PrimeVue (Aura) com uma paleta de exemplo (azul).
+// Preset customizado do PrimeVue (Aura) com uma paleta de exemplo (roxo Twitch).
 // Copie para resources/js/preset.js.
 //
-// A paleta (primitive.blue, os hex abaixo) é só um exemplo funcional — ao
+// A paleta (primitive.purple, os hex abaixo) é só um exemplo funcional — ao
 // contrário de um design system institucional, aqui a cor é uma escolha de
 // projeto, troque livremente. O que pode mudar entre projetos também são os
 // overrides de `components` (ajuste conforme os componentes PrimeVue que o
@@ -16,10 +16,10 @@ const appThemePreset = definePreset(Aura, {
             300: '#E0E0E0', 400: '#BDBDBD', 500: '#9E9E9E', 600: '#757575',
             700: '#616161', 800: '#424242', 900: '#212121',
         },
-        blue: {
-            50: '#f5f9fc', 100: '#d6e6f2', 200: '#b8d3e8', 300: '#9ac0dd',
-            400: '#7cadd3', 600: '#4a83b3', 700: '#2f6491', 800: '#14293f',
-            900: '#0a1628',
+        purple: {
+            50: '#f5edff', 100: '#e4d1ff', 200: '#cdb0ff', 300: '#bf94ff',
+            400: '#a66fff', 600: '#7c2ef0', 700: '#772ce8', 800: '#5c1fbd',
+            900: '#3d1480',
         },
         red: {
             300: '#f44336', // usado em "invalid" — dark
@@ -28,17 +28,17 @@ const appThemePreset = definePreset(Aura, {
     },
     semantic: {
         primary: {
-            0: '{blue.800}',
-            50: '{blue.100}',   // highlight de Select não-focado
-            100: '#5b9bd5',     // highlight de Select focado
-            200: '{blue.800}',
-            300: '{blue.800}',
-            400: '#5b9bd5',     // highlight da listbox
-            500: '{blue.800}',
-            600: '#8ec5ea',     // bordas e highlight do DatePicker
-            700: '{blue.800}',
-            800: '{blue.800}',
-            900: '{blue.800}',
+            0: '{purple.800}',
+            50: '{purple.100}', // highlight de Select não-focado
+            100: '#a66fff',     // highlight de Select focado
+            200: '{purple.800}',
+            300: '{purple.800}',
+            400: '#a66fff',     // highlight da listbox
+            500: '{purple.800}',
+            600: '#bf94ff',     // bordas e highlight do DatePicker
+            700: '{purple.800}',
+            800: '{purple.800}',
+            900: '{purple.800}',
         },
         contrastColor: '{primary.600}',
         focusRing: { shadow: '0px 0px 10px 1px {primary.100}' },

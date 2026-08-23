@@ -1,6 +1,6 @@
 ---
 name: vilt-design-system
-description: Documenta os padrões técnicos de backend/frontend do stack VILT (Laravel + Inertia + Vue 3 + PrimeVue/PrimeIcons + Tailwind), a arquitetura Controller→Service→Repository, nomenclatura em português e tema claro/escuro, usados como base para sistemas administrativos/institucionais. Use esta skill sempre que o usuário pedir para criar um novo sistema Laravel+Inertia+Vue+PrimeVue seguindo este design system, ou ao adicionar páginas, layouts, temas ou telas administrativas a um projeto que já segue esse padrão — mesmo que o usuário não use o termo "design system". Também use ao revisar se uma tela nova está consistente com o resto do sistema.
+description: Documenta os padrões técnicos de backend/frontend do stack VILT (Laravel + Inertia + Vue 3 + PrimeVue/PrimeIcons + Tailwind), a arquitetura Controller→Service→Repository, nomenclatura em português e tema claro/escuro, usados como base para sistemas administrativos/institucionais. Use ao criar um novo sistema Laravel+Inertia+Vue+PrimeVue seguindo este design system, ao adicionar páginas/layouts/temas/telas a um projeto que já segue esse padrão (mesmo sem o termo "design system"), ou ao revisar se uma tela nova está consistente com o resto do sistema.
 ---
 
 # Design System VILT
@@ -16,7 +16,7 @@ Se você tiver acesso ao código de outro sistema que já segue este padrão, el
 
 ## Paleta de cores
 
-Os templates desta skill (`assets/app.css`, `assets/preset.js`) vêm com uma paleta neutra azul/cinza de exemplo — ela existe só para os templates funcionarem prontos para uso, **não** é uma identidade fixa. Ao contrário de um design system institucional, aqui a paleta é uma escolha de projeto: troque livremente pelas cores da marca/produto que o sistema representa. O que não muda é o *mecanismo* — variáveis CSS com prefixo do projeto e preset do PrimeVue com as três camadas (`primitive`/`semantic`/`components`), documentado em `references/tema-e-cores.md`.
+Os templates desta skill (`assets/app.css`, `assets/preset.js`) vêm com uma paleta roxo/violeta de exemplo (inspirada na identidade da Twitch) — ela existe só para os templates funcionarem prontos para uso, **não** é uma identidade fixa. Ao contrário de um design system institucional, aqui a paleta é uma escolha de projeto: troque livremente pelas cores da marca/produto que o sistema representa. O que não muda é o *mecanismo* — variáveis CSS com prefixo do projeto e preset do PrimeVue com as três camadas (`primitive`/`semantic`/`components`), documentado em `references/tema-e-cores.md`.
 
 ## Bootstrap de um projeto novo
 
@@ -65,7 +65,7 @@ Ao adicionar uma página, componente ou tela administrativa a um sistema que já
 
 ## Assets copiáveis
 
-- `assets/preset.js`, `assets/app.css`, `assets/AppLayout.vue`, `assets/app.blade.php` — templates de código prontos para copiar num projeto novo, com `__APP_PREFIX__` como placeholder a substituir e uma paleta de exemplo (azul/cinza) livre para trocar.
+- `assets/preset.js`, `assets/app.css`, `assets/AppLayout.vue`, `assets/app.blade.php` — templates de código prontos para copiar num projeto novo, com `__APP_PREFIX__` como placeholder a substituir e uma paleta de exemplo (roxo Twitch/cinza) livre para trocar.
 - Não há imagens incluídas — logo do sistema e eventual imagem de fundo do login são fornecidas por quem cria o novo projeto.
 
 Veja a seção "Bootstrap de um projeto novo" acima para onde cada arquivo vai.

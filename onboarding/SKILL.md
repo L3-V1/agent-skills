@@ -1,6 +1,6 @@
 ---
 name: onboarding
-description: "Use esta skill sempre que o usuário assumir, herdar, entrar em, ou pedir ajuda para se situar em um projeto que já está em andamento e não foi iniciado por ele — por exemplo \"acabei de assumir esse projeto\", \"preciso entender o que já foi feito aqui\", \"faz onboarding nesse repositório\", \"levanta o escopo desse projeto\", \"esse código não é meu, me ajuda a entender o estado atual\" ou qualquer pedido de mapear pendências, funcionalidades implementadas ou o estado geral de um repositório existente antes de continuar o desenvolvimento. Também use quando o usuário pedir explicitamente para gerar ou atualizar um ONBOARDING.md, ou para contextualizar arquivos de agente (AGENTS.md, CLAUDE.md) com o histórico e o estado de um projeto herdado."
+description: "Use esta skill sempre que o usuário assumir, herdar ou pedir ajuda para se situar em um projeto em andamento que não foi iniciado por ele — por exemplo \"acabei de assumir esse projeto\" ou \"esse código não é meu, me ajuda a entender o estado atual\" — e em qualquer pedido de mapear pendências, funcionalidades implementadas ou estado geral de um repositório existente antes de continuar o desenvolvimento. Também use para gerar ou atualizar um ONBOARDING.md, ou para contextualizar AGENTS.md/CLAUDE.md com o histórico de um projeto herdado."
 ---
 
 # Onboarding
