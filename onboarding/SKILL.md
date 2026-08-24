@@ -1,14 +1,13 @@
 ---
 name: onboarding
-description: "Use esta skill sempre que o usuário assumir, herdar ou pedir ajuda para se situar em um projeto em andamento que não foi iniciado por ele — por exemplo \"acabei de assumir esse projeto\" ou \"esse código não é meu, me ajuda a entender o estado atual\" — e em qualquer pedido de mapear pendências, funcionalidades implementadas ou estado geral de um repositório existente antes de continuar o desenvolvimento. Também use para gerar ou atualizar um ONBOARDING.md, ou para contextualizar AGENTS.md/CLAUDE.md com o histórico de um projeto herdado."
+description: "Use esta skill sempre que o usuário assumir, herdar ou pedir ajuda para se situar em um projeto em andamento que não foi iniciado por ele — por exemplo \"acabei de assumir esse projeto\" ou \"esse código não é meu, me ajuda a entender o estado atual\" — e em qualquer pedido de mapear pendências, funcionalidades implementadas ou estado geral de um repositório existente antes de continuar o desenvolvimento. Também use para gerar ou atualizar um ONBOARDING.md."
 ---
 
 # Onboarding
 
-Skill para fazer o levantamento de um projeto assumido no meio do desenvolvimento (código legado, repositório herdado, projeto de outra pessoa/equipe) e transformar esse levantamento em dois artefatos:
+Skill para fazer o levantamento de um projeto assumido no meio do desenvolvimento (código legado, repositório herdado, projeto de outra pessoa/equipe) e transformar esse levantamento em um artefato:
 
-1. **`ONBOARDING.md`** na raiz do projeto — o levantamento completo, bruto e detalhado.
-2. **`AGENTS.md` / `CLAUDE.md`** — contextualizado com um resumo operacional desse levantamento, para orientar agentes de IA que trabalharem no projeto dali em diante.
+- **`ONBOARDING.md`** na raiz do projeto — o levantamento completo, bruto e detalhado.
 
 ## Quando usar
 
@@ -86,18 +85,9 @@ Regras importantes:
 - Cite trechos de código, nomes de arquivo e hashes de commit relevantes para dar rastreabilidade a cada afirmação.
 - Escreva no **idioma predominante do repositório** (olhe comentários no código, docs e mensagens de commit para decidir — se o projeto for majoritariamente em inglês, escreva em inglês; se for majoritariamente em português, escreva em português).
 
-### Passo 3 — Contextualizar `AGENTS.md` / `CLAUDE.md`
-
-Depois de escrever o `ONBOARDING.md`, atualize o arquivo de instruções para agentes:
-
-- Procure por `AGENTS.md` e/ou `CLAUDE.md` na raiz do projeto (e, se não encontrar na raiz, em locais comuns como `.claude/` ou `docs/`).
-- **Se o arquivo já existir**: mescle o conteúdo relevante do levantamento diretamente nele — não apenas um link. Adicione ou atualize uma seção (ex: `## Contexto do projeto` ou `## Estado atual`) com um resumo operacional: o que já está pronto, o que está pendente, convenções observadas no código, e uma referência ao `ONBOARDING.md` para o levantamento completo. Preserve o restante do arquivo como está — não reescreva seções que não são sobre isso.
-- **Se não existir nenhum dos dois**: crie um `AGENTS.md` do zero, já incluindo uma seção de onboarding com esse resumo operacional, seguindo as convenções usuais desse tipo de arquivo (instruções diretas e práticas para um agente que for trabalhar no código, não um relatório narrativo).
-- O resumo em `AGENTS.md`/`CLAUDE.md` deve ser **enxuto e acionável** — o `ONBOARDING.md` é o levantamento completo; o `AGENTS.md`/`CLAUDE.md` é o "cheat sheet" que qualquer agente vai ler antes de mexer no código.
-
-### Passo 4 — Reportar ao usuário
+### Passo 3 — Reportar ao usuário
 
 Ao final, resuma para o usuário em poucas frases (não repita o conteúdo inteiro do arquivo):
 - O que foi encontrado de mais importante (2-4 pontos de maior destaque: pendências críticas, riscos, o que está mais maduro).
-- Quais arquivos foram criados/alterados (`ONBOARDING.md`, `AGENTS.md`/`CLAUDE.md`).
+- Que o `ONBOARDING.md` foi criado/alterado.
 - Se algo não pôde ser verificado (ex: testes não rodaram, tickets externos não acessíveis), avise explicitamente.
