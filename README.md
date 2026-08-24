@@ -50,6 +50,7 @@ Reutilizadas pelos workflows acima, mas também podem ser invocadas diretamente.
 | [`brainstorming`](./brainstorming/) | Conduz uma sessão de brainstorming de produto/solução a partir de um tema. |
 | [`interview`](./interview/) | Conduz uma entrevista de levantamento de requisitos e gera um `PRD.md`. |
 | [`kanban`](./kanban/) | Decompõe um `PRD.md` em tarefas verificáveis e gerencia a implementação com um board em `.kanban/board.md`. |
+| [`prototype`](./prototype/) | Conduz decisões de design e gera um mockup visual como Artifact para aprovação; pode ser sugerida pelo `/kanban` em tarefas de frontend. |
 
 ### Design systems
 

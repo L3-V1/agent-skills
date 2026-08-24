@@ -82,14 +82,31 @@ aprovação):
 1. Mova a tarefa de **Pendentes** para **Em Andamento** no `board.md` e salve o arquivo — isso
    precisa acontecer antes de começar a mexer no código, para que o board reflita o estado real
    mesmo se a sessão for interrompida no meio da tarefa.
-2. Implemente a tarefa.
-3. Verifique o resultado contra o critério de aceite (rode os testes/lint/comandos relevantes
+2. Se o título ou o critério de aceite da tarefa mencionar elementos de UI (tela, componente
+   visual, layout, formulário, dashboard, página, interface — use julgamento pelo contexto, não
+   uma lista fechada) **e** a tarefa ainda não tiver uma linha "Protótipo aprovado" no board,
+   pare aqui e pergunte:
+
+   > "Essa tarefa parece envolver desenho de tela. Quer usar `/prototype` para validar o layout
+   > antes de eu implementar, ou sigo direto para a implementação?"
+
+   - Se o usuário quiser prototipar: encerre o loop nesse ponto (a tarefa já está marcada Em
+     Andamento no board, o que serve como marcador de retomada) e informe que ele deve rodar
+     `/prototype` agora, e depois `/kanban` de novo para continuar a partir do protótipo
+     aprovado.
+   - Se o usuário preferir pular: siga para o item 3 abaixo, e não pergunte de novo para essa
+     tarefa.
+   - Se a tarefa já tiver uma linha "Protótipo aprovado" (por exemplo, numa retomada após
+     `/prototype` ter rodado), pule esta pergunta e siga direto para o item 3, usando o link do
+     protótipo como referência visual da implementação.
+3. Implemente a tarefa.
+4. Verifique o resultado contra o critério de aceite (rode os testes/lint/comandos relevantes
    quando aplicável). Só marque como concluída se o critério realmente foi satisfeito — um
    critério de aceite que não pôde ser verificado deve ser tratado como pendente, não como
    concluído por otimismo.
-4. Mova a tarefa de **Em Andamento** para **Concluídas** (checklist marcado) e salve o
+5. Mova a tarefa de **Em Andamento** para **Concluídas** (checklist marcado) e salve o
    `board.md` novamente.
-5. Informe ao usuário, em uma frase, o que foi concluído, e siga automaticamente para a próxima
+6. Informe ao usuário, em uma frase, o que foi concluído, e siga automaticamente para a próxima
    tarefa Pendente cujas dependências já estejam todas em Concluídas — sem esperar confirmação
    a cada tarefa.
 
