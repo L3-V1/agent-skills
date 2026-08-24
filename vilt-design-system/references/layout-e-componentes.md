@@ -76,6 +76,8 @@ Coluna lateral (lg:col-4)                 metadados/resumo em cards menores
 
 Página de detalhe originada de uma listagem deve sempre oferecer um caminho de volta para a listagem (breadcrumb clicável), sem preservar filtros/paginação anteriores.
 
+Os cards de conteúdo (coluna principal e coluna lateral) devem ocupar 100% da largura da sua coluna (`w-full`, nunca `max-w-*`/`w-fit`/`inline-block`), para que a borda esquerda/direita do bloco fique alinhada às mesmas margens do header/breadcrumb da página — os dois compartilham a classe `.{prefixo}-container` no `AppLayout`, então qualquer card que encolha para o tamanho do próprio conteúdo quebra esse alinhamento.
+
 ## Padrão de formulário: criar/editar
 
 Para formulários pequenos (poucos campos, ex. categoria/secretaria), um `Dialog` modal sobre a própria listagem é suficiente. Para formulários grandes (muitos campos, seções distintas), prefira uma **página dedicada** em vez de espremer tudo num modal — o modal fica ilegível e o usuário perde o contexto de rolagem.
@@ -86,6 +88,22 @@ Convenções de formulário, nos dois casos:
 - Ações destrutivas (excluir, revogar) sempre atrás de `ConfirmDialog`, nunca `window.confirm` nem exclusão direta ao clicar; use largura `min(44rem, calc(100vw - 2rem))` para o diálogo não ficar espremido em telas médias nem estourar no mobile.
 - Mensagens de sucesso/erro como toast (`useToast`), consumidas uma única vez a partir de uma flash message do servidor — não duplicar essa lógica por página.
 - **Modal de criar/editar reaproveitado na mesma listagem** (o caso comum de formulário pequeno acima): ao abrir o modal para **criar** um novo registro, não use `form.reset()` para limpar os campos. Depois de qualquer envio bem-sucedido, o Inertia atualiza os "defaults" internos do form para os dados que acabaram de ser salvos — então `reset()` devolve os valores do último registro criado/editado, não campos vazios. Limpe os campos manualmente (`form.nome = ''`, etc.) ao abrir o modal de criação.
+- **Card do formulário em página dedicada (não modal)**: o `Card` que envolve o formulário deve ocupar `w-full` do `<main>`/container da página — nunca aplique `max-w-*`, `w-fit` ou deixe o Card como `inline-block`. O objetivo é que a borda esquerda/direita do Card fique exatamente alinhada à do header e do breadcrumb (ambos já usam `.{prefixo}-container`). Essa regra não se aplica ao `Dialog` do modal de criar/editar pequeno: o próprio `Dialog` já controla sua largura/posicionamento (ver a largura `min(44rem, calc(100vw - 2rem))` acima), então não precisa (e não deve) receber `w-full`.
+
+```html
+<!-- Página dedicada: Card ocupa a largura total do container -->
+<main class="__APP_PREFIX__-content __APP_PREFIX__-container">
+  <h2 class="__APP_PREFIX__-heading">Editar Categoria</h2>
+  <Card class="w-full">
+    <template #content>...</template>
+  </Card>
+</main>
+
+<!-- Modal: Dialog já se autodimensiona, não precisa de w-full -->
+<Dialog v-model:visible="visivel" modal header="Editar Categoria">
+  ...
+</Dialog>
+```
 
 ## Responsividade
 
