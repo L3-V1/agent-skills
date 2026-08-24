@@ -1,6 +1,6 @@
 ---
 name: kanban
-description: "Decompõe os requisitos de um PRD.md em tarefas técnicas verificáveis e gerencia sua implementação com um board kanban persistido em markdown (.kanban/board.md), separado em Pendentes / Em Andamento / Concluídas. Invocada explicitamente pelo usuário via /kanban para iniciar a decomposição de um PRD em tarefas ou para retomar o progresso de um board existente."
+description: "Decompõe os requisitos de um PRD.md em tarefas técnicas verificáveis e gerencia sua implementação com um board kanban persistido em markdown (.kanban/board.md), separado em Pendentes / Em Andamento / Concluídas. Antes de iniciar ou retomar qualquer tarefa, verifica se há issues pendentes em .kanban/issues.md (geradas pelo /audit) e pergunta ao usuário se prefere resolvê-las primeiro. Invocada explicitamente pelo usuário via /kanban para iniciar a decomposição de um PRD em tarefas ou para retomar o progresso de um board existente."
 disable-model-invocation: true
 ---
 
@@ -12,20 +12,49 @@ Você foi invocado via `/kanban`. NUNCA dispare esta skill por conta própria.
 > dessas tarefas acompanhando o progresso por um board em markdown (`.kanban/board.md`).
 
 Esta skill é independente e autossuficiente: não depende de nenhuma outra skill do repositório
-nem espera artefatos gerados por elas — só precisa de um `PRD.md`.
+nem espera artefatos gerados por elas — só precisa de um `PRD.md`. Ela apenas *consome*, quando
+existir, `.kanban/issues.md` gerado pelo `/audit` — não precisa dele para funcionar.
 
-## Passo 1 — Detectar o estado atual
+## Passo 1 — Verificar issues pendentes
+
+Antes de decidir qualquer coisa sobre o board de tarefas, verifique se `.kanban/issues.md`
+existe e tem itens em **Pendentes** ou **Em Andamento**. Faça essa checagem em toda chamada da
+skill — inclusive quando já existir uma tarefa "Em Andamento" no `board.md` esperando para ser
+retomada. Uma issue crítica não deve ficar esquecida só porque havia uma tarefa de feature no
+meio do caminho.
+
+- **Se não houver issues pendentes:** siga direto para o Passo 2, sem perguntar nada sobre isso.
+- **Se houver:** leia todas, ordene por severidade (crítica → alta → média → baixa) e pergunte
+  ao usuário (via `AskUserQuestion` quando disponível):
+
+  > "Há N issues pendentes em `.kanban/issues.md` (X críticas, Y altas...). Quer resolvê-las
+  > agora ou prefere continuar com as implementações pendentes do board?"
+
+  - **Se o usuário quiser resolver:** trate cada issue, na ordem de severidade, com o mesmo
+    loop de implementação do Passo 5 — só que a origem é `issues.md`, não `board.md`, e o
+    "critério de aceite" é o campo "Critério de resolução" da issue. Mova cada issue de
+    **Pendentes** → **Em Andamento** → **Resolvidas**, salvando o arquivo a cada transição,
+    com a mesma disciplina de persistência usada no board de tarefas. Ao esgotar as issues que
+    o usuário quis resolver (ou se ele decidir parar no meio), siga para o Passo 2 normalmente.
+  - **Se o usuário quiser continuar com o board:** siga direto para o Passo 2. Não pergunte de
+    novo sobre essas mesmas issues dentro desta mesma execução — a pergunta volta a aparecer na
+    próxima vez que `/kanban` for chamado.
+
+Essa checagem não altera em nada o formato ou o conteúdo de `board.md` — issues vivem
+inteiramente em `issues.md`, mantendo o board focado em tarefas de feature.
+
+## Passo 2 — Detectar o estado atual
 
 Verifique se `.kanban/board.md` já existe no projeto.
 
 - **Se existir → modo retomada.** Leia o board inteiro antes de fazer qualquer coisa. Ele é a
   única fonte da verdade do progresso — não assuma nada sobre o que já foi feito além do que
   está escrito nele. Identifique a tarefa em **Em Andamento** (se houver uma) ou a primeira de
-  **Pendentes**, e vá direto para o Passo 4 (loop de implementação) a partir dela.
+  **Pendentes**, e vá direto para o Passo 5 (loop de implementação) a partir dela.
 - **Se não existir → modo setup.** Procure `PRD.md` na raiz do projeto. Se não encontrar,
   pergunte ao usuário o caminho do arquivo antes de prosseguir — não invente requisitos.
 
-## Passo 2 — Decompor o PRD em tarefas verificáveis
+## Passo 3 — Decompor o PRD em tarefas verificáveis
 
 Leia o `PRD.md` e quebre a implementação em tarefas técnicas atômicas. O critério que separa
 uma boa tarefa de uma vaga está em `references/task-format.md` — leia esse arquivo antes de
@@ -44,7 +73,7 @@ Cada tarefa precisa ter:
 Uma tarefa sem critério de aceite verificável é sinal de que o PRD tem uma lacuna ou de que
 você está inventando escopo — pare e pergunte ao usuário em vez de criar a tarefa mesmo assim.
 
-## Passo 3 — Gerar o board e pedir aprovação
+## Passo 4 — Gerar o board e pedir aprovação
 
 Crie a pasta `.kanban/` se não existir e salve o board em `.kanban/board.md`:
 
@@ -74,9 +103,9 @@ dependências). Mostre o board ao usuário e pergunte:
 Não comece a implementar sem essa confirmação — é o único gate manual do fluxo; depois disso a
 skill avança sozinha de tarefa em tarefa.
 
-## Passo 4 — Loop de implementação
+## Passo 5 — Loop de implementação
 
-Para a tarefa ativa (a que veio do Passo 1 em modo retomada, ou a primeira de Pendentes após a
+Para a tarefa ativa (a que veio do Passo 2 em modo retomada, ou a primeira de Pendentes após a
 aprovação):
 
 1. Mova a tarefa de **Pendentes** para **Em Andamento** no `board.md` e salve o arquivo — isso
@@ -120,5 +149,7 @@ Pare o loop e avise o usuário (em vez de adivinhar) quando:
 
 O `board.md` é o único estado que esta skill precisa para continuar de onde parou. Isso é
 intencional: o usuário pode fechar o Claude a qualquer momento e, ao rodar `/kanban` de novo,
-o Passo 1 já cuida de reconstruir o contexto a partir do board — não é necessário (nem
-desejável) recriar tarefas já concluídas ou re-perguntar coisas já decididas no Passo 3.
+o Passo 2 já cuida de reconstruir o contexto a partir do board — não é necessário (nem
+desejável) recriar tarefas já concluídas ou re-perguntar coisas já decididas no Passo 4. O
+Passo 1 (checagem de issues) roda de novo a cada retomada, então uma issue crítica registrada
+enquanto a sessão estava fechada não passa despercebida.
