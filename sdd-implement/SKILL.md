@@ -57,8 +57,8 @@ Para cada tarefa `T-XX`, na ordem definida por dependências:
 4. Implemente o mínimo necessário para o teste passar.
 5. Rode o teste de novo. Se passar, faça um passe de refactor (limpeza, remoção de duplicação)
    mantendo o teste verde.
-6. Marque a tarefa como concluída em `docs/tasks/<slug>.md` (adicione um campo `Status:
-   concluída` sob o `T-XX` correspondente).
+6. Marque a tarefa como concluída em `docs/tasks/<slug>.md` (troque `- [ ]` por `- [x]` no
+   checkbox do `T-XX` correspondente).
 
 Se o teste não passar depois do número de tentativas combinado no passo 2.2, pare essa tarefa,
 registre o que foi tentado e o que falhou, e chame o usuário antes de prosseguir para a

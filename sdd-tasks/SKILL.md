@@ -45,7 +45,8 @@ ambiente atual.
 ## Passo 3 — Gerar as tarefas
 
 Para cada critério de aceite (ou grupo de critérios relacionados), gere uma ou mais tarefas.
-Cada tarefa precisa ter:
+Cada tarefa é um item de checkbox markdown (`- [ ]`), com ID e título na mesma linha
+(`- [ ] **T-01** — <título>`), e precisa ter:
 
 - **ID** (`T-01`, `T-02`, ...)
 - **Título** curto
@@ -72,17 +73,17 @@ Crie `docs/tasks/` se não existir. Salve em `docs/tasks/<slug>.md`:
 **Plano de referência:** docs/plans/<slug>.md
 **Paralelização:** sim | não (decidido no passo 2.3)
 
-## T-01 — <título>
-- **Cobre:** AC-01, AC-02
-- **Depende de:** nenhuma
-- **Complexidade:** baixa
-- **Pronto quando:** teste de AC-01 e AC-02 passam
+- [ ] **T-01** — <título>
+  - **Cobre:** AC-01, AC-02
+  - **Depende de:** nenhuma
+  - **Complexidade:** baixa
+  - **Pronto quando:** teste de AC-01 e AC-02 passam
 
-## T-02 — <título>
-- **Cobre:** AC-03
-- **Depende de:** T-01
-- **Complexidade:** média
-- **Pronto quando:** ...
+- [ ] **T-02** — <título>
+  - **Cobre:** AC-03
+  - **Depende de:** T-01
+  - **Complexidade:** média
+  - **Pronto quando:** ...
 
 ## Grupos paralelizáveis
 - Grupo A (independentes entre si): T-01, T-03
