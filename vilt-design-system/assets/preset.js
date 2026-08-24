@@ -1,4 +1,4 @@
-// Preset customizado do PrimeVue (Aura) com uma paleta de exemplo (roxo Twitch).
+// Preset customizado do PrimeVue (Aura) com uma paleta de exemplo (roxo Udemy/Hostinger).
 // Copie para resources/js/preset.js.
 //
 // A paleta (primitive.purple, os hex abaixo) é só um exemplo funcional — ao
@@ -17,9 +17,9 @@ const appThemePreset = definePreset(Aura, {
             700: '#616161', 800: '#424242', 900: '#212121',
         },
         purple: {
-            50: '#f5edff', 100: '#e4d1ff', 200: '#cdb0ff', 300: '#bf94ff',
-            400: '#a66fff', 600: '#7c2ef0', 700: '#772ce8', 800: '#5c1fbd',
-            900: '#3d1480',
+            50: '#f2effb', 100: '#e0d8f5', 200: '#c7b8ec', 300: '#b7a8ed',
+            400: '#8f7bdb', 600: '#7c5fd1', 700: '#674cc4', 800: '#4b3699',
+            900: '#2e1f63',
         },
         red: {
             300: '#f44336', // usado em "invalid" — dark
@@ -30,12 +30,12 @@ const appThemePreset = definePreset(Aura, {
         primary: {
             0: '{purple.800}',
             50: '{purple.100}', // highlight de Select não-focado
-            100: '#a66fff',     // highlight de Select focado
+            100: '#8f7bdb',     // highlight de Select focado
             200: '{purple.800}',
             300: '{purple.800}',
-            400: '#a66fff',     // highlight da listbox
+            400: '#8f7bdb',     // highlight da listbox
             500: '{purple.800}',
-            600: '#bf94ff',     // bordas e highlight do DatePicker
+            600: '#b7a8ed',     // bordas e highlight do DatePicker
             700: '{purple.800}',
             800: '{purple.800}',
             900: '{purple.800}',

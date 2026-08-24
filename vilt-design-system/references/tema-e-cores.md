@@ -1,18 +1,18 @@
 # Tema e Cores
 
-## Paleta de cores (exemplo padrão: roxo Twitch)
+## Paleta de cores (exemplo padrão: roxo Udemy/Hostinger)
 
-Os templates desta skill vêm com uma paleta roxo/violeta de exemplo (inspirada na identidade da Twitch), extraída de `assets/preset.js` e `assets/app.css`:
+Os templates desta skill vêm com uma paleta roxo/violeta de exemplo (inspirada nos temas do Udemy e da Hostinger), extraída de `assets/preset.js` e `assets/app.css`:
 
 | Uso | Hex |
 |---|---|
-| Roxo escuro principal (nav, heading no claro) | `#5C1FBD` |
-| Roxo oficial Twitch (primitivo base) | `#9146FF` |
-| Roxo escuro oficial Twitch (variante mais profunda) | `#772CE8` |
-| Roxo claro de destaque (links, highlight, hover em componentes) | `#A66FFF` |
-| Roxo claro oficial Twitch (contraste/borda em foco) | `#BF94FF` |
+| Roxo escuro principal (nav, heading no claro) | `#4B3699` |
+| Roxo oficial Hostinger (primitivo base) | `#674CC4` |
+| Roxo escuro oficial (variante mais profunda, hover/active) | `#4B3699` |
+| Roxo claro de destaque (links, highlight, hover em componentes) | `#8F7BDB` |
+| Roxo claro de contraste (borda em foco) | `#B7A8ED` |
 
-No tema escuro, o fundo **não** é um roxo escurecido — segue o padrão real da Twitch de preto neutro (`#0E0E10`/`#18181B`), com o roxo reservado só para heading, links, estados ativos e bordas de destaque. Texto de corpo/muted no escuro usa cinza neutro, não roxo.
+No tema escuro, o fundo **não** é um roxo escurecido — segue o padrão de fundo neutro escuro (inspirado no Udemy, `#0E0E10`/`#18181B`), com o roxo reservado só para heading, links, estados ativos e bordas de destaque. Texto de corpo/muted no escuro usa cinza neutro, não roxo.
 
 Estas cores são só um exemplo funcional — ao contrário de um design system institucional, aqui a paleta **é** uma escolha de projeto. Troque livremente pelas cores da marca/produto que o sistema representa. O que muda de projeto para projeto (além da própria cor) é: o nome do sistema, sua sigla, sua descrição, e o prefixo usado nas variáveis CSS e classes utilitárias.
 
@@ -25,9 +25,9 @@ Estas cores são só um exemplo funcional — ao contrário de um design system 
 ```css
 :root {
     --app-bg-page:      #f8f8fa;
-    --app-bg-nav:       #5c1fbd;
+    --app-bg-nav:       #4b3699;
     --app-bg-card:      #ffffff;
-    --app-text-heading: #5c1fbd;
+    --app-text-heading: #4b3699;
     --app-text-body:    #374151;
     --app-border:       #e2e8f0;
 }
@@ -35,13 +35,13 @@ Estas cores são só um exemplo funcional — ao contrário de um design system 
     --app-bg-page:      #0e0e10;
     --app-bg-nav:       #18181b;
     --app-bg-card:      #18181b;
-    --app-text-heading: #bf94ff;
+    --app-text-heading: #b7a8ed;
     --app-text-body:    #efeff1;
     --app-border:       #27272a;
 }
 ```
 
-No dark mode, o padrão não é uma versão roxa escurecida das mesmas cores — o fundo segue preto neutro (estilo Twitch), e só o heading/link/estado ativo/borda de destaque passam a usar tons claros de roxo sobre esse fundo quase preto. Texto de corpo e muted seguem cinza neutro claro, para manter legibilidade e reservar o roxo como cor de destaque, não de pintura geral.
+No dark mode, o padrão não é uma versão roxa escurecida das mesmas cores — o fundo segue preto neutro (estilo Udemy), e só o heading/link/estado ativo/borda de destaque passam a usar tons claros de roxo sobre esse fundo quase preto. Texto de corpo e muted seguem cinza neutro claro, para manter legibilidade e reservar o roxo como cor de destaque, não de pintura geral.
 
 **Regra central: nunca hardcode uma cor num componente Vue.** Sempre use as classes utilitárias que consomem essas variáveis (`.{prefixo}-heading`, `.{prefixo}-text`, `.{prefixo}-text-muted`, `.{prefixo}-card`, `.{prefixo}-card-alt`) ou, quando não houver classe pronta, a variável diretamente (`var(--{prefixo}-border)`). Isso é o que garante que qualquer tela nova funcione automaticamente nos dois temas sem trabalho extra — e é o erro mais comum ao adicionar uma tela nova (funciona no claro, "some" no escuro).
 
