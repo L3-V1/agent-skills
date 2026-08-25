@@ -82,6 +82,15 @@ Isso tem uma consequência importante: dentro de rotas protegidas por `auth:<gua
 
 Se o modelo de autenticação usa uma classe própria por guard (ex. `Usuario` para local, `UsuarioCorporativo` para o diretório externo), padronize os métodos de perfil (`isAdministrador()`, `isAnalista()`, `favoritos()`, etc.) atrás de uma interface comum (ex. `App\Contracts\Autenticavel`) implementada por ambos os models, e tipe os parâmetros de Service contra essa interface em vez da interface genérica `Illuminate\Contracts\Auth\Authenticatable` — que não declara esses métodos de domínio.
 
+## Usuário admin padrão
+
+Quando o projeto tem autenticação local (tabela `usuarios`, guard `web`), o seeder do usuário administrador padrão (`DatabaseSeeder`/`UsuarioSeeder`) deve sempre criar:
+
+- **Login:** `admin`
+- **Senha:** `password` (via `Hash::make`)
+
+É convenção fixa do stack VILT — não uma escolha de projeto — para manter um ambiente de desenvolvimento/homologação previsível entre sistemas. Note que o campo de login aqui é username, diferente da skill `pms-design-system` (que usa e-mail institucional `admin@santos.sp.gov.br`) — não confundir as duas ao consultar ambas.
+
 ## Ziggy (rotas no frontend)
 
 ```html
