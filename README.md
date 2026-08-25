@@ -66,3 +66,4 @@ Reutilizadas pelos workflows acima, mas também podem ser invocadas diretamente.
 |---|---|
 | [`onboarding`](./onboarding/) | Mapeia o estado de um projeto herdado/existente e gera `ONBOARDING.md`. |
 | [`better-init`](./better-init/) | Gera um `AGENTS.md` conciso e agnóstico de agente, com `CLAUDE.md` linkado a ele (symlink no Unix, hard link no Windows) em vez de duplicado. |
+| [`scaffold`](./scaffold/) | Entrevista sobre stack, configs iniciais e skills deste repositório a linkar, e cria a fundação de um projeto novo (estrutura, scaffolder da stack, `git init`, deps, symlinks de skills). |
