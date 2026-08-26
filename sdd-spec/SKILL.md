@@ -68,7 +68,7 @@ padrões — use os que fizerem sentido para a feature:
 | Comportamento indesejado | "Se \<condição indesejada\>, então o sistema deve \<resposta\>" | Tratamento de erro/exceção |
 
 Numere cada critério (`AC-01`, `AC-02`, ...) — essa numeração é o elo de rastreabilidade que
-`sdd-tasks` e `sdd-audit` vão usar depois. Não pule numeração nem reordene depois de aprovado.
+`sdd-tasks` e `sdd-audit` vão usar depois. Não pule numeração nem reordene depois de gerada.
 
 ## Passo 4 — Salvar
 
@@ -77,7 +77,7 @@ Crie `docs/specs/` se não existir. Salve em `docs/specs/<slug>.md` com esta est
 ```markdown
 # Spec: <nome da feature>
 
-**Status:** rascunho | aprovado
+**Status:** rascunho | gerado
 **Slug:** <slug>
 
 ## Problema
@@ -100,15 +100,11 @@ Crie `docs/specs/` se não existir. Salve em `docs/specs/<slug>.md` com esta est
 - **AC-0N** — Se ..., então o sistema deve ...
 ```
 
-## Passo 5 — Gate de aprovação (obrigatório)
+## Passo 5 — Encerramento
 
-Apresente o documento completo e pergunte explicitamente:
-
-> "Essa é a especificação. Aprovada para seguir pro plano técnico (`/sdd-plan`), ou quer
-> ajustar algo antes?"
-
-Não prossiga para nenhuma outra fase sozinho. Se o usuário pedir ajustes, edite e apresente
-de novo até a aprovação explícita. Ao aprovar, atualize `Status: aprovado` no arquivo.
+Apresente o documento completo e atualize `Status: gerado` no arquivo. Instrua o usuário a
+revisar o conteúdo e, quando estiver satisfeito, rodar `/sdd-plan` para seguir ao plano
+técnico. Não rode a próxima skill sozinho — quem decide seguir é o usuário.
 
 ## Subagentes
 

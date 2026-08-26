@@ -1,10 +1,10 @@
 ---
 name: sdd-audit
-description: "Verifica de forma independente se a implementação cumpre a especificação aprovada, produz um relatório de rastreabilidade completo (AC → tarefa → código → teste) e aciona o gate final antes do merge. Quinta e última fase do workflow spec-anchored (sdd-spec → sdd-plan → sdd-tasks → sdd-implement → sdd-audit)."
+description: "Verifica de forma independente se a implementação cumpre a especificação gerada, produz um relatório de rastreabilidade completo (AC → tarefa → código → teste) e recomenda o próximo passo antes do merge. Quinta e última fase do workflow spec-anchored (sdd-spec → sdd-plan → sdd-tasks → sdd-implement → sdd-audit)."
 disable-model-invocation: true
 ---
 
-# sdd-audit — Auditoria final e gate de merge
+# sdd-audit — Auditoria final
 
 Você foi invocado via `/sdd-audit`. NUNCA dispare esta skill por conta própria.
 
@@ -18,8 +18,8 @@ de verdade — reexecute os testes, não assuma que "passou da última vez" aind
 ## Passo 1 — Localizar os artefatos da feature
 
 Leia, na ordem: `docs/specs/<slug>.md`, `docs/plans/<slug>.md`, `docs/tasks/<slug>.md`. Se
-algum estiver ausente ou não aprovado, avise o usuário — auditar sem a cadeia completa produz
-um relatório incompleto.
+algum estiver ausente, avise o usuário — auditar sem a cadeia completa produz um relatório
+incompleto.
 
 ## Passo 2 — Entrevista curta
 
@@ -72,7 +72,7 @@ Crie `docs/audits/` se não existir. Salve em `docs/audits/<slug>.md`:
 ```markdown
 # Auditoria: <nome da feature>
 
-**Status:** aprovado para merge | reprovado
+**Status:** gerado — critérios atendidos | gerado — pendências encontradas
 **Slug:** <slug>
 **Escopo:** completo | parcial (<detalhe>)
 
@@ -92,19 +92,15 @@ AC-02 → T-02 → ...
 <aprovar para merge / bloquear até resolver os itens X, Y>
 ```
 
-## Passo 6 — Gate final (obrigatório)
+## Passo 6 — Encerramento
 
-Se todos os critérios no escopo auditado atendem: apresente o relatório e pergunte:
+Se todos os critérios no escopo auditado atendem: apresente o relatório, marque
+`Status: gerado — critérios atendidos` e recomende ao usuário revisar o relatório e seguir com
+o merge por conta própria. Não pergunte — apenas recomende.
 
-> "Auditoria concluída, todos os critérios atendidos. Aprovar para merge?"
-
-Se algum critério não atende ou atende parcialmente: **não pergunte sobre merge** — apresente
-o que falta e pergunte se o usuário quer voltar para `/sdd-implement` (para corrigir) ou, se o
-problema for mais fundamental (a spec ou o plano tinham uma lacuna), voltar para `/sdd-spec`
-ou `/sdd-plan`. Nunca aprove merge com critérios pendentes, mesmo que o usuário pareça com
-pressa — se ele insistir explicitamente em fazer merge mesmo assim, registre isso no relatório
-como decisão consciente do usuário, mas não classifique como "aprovado" silenciosamente.
-
-Ao aprovar, atualize `Status: aprovado para merge` no relatório e nos três documentos
-anteriores (spec, plano, tarefas) para deixar o rastro completo de que o incremento foi
-concluído.
+Se algum critério não atende ou atende parcialmente: marque
+`Status: gerado — pendências encontradas`, apresente o que falta e recomende (sem perguntar)
+rodar `/sdd-implement` para corrigir ou, se o problema for mais fundamental (a spec ou o plano
+tinham uma lacuna), voltar para `/sdd-spec` ou `/sdd-plan`. Nunca classifique como "critérios
+atendidos" com pendências reais — registre exatamente o que falta e deixe a decisão de merge
+com o usuário.

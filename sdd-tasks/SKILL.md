@@ -1,6 +1,6 @@
 ---
 name: sdd-tasks
-description: "Decompõe um plano técnico aprovado em tarefas atômicas e rastreáveis, através de entrevista guiada sobre granularidade e dependências. Terceira fase do workflow spec-anchored (sdd-spec → sdd-plan → sdd-tasks → sdd-implement → sdd-audit)."
+description: "Decompõe um plano técnico gerado em tarefas atômicas e rastreáveis, através de entrevista guiada sobre granularidade e dependências. Terceira fase do workflow spec-anchored (sdd-spec → sdd-plan → sdd-tasks → sdd-implement → sdd-audit)."
 disable-model-invocation: true
 ---
 
@@ -16,10 +16,8 @@ escopo — nesse caso, pare e avise o usuário em vez de criar a tarefa mesmo as
 
 ## Passo 1 — Localizar o plano de referência
 
-- Liste `docs/plans/*.md`. Use o plano com `Status: aprovado` correspondente. Se houver mais
-  de um candidato, pergunte qual.
-- Se o plano ainda estiver `rascunho`, avise e confirme se o usuário quer seguir mesmo assim
-  antes de continuar.
+- Liste `docs/plans/*.md`. Use o plano correspondente. Se houver mais de um candidato,
+  pergunte qual.
 - Leia também a spec (`docs/specs/<slug>.md`) para ter a lista completa de AC-XX.
 
 ## Passo 2 — Entrevista
@@ -68,7 +66,7 @@ Crie `docs/tasks/` se não existir. Salve em `docs/tasks/<slug>.md`:
 ```markdown
 # Tarefas: <nome da feature>
 
-**Status:** rascunho | aprovado
+**Status:** rascunho | gerado
 **Slug:** <slug>
 **Plano de referência:** docs/plans/<slug>.md
 **Paralelização:** sim | não (decidido no passo 2.3)
@@ -95,17 +93,14 @@ Crie `docs/tasks/` se não existir. Salve em `docs/tasks/<slug>.md`:
 - AC-03 → T-02
 ```
 
-## Passo 5 — Gate de aprovação (obrigatório)
+## Passo 5 — Encerramento
 
 Confira que todo AC-XX da spec está coberto por pelo menos uma tarefa. Se algum ficou de
-fora, avise antes de pedir aprovação.
+fora, avise antes de encerrar.
 
-Pergunte:
-
-> "Essas são as tarefas. Aprovadas para começar a implementação (`/sdd-implement`), ou quer
-> reorganizar granularidade/dependências antes?"
-
-Não avance sozinho. Ao aprovar, atualize `Status: aprovado`.
+Apresente as tarefas e atualize `Status: gerado` no arquivo. Instrua o usuário a revisar
+granularidade/dependências e, quando estiver satisfeito, rodar `/sdd-implement` para começar a
+implementação. Não rode a próxima skill sozinho.
 
 ## Subagentes
 

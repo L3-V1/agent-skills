@@ -1,6 +1,6 @@
 ---
 name: sdd-implement
-description: "Executa as tarefas aprovadas em docs/tasks/ em loop de TDD (teste a partir do critério EARS, código, refactor), com despacho de subagentes para tarefas independentes. Quarta fase do workflow spec-anchored (sdd-spec → sdd-plan → sdd-tasks → sdd-implement → sdd-audit)."
+description: "Executa as tarefas geradas em docs/tasks/ em loop de TDD (teste a partir do critério EARS, código, refactor), com despacho de subagentes para tarefas independentes. Quarta fase do workflow spec-anchored (sdd-spec → sdd-plan → sdd-tasks → sdd-implement → sdd-audit)."
 disable-model-invocation: true
 ---
 
@@ -15,10 +15,10 @@ ou mais critérios de aceite (`AC-XX`). Se durante a implementação você perce
 de código que não serve a nenhum `T-XX`, pare e pergunte ao usuário — não é para decidir
 sozinho que "também vale a pena fazer X enquanto está aqui".
 
-## Passo 1 — Localizar as tarefas aprovadas
+## Passo 1 — Localizar as tarefas geradas
 
-- Leia `docs/tasks/<slug>.md` com `Status: aprovado`. Se houver mais de um conjunto de tarefas
-  aprovadas e pendentes de implementação, pergunte qual.
+- Leia `docs/tasks/<slug>.md`. Se houver mais de um conjunto de tarefas pendentes de
+  implementação, pergunte qual.
 - Leia também a spec e o plano correspondentes para ter o contexto completo dos critérios de
   aceite.
 
@@ -41,9 +41,9 @@ livre pelo chat quando essa interface não estiver disponível no ambiente atual
    em loop sem sair do lugar, e problemas recorrentes geralmente indicam que a tarefa ou o
    plano têm uma lacuna que vale revisar com você.)
 
-Não há gate de aprovação por tarefa — isso viraria microgerenciamento. O controle humano
-acontece nas pontas: já passou pelos gates de spec e plano, e vai passar pelo gate final de
-auditoria em `sdd-audit`.
+Não há aprovação por tarefa — isso viraria microgerenciamento. A revisão humana acontece nas
+pontas: o usuário já revisou spec, plano e tarefas ao longo do caminho, e vai revisar o
+relatório final em `sdd-audit`.
 
 ## Passo 3 — Loop de TDD por tarefa
 
@@ -84,6 +84,6 @@ dependência mútua) e o usuário tiver confirmado paralelização no passo 2.1:
 ## Passo 5 — Ao concluir todas as tarefas
 
 Apresente um resumo: quantas tarefas concluídas, quantas ficaram bloqueadas (se houver), e
-quais arquivos foram alterados. Diga explicitamente que o próximo passo é `/sdd-audit` para o
-gate final antes do merge — não rode a auditoria sozinho, ela é uma skill separada e
-propositalmente independente de quem implementou.
+quais arquivos foram alterados. Instrua o usuário a revisar e rodar `/sdd-audit` como próximo
+passo antes do merge — não rode a auditoria sozinho, ela é uma skill separada e propositalmente
+independente de quem implementou.
