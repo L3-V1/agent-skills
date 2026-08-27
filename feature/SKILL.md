@@ -34,7 +34,7 @@ Antes de perguntar qualquer coisa (ou entre uma pergunta e outra, se já tiver d
 inicial), verifique o que já existe no projeto para não repetir perguntas cuja resposta já está
 documentada e para manter a nomenclatura consistente com o que já foi decidido:
 
-- `ONBOARDING.md`, `AGENTS.md` ou `CLAUDE.md` na raiz — visão geral, stack, convenções.
+- `AGENTS.md` ou `CLAUDE.md` na raiz, ou `docs/onboarding/ONBOARDING.md` — visão geral, stack, convenções.
 - `docs/specs/` — specs já aprovadas (evite propor de novo uma feature que já virou spec).
 - `docs/features/` — decomposições anteriores (se a proposta atual é uma extensão de uma
   proposta já quebrada antes, reaproveite os slugs existentes em vez de renomear).

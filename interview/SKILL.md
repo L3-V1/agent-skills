@@ -24,7 +24,7 @@ disable-model-invocation: true
 - Para cada pergunta exiba uma recomendação de resposta. Sempre que o ambiente oferecer uma interface de opções selecionáveis para perguntas ao usuário (ex.: `AskUserQuestion` na extensão Claude Code no VSCode), use-a para apresentar as alternativas de resposta — é mais rápido e reduz ambiguidade de leitura. Só faça a pergunta em texto livre pelo chat quando esse tipo de interface não estiver disponível no ambiente atual.
 - Mostre o progresso das perguntas respondidas e das que ainda faltam, com base numa estimativa feita previamente (ex.: "Pergunta 4 de ~20").
 - Ao final da entrevista, sintetize as **User Stories** a partir dos papéis/atores e dos requisitos funcionais já levantados — não é necessário perguntar uma a uma ao usuário, a síntese é feita na montagem do PRD. Cada story pode combinar mais de um requisito funcional e deve refletir um cenário de uso real sob a perspectiva do ator.
-- Ao final da entrevista, gere um arquivo `PRD.md` (Product Requirements Document) com as respostas fornecidas pelo usuário, seguindo este esqueleto:
+- Ao final da entrevista, gere o arquivo `docs/interview/PRD.md` (Product Requirements Document) com as respostas fornecidas pelo usuário. Crie a pasta `docs/interview/` se ela ainda não existir. Siga este esqueleto:
 
 ```markdown
 # PRD: <nome do projeto>

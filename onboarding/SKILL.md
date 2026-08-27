@@ -7,7 +7,7 @@ description: "Use esta skill sempre que o usuário assumir, herdar ou pedir ajud
 
 Skill para fazer o levantamento de um projeto assumido no meio do desenvolvimento (código legado, repositório herdado, projeto de outra pessoa/equipe) e transformar esse levantamento em um artefato:
 
-- **`ONBOARDING.md`** na raiz do projeto — o levantamento completo, bruto e detalhado.
+- **`docs/onboarding/ONBOARDING.md`** — o levantamento completo, bruto e detalhado.
 
 ## Quando usar
 
@@ -43,13 +43,13 @@ Antes de escrever qualquer arquivo, explore o repositório de forma sistemática
 **e) Testes**
 - Localize a suíte de testes e identifique o framework usado.
 - Rode a suíte se for rápido e seguro fazê-lo (sem efeitos colaterais destrutivos); caso contrário, ao menos mapeie quais módulos têm testes e quais não têm, pela estrutura de diretórios.
-- Se houver relatório de cobertura configurado, rode e capture o número; se não houver, seja explícito no ONBOARDING.md que a cobertura é desconhecida — não estime.
+- Se houver relatório de cobertura configurado, rode e capture o número; se não houver, seja explícito no `ONBOARDING.md` que a cobertura é desconhecida — não estime.
 
 Ao final do levantamento, você deve ter material suficiente para responder: *o que este projeto faz, o que já está pronto, o que está pela metade, o que está quebrado ou arriscado, e o que muito provavelmente falta fazer.*
 
 ### Passo 2 — Escrever o `ONBOARDING.md`
 
-Crie (ou sobrescreva, avisando o usuário) o arquivo `ONBOARDING.md` na raiz do projeto com o levantamento completo.
+Crie (ou sobrescreva, avisando o usuário) o arquivo `docs/onboarding/ONBOARDING.md` com o levantamento completo. Crie a pasta `docs/onboarding/` se ela ainda não existir.
 
 A estrutura é **flexível** — adapte as seções ao que o projeto realmente tem. Não force seções vazias. Como ponto de partida, considere algo como:
 
@@ -89,5 +89,5 @@ Regras importantes:
 
 Ao final, resuma para o usuário em poucas frases (não repita o conteúdo inteiro do arquivo):
 - O que foi encontrado de mais importante (2-4 pontos de maior destaque: pendências críticas, riscos, o que está mais maduro).
-- Que o `ONBOARDING.md` foi criado/alterado.
+- Que o `docs/onboarding/ONBOARDING.md` foi criado/alterado.
 - Se algo não pôde ser verificado (ex: testes não rodaram, tickets externos não acessíveis), avise explicitamente.

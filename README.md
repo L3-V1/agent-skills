@@ -48,9 +48,9 @@ Reutilizadas pelos workflows acima, mas também podem ser invocadas diretamente.
 
 | Skill | Descrição |
 |---|---|
-| [`brainstorming`](./brainstorming/) | Conduz uma sessão de brainstorming de produto/solução a partir de um tema. |
-| [`interview`](./interview/) | Conduz uma entrevista de levantamento de requisitos e gera um `PRD.md`. |
-| [`kanban`](./kanban/) | Decompõe um `PRD.md` em tarefas verificáveis e gerencia a implementação com um board em `.kanban/board.md`; antes de cada tarefa, verifica se há issues pendentes (geradas pelo `/audit`) e pergunta se devem ser resolvidas primeiro. |
+| [`brainstorming`](./brainstorming/) | Conduz uma sessão de brainstorming de produto/solução a partir de um tema e gera um pitch em `docs/brainstorming/`. |
+| [`interview`](./interview/) | Conduz uma entrevista de levantamento de requisitos e gera `docs/interview/PRD.md`. |
+| [`kanban`](./kanban/) | Decompõe um PRD (`docs/interview/PRD.md`, ou `PRD.md` na raiz) em tarefas verificáveis e gerencia a implementação com um board em `.kanban/board.md`; antes de cada tarefa, verifica se há issues pendentes (geradas pelo `/audit`) e pergunta se devem ser resolvidas primeiro. |
 | [`audit`](./audit/) | Revisa código (bugs, performance, simplificação) e registra os achados aprovados como issues em `.kanban/issues.md`, para o `/kanban` resolver; funciona standalone, sem depender de board existente. |
 | [`prototype`](./prototype/) | Conduz decisões de design e gera um mockup visual como Artifact para aprovação; pode ser sugerida pelo `/kanban` em tarefas de frontend. |
 
@@ -64,6 +64,6 @@ Reutilizadas pelos workflows acima, mas também podem ser invocadas diretamente.
 
 | Skill | Descrição |
 |---|---|
-| [`onboarding`](./onboarding/) | Mapeia o estado de um projeto herdado/existente e gera `ONBOARDING.md`. |
+| [`onboarding`](./onboarding/) | Mapeia o estado de um projeto herdado/existente e gera `docs/onboarding/ONBOARDING.md`. |
 | [`better-init`](./better-init/) | Gera um `AGENTS.md` conciso e agnóstico de agente, com `CLAUDE.md` linkado a ele (symlink no Unix, hard link no Windows) em vez de duplicado. |
 | [`scaffold`](./scaffold/) | Entrevista sobre stack, configs iniciais e skills deste repositório a linkar, e cria a fundação de um projeto novo (estrutura, scaffolder da stack, `git init`, deps, symlinks de skills). |

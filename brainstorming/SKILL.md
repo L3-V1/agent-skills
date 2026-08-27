@@ -33,7 +33,7 @@ description: "Utilize esta skill para conduzir uma sessão de brainstorming e ge
 
 ## Entrega
 
-- Após a idea ser definida, elabore uma proposta de produto (pitch inicial) em um arquivo markdown que inclua:
+- Após a idea ser definida, elabore uma proposta de produto (pitch inicial) no arquivo `docs/brainstorming/<slug-do-produto>.md` (slug em kebab-case do nome do produto escolhido). Crie a pasta `docs/brainstorming/` se ela ainda não existir. A proposta deve incluir:
   - Nome do produto
   - Descrição do produto
   - Público-alvo

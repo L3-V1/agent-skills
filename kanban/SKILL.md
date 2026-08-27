@@ -1,6 +1,6 @@
 ---
 name: kanban
-description: "Decompõe os requisitos de um PRD.md em tarefas técnicas verificáveis e gerencia sua implementação com um board kanban persistido em markdown (.kanban/board.md), separado em Pendentes / Em Andamento / Concluídas. Antes de iniciar ou retomar qualquer tarefa, verifica se há issues pendentes em .kanban/issues.md (geradas pelo /audit) e pergunta ao usuário se prefere resolvê-las primeiro. Invocada explicitamente pelo usuário via /kanban para iniciar a decomposição de um PRD em tarefas ou para retomar o progresso de um board existente."
+description: "Decompõe os requisitos de um PRD (docs/interview/PRD.md, ou PRD.md na raiz) em tarefas técnicas verificáveis e gerencia sua implementação com um board kanban persistido em markdown (.kanban/board.md), separado em Pendentes / Em Andamento / Concluídas. Antes de iniciar ou retomar qualquer tarefa, verifica se há issues pendentes em .kanban/issues.md (geradas pelo /audit) e pergunta ao usuário se prefere resolvê-las primeiro. Invocada explicitamente pelo usuário via /kanban para iniciar a decomposição de um PRD em tarefas ou para retomar o progresso de um board existente."
 disable-model-invocation: true
 ---
 
@@ -8,11 +8,11 @@ disable-model-invocation: true
 
 Você foi invocado via `/kanban`. NUNCA dispare esta skill por conta própria.
 
-> Skill para decompor um `PRD.md` em tarefas técnicas verificáveis e conduzir a implementação
+> Skill para decompor um PRD em tarefas técnicas verificáveis e conduzir a implementação
 > dessas tarefas acompanhando o progresso por um board em markdown (`.kanban/board.md`).
 
 Esta skill é independente e autossuficiente: não depende de nenhuma outra skill do repositório
-nem espera artefatos gerados por elas — só precisa de um `PRD.md`. Ela apenas *consome*, quando
+nem espera artefatos gerados por elas — só precisa de um arquivo de PRD. Ela apenas *consome*, quando
 existir, `.kanban/issues.md` gerado pelo `/audit` — não precisa dele para funcionar.
 
 ## Passo 1 — Verificar issues pendentes
@@ -51,12 +51,13 @@ Verifique se `.kanban/board.md` já existe no projeto.
   única fonte da verdade do progresso — não assuma nada sobre o que já foi feito além do que
   está escrito nele. Identifique a tarefa em **Em Andamento** (se houver uma) ou a primeira de
   **Pendentes**, e vá direto para o Passo 5 (loop de implementação) a partir dela.
-- **Se não existir → modo setup.** Procure `PRD.md` na raiz do projeto. Se não encontrar,
-  pergunte ao usuário o caminho do arquivo antes de prosseguir — não invente requisitos.
+- **Se não existir → modo setup.** Procure o PRD em `docs/interview/PRD.md`; se não achar,
+  procure `PRD.md` na raiz do projeto (compatibilidade com PRDs antigos). Se nenhum dos dois
+  existir, pergunte ao usuário o caminho do arquivo antes de prosseguir — não invente requisitos.
 
 ## Passo 3 — Decompor o PRD em tarefas verificáveis
 
-Leia o `PRD.md` e quebre a implementação em tarefas técnicas atômicas. O critério que separa
+Leia o PRD e quebre a implementação em tarefas técnicas atômicas. O critério que separa
 uma boa tarefa de uma vaga está em `references/task-format.md` — leia esse arquivo antes de
 decompor um PRD pela primeira vez numa sessão, especialmente se o PRD for grande ou tocar
 várias áreas do sistema.
@@ -80,7 +81,7 @@ Crie a pasta `.kanban/` se não existir e salve o board em `.kanban/board.md`:
 ```markdown
 # Kanban: <nome da feature>
 
-**PRD de referência:** <caminho do PRD.md>
+**PRD de referência:** <caminho real do PRD usado>
 
 ## Pendentes
 - [ ] **K-02** — <título>

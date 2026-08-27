@@ -21,8 +21,8 @@ Antes de perguntar qualquer coisa, verifique:
 - Existe `docs/specs/` no projeto? Se não, será criado ao salvar (não crie agora).
 - O usuário passou `$ARGUMENTS`? Se sim, use como ponto de partida e pule perguntas já
   respondidas — mas ainda assim confirme os pontos que ficaram ambíguos.
-- Existe um README ou `ONBOARDING.md` na raiz do projeto (gerado pela skill `onboarding`, se
-  ela já rodou) que já responda parte do contexto de negócio? Leia antes de perguntar, para
+- Existe um README na raiz ou um `docs/onboarding/ONBOARDING.md` (gerado pela skill `onboarding`,
+  se ela já rodou) que já responda parte do contexto de negócio? Leia antes de perguntar, para
   não repetir perguntas cuja resposta já está no projeto.
 
 ## Passo 2 — Entrevista
