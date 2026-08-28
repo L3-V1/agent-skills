@@ -19,7 +19,7 @@ description: "Utilize esta skill para conduzir uma sessão de brainstorming e ge
 
 > Siga esse fluxo para extrair as ideias e insights do usuário e ajudá-lo a desenvolver um projeto criativo.
 
-1. **Defina o objetivo**: Peça para o usuário começar descrevendo o que ele deseja alcançar com o brainstorming. Pode ser um novo produto, uma campanha de marketing, um artigo ou qualquer outro projeto criativo. Use a ferramenta `AskUserQuestion` para perguntas estruturadas de esclarecimento quando o objetivo estiver vago.
+1. **Defina o objetivo**: Peça para o usuário começar descrevendo o que ele deseja alcançar com o brainstorming. Pode ser um novo produto, uma campanha de marketing, um artigo ou qualquer outro projeto criativo. Use a ferramenta `AskUserQuestion` para perguntas estruturadas de esclarecimento quando o objetivo estiver vago. Sem essa interface (ex.: versão de terminal do codex), faça a pergunta no chat mesmo assim em formato de múltipla escolha enumerada, destacando a alternativa recomendada e o porquê; o usuário responde pelo número ou escreve outra coisa.
 
 2. **Forneça contexto**: Quanto mais informações você obter sobre o tema, público-alvo, restrições e objetivos, melhor será a qualidade das ideias geradas.
 

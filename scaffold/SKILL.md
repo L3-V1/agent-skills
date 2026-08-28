@@ -21,7 +21,10 @@ scaffold básico). Só pergunte no Passo 2 o que não ficou claro.
 
 ## Passo 2 — Entrevista essencial
 
-Use `AskUserQuestion` para o que faltar (pule pergunta já respondida pelo contexto inicial):
+Use `AskUserQuestion` para o que faltar (pule pergunta já respondida pelo contexto inicial).
+Sem essa interface (ex.: versão de terminal do codex), faça cada pergunta no chat mesmo assim em
+formato de múltipla escolha enumerada, destacando a alternativa recomendada e o porquê; o usuário
+responde pelo número ou escreve outra coisa.
 
 - **Nome/caminho do projeto** — diretório novo ou pasta atual.
 - **Stack** — linguagem, framework, gerenciador de pacotes. Campo livre, não trave em nenhuma stack

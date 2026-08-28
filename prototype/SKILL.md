@@ -24,8 +24,11 @@ Você foi invocado via `/prototype`. NUNCA dispare esta skill por conta própria
 
 Faça uma pergunta de cada vez, aguardando resposta antes de seguir para a próxima. Sempre que o
 ambiente oferecer uma interface de opções selecionáveis (ex.: `AskUserQuestion`), use-a — é mais
-rápido e reduz ambiguidade. Em cada pergunta, ofereça sua recomendação e o porquê: o usuário
-pediu explicitamente uma skill que orienta a decisão, não só que registra uma escolha.
+rápido e reduz ambiguidade. Sem essa interface (ex.: versão de terminal do codex), faça a
+pergunta no chat mesmo assim em formato de múltipla escolha enumerada, destacando a alternativa
+recomendada e o porquê; o usuário responde pelo número ou propõe outra coisa. Em cada pergunta,
+ofereça sua recomendação e o porquê: o usuário pediu explicitamente uma skill que orienta a
+decisão, não só que registra uma escolha.
 
 1. **Layout/padrão de tela.** Lista vs. tabela vs. cards; formulário único vs. em etapas;
    dashboard vs. tela de detalhe. Recomende com base no caso de uso — por exemplo, muitos itens

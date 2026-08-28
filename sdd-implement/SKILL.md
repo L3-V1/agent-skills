@@ -29,7 +29,10 @@ Diferente das fases anteriores, aqui a entrevista é mínima — a maior parte j
 opções selecionáveis para perguntas ao usuário (ex.: `AskUserQuestion` na extensão Claude Code
 no VSCode), use-a para apresentar as alternativas das perguntas abaixo — cada uma já vem com
 uma recomendação, encaixe natural para esse tipo de interface. Só faça a pergunta em texto
-livre pelo chat quando essa interface não estiver disponível no ambiente atual.
+livre pelo chat quando essa interface não estiver disponível no ambiente atual (ex.: versão de
+terminal do codex) — e, mesmo nesse caso, apresente as alternativas em formato de múltipla
+escolha enumerada, destacando qual é a recomendada e o porquê. O usuário responde pelo número
+ou propõe outra coisa.
 
 1. **Modo de execução.** Se o arquivo de tarefas marcou "Paralelização: sim", confirme:
    quer que eu já despache os grupos independentes em paralelo, ou prefere acompanhar tarefa

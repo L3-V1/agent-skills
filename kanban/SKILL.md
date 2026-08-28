@@ -25,7 +25,9 @@ meio do caminho.
 
 - **Se não houver issues pendentes:** siga direto para o Passo 2, sem perguntar nada sobre isso.
 - **Se houver:** leia todas, ordene por severidade (crítica → alta → média → baixa) e pergunte
-  ao usuário (via `AskUserQuestion` quando disponível):
+  ao usuário (via `AskUserQuestion` quando disponível; sem essa interface, pergunte no chat mesmo
+  assim em formato de múltipla escolha enumerada, destacando a alternativa recomendada e o
+  porquê):
 
   > "Há N issues pendentes em `.kanban/issues.md` (X críticas, Y altas...). Quer resolvê-las
   > agora ou prefere continuar com as implementações pendentes do board?"

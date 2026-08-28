@@ -68,7 +68,9 @@ Antes de escrever qualquer coisa em `issues.md`, mostre a lista de achados ao us
 agrupados por severidade, e sinalize claramente quais já existem em `issues.md` (Passo 2) para
 não duplicar. Pergunte quais devem virar issues de fato — use `AskUserQuestion` quando a lista
 for pequena o suficiente para uma escolha múltipla, ou liste em texto e peça confirmação/edição
-quando for grande ou precisar de nuance.
+quando for grande ou precisar de nuance. Sem interface de seleção (ex.: versão de terminal do
+codex), apresente a lista no chat mesmo assim em formato de múltipla escolha enumerada,
+destacando quais você recomenda promover a issue e o porquê.
 
 Não grave achados que o usuário não aprovou. O objetivo é manter `issues.md` como uma lista
 confiável de problemas reais, não um despejo de tudo que a revisão notou.

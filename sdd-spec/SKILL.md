@@ -35,7 +35,9 @@ propor outra coisa. Sempre que o ambiente oferecer uma interface de opções sel
 perguntas ao usuário (ex.: `AskUserQuestion` na extensão Claude Code no VSCode), use-a para
 apresentar essas alternativas — é mais rápido e reduz ambiguidade de leitura. Só faça a
 pergunta em texto livre pelo chat quando esse tipo de interface não estiver disponível no
-ambiente atual.
+ambiente atual (ex.: versão de terminal do codex) — e, mesmo nesse caso, apresente as
+alternativas em formato de múltipla escolha enumerada, destacando qual é a recomendada e o
+porquê. O usuário responde pelo número ou propõe outra coisa.
 
 1. **Nome/slug da feature.** Ex.: "checkout-parcelado", "auth-2fa". Vira o nome do arquivo.
 2. **Problema e público.** Que problema isso resolve, e para quem (que tipo de usuário/ator)?

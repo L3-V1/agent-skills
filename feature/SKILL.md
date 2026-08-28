@@ -46,7 +46,10 @@ próxima — não dispare todas de uma vez em lista. Pule qualquer pergunta cuja
 clara pela descrição inicial ou pelo contexto do Passo 2; confirme o que entendeu em vez de
 perguntar de novo. Sempre que o ambiente oferecer uma interface de opções selecionáveis (ex.
 `AskUserQuestion` na extensão Claude Code no VSCode), use-a — é mais rápido e reduz ambiguidade
-de leitura. Só pergunte em texto livre pelo chat quando essa interface não estiver disponível.
+de leitura. Só pergunte em texto livre pelo chat quando essa interface não estiver disponível
+(ex.: versão de terminal do codex) — e, mesmo assim, liste as alternativas de resposta em
+formato de múltipla escolha enumerada, destacando a recomendada e o porquê. O usuário responde
+pelo número ou escreve outra coisa.
 
 1. **Objetivo geral e problema.** O que essa proposta resolve, e para quem?
 2. **Escopo amplo.** O que está claramente dentro e o que está claramente fora desta rodada de
