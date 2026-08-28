@@ -35,6 +35,7 @@ Depois de criar ou atualizar os symlinks, rode `/reload-skills` no Claude Code p
 
 | Skill | Descrição |
 |---|---|
+| [`diy`](./diy/) | Fluxo completo ponta a ponta em **um único comando e um único documento** (`docs/diy/<slug>.md`): formular a ideia → entrevista curta → plano → tarefas → implementação com acompanhamento → revisão de código. Versão enxuta e econômica em tokens das skills abaixo + `brainstorming`/`interview`/`kanban`/`audit`; para projetos grandes com rastreabilidade formal, use o pipeline `sdd-*`. |
 | [`feature`](./feature/) | Fase 0: decompõe uma proposta de implementação em features distintas, cada uma pronta para iniciar o ciclo via `/sdd-spec <slug>`. |
 | [`sdd-spec`](./sdd-spec/) | 1ª fase do workflow spec-anchored: especificação formal em notação EARS via entrevista guiada. |
 | [`sdd-plan`](./sdd-plan/) | 2ª fase: deriva o plano técnico a partir de uma spec aprovada. |
