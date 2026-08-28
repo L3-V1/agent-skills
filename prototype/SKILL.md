@@ -1,6 +1,6 @@
 ---
 name: prototype
-description: "Conduz uma rodada de decisões de design (layout, responsividade, estados da tela) oferecendo recomendações, e gera um mockup visual (HTML/CSS com fidelidade real) publicado como Artifact para o usuário aprovar antes da implementação. Invocada explicitamente via /prototype, tanto de forma avulsa quanto sugerida pelo /kanban ao iniciar uma tarefa de frontend."
+description: "Conduz uma rodada de decisões de design (layout, responsividade, estados da tela) oferecendo recomendações, e gera um mockup visual (HTML/CSS com fidelidade real) publicado como Artifact para o usuário aprovar antes da implementação. Invocada explicitamente via /prototype."
 disable-model-invocation: true
 ---
 
@@ -11,14 +11,11 @@ Você foi invocado via `/prototype`. NUNCA dispare esta skill por conta própria
 > Skill para conduzir decisões de design de uma tela e produzir um mockup visual aprovável
 > antes de partir para a implementação real.
 
-## Passo 1 — Detectar contexto de origem
+## Passo 1 — Entender o que prototipar
 
-- Se existir `.kanban/board.md` no projeto **e** houver uma tarefa em **Em Andamento**, use o
-  título e o critério de aceite dessa tarefa como ponto de partida do que prototipar — não
-  pergunte de novo o que é a tela, essa informação já está no board.
-- Caso contrário (sem `.kanban/board.md`, ou nenhuma tarefa Em Andamento), pergunte diretamente
-  ao usuário o que ele quer prototipar: qual tela, para qual usuário, e o que ela precisa
-  permitir fazer.
+Pergunte diretamente ao usuário o que ele quer prototipar: qual tela, para qual usuário, e o
+que ela precisa permitir fazer. Se houver uma descrição da tela em `docs/tasks/TASKS.md` ou num
+PRD que o usuário aponte, use isso como ponto de partida em vez de perguntar do zero.
 
 ## Passo 2 — Entrevista de decisões de design
 
@@ -64,13 +61,7 @@ densidade, um estado faltando, hierarquia de ações). Ajustes pequenos devem re
 Artifact (mesmo `file_path`, mesma URL) em vez de criar um novo a cada iteração. Só avance para
 o Passo 5 depois de aprovação explícita — não assuma aprovação pelo silêncio.
 
-## Passo 5 — Registrar e devolver o controle
+## Passo 5 — Devolver o controle
 
-- **Se veio de um `/kanban` ativo** (Passo 1 encontrou uma tarefa Em Andamento): adicione uma
-  linha `- Protótipo aprovado: <url do Artifact>` na tarefa correspondente em
-  `.kanban/board.md`, preservando o restante da entrada (a tarefa continua em Em Andamento —
-  marcar como concluída é responsabilidade do `/kanban`, na implementação real, não desta
-  skill). Avise o usuário que pode rodar `/kanban` novamente para continuar a implementação a
-  partir do protótipo aprovado.
-- **Se rodou avulso** (sem contexto de kanban): apenas entregue o link do Artifact aprovado —
-  não crie nem edite nenhum arquivo de board.
+Entregue ao usuário o link do Artifact aprovado, para usar como referência visual na
+implementação da tela. Não crie nem edite arquivos de tarefas.

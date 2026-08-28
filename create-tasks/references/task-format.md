@@ -3,11 +3,11 @@
 Uma tarefa verificável tem um critério de aceite que qualquer pessoa (ou o próprio Claude, em
 outra sessão, sem memória da conversa) consegue checar de forma binária: feito ou não feito, sem
 precisar interpretar intenção. Se o critério de aceite depende de julgamento subjetivo ("ficou
-bom", "está performático o suficiente"), a tarefa ainda não está pronta para entrar no board —
+bom", "está performático o suficiente"), a tarefa ainda não está pronta para entrar na lista —
 volte ao PRD e busque um número, um comportamento observável, ou um teste que resolva a
 ambiguidade.
 
-Duas perguntas para testar uma tarefa antes de colocá-la no board:
+Duas perguntas para testar uma tarefa antes de colocá-la na lista:
 
 1. **Alguém que não escreveu o código consegue verificar sozinho, sem perguntar nada?** Se a
    resposta exige contexto que só está na cabeça de quem implementou, o critério é vago demais.

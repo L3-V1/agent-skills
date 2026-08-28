@@ -1,6 +1,6 @@
 ---
 name: diy
-description: "Fluxo completo de desenvolvimento em um único comando e um único documento: ajuda a formular a ideia, faz uma entrevista curta de escopo/requisitos, monta um plano, decompõe em tarefas e implementa acompanhando o progresso, e no fim oferece uma revisão de código. É a versão enxuta e econômica em tokens das skills brainstorming/interview/sdd-*/kanban/audit — tudo vive em docs/diy/<slug>.md. Use quando o usuário quer sair de uma ideia e chegar a uma implementação funcionando sem orquestrar comando por comando, ou quando pede explicitamente 'faz tudo', 'do it yourself', 'toca o projeto do começo ao fim'. Para projetos grandes que exigem rastreabilidade formal, prefira o pipeline sdd-*. Invocada só via /diy, opcionalmente com uma descrição da ideia."
+description: "Fluxo completo de desenvolvimento em um único comando e um único documento: ajuda a formular a ideia, faz uma entrevista curta de escopo/requisitos, monta um plano, decompõe em tarefas e implementa acompanhando o progresso, e no fim oferece uma revisão de código. É a versão enxuta e econômica em tokens das skills brainstorming/interview/sdd-*/create-tasks/audit — tudo vive em docs/diy/<slug>.md. Use quando o usuário quer sair de uma ideia e chegar a uma implementação funcionando sem orquestrar comando por comando, ou quando pede explicitamente 'faz tudo', 'do it yourself', 'toca o projeto do começo ao fim'. Para projetos grandes que exigem rastreabilidade formal, prefira o pipeline sdd-*. Invocada só via /diy, opcionalmente com uma descrição da ideia."
 disable-model-invocation: true
 ---
 
@@ -11,21 +11,21 @@ usuário digitar o comando.
 
 > Versão enxuta e econômica de um fluxo completo de desenvolvimento. Cobre, num único
 > comando e num único documento (`docs/diy/<slug>.md`), o que as skills `brainstorming`,
-> `interview`, `sdd-spec`/`sdd-plan`/`sdd-tasks`/`sdd-implement`, `kanban` e `audit` fazem
+> `interview`, `sdd-spec`/`sdd-plan`/`sdd-tasks`/`sdd-implement`, `create-tasks` e `audit` fazem
 > separadamente: formular a ideia → entrevista de escopo → plano → tarefas →
 > implementação com acompanhamento → revisão de código.
 
 ## Regra de ouro
 
 - **Um único documento.** Toda informação levantada e todo o acompanhamento de progresso
-  ficam em `docs/diy/<slug>.md`. Não crie `PRD.md`, `docs/specs/`, `.kanban/` nem nenhum
+  ficam em `docs/diy/<slug>.md`. Não crie `PRD.md`, `docs/specs/`, `docs/tasks/` nem nenhum
   outro artefato paralelo.
 - **Economia de tokens é o ponto.** Entrevista curta, sem subagentes por padrão, sem
   reespecificar o que já está claro. Se o projeto for grande o bastante para justificar
   rastreabilidade formal (AC → tarefa → teste), diga isso ao usuário e sugira o pipeline
   `/feature` + `/sdd-*` em vez de inchar este fluxo.
 - **Não delegue para outras skills.** O comportamento delas está reimplementado aqui de
-  forma simplificada de propósito — não invoque `/interview`, `/kanban`, `/audit` etc.
+  forma simplificada de propósito — não invoque `/interview`, `/create-tasks`, `/audit` etc.
 - **Todo código implementado rastreia a uma tarefa `D-XX`.** Se durante a implementação
   aparecer necessidade de código que não serve a nenhuma tarefa, pare e pergunte — não
   decida sozinho "já que estou aqui, também faço X".

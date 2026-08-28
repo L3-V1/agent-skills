@@ -35,7 +35,7 @@ Depois de criar ou atualizar os symlinks, rode `/reload-skills` no Claude Code p
 
 | Skill | Descrição |
 |---|---|
-| [`diy`](./diy/) | Fluxo completo ponta a ponta em **um único comando e um único documento** (`docs/diy/<slug>.md`): formular a ideia → entrevista curta → plano → tarefas → implementação com acompanhamento → revisão de código. Versão enxuta e econômica em tokens das skills abaixo + `brainstorming`/`interview`/`kanban`/`audit`; para projetos grandes com rastreabilidade formal, use o pipeline `sdd-*`. |
+| [`diy`](./diy/) | Fluxo completo ponta a ponta em **um único comando e um único documento** (`docs/diy/<slug>.md`): formular a ideia → entrevista curta → plano → tarefas → implementação com acompanhamento → revisão de código. Versão enxuta e econômica em tokens das skills abaixo + `brainstorming`/`interview`/`create-tasks`/`audit`; para projetos grandes com rastreabilidade formal, use o pipeline `sdd-*`. |
 | [`feature`](./feature/) | Fase 0: decompõe uma proposta de implementação em features distintas, cada uma pronta para iniciar o ciclo via `/sdd-spec <slug>`. |
 | [`sdd-spec`](./sdd-spec/) | 1ª fase do workflow spec-anchored: especificação formal em notação EARS via entrevista guiada. |
 | [`sdd-plan`](./sdd-plan/) | 2ª fase: deriva o plano técnico a partir de uma spec aprovada. |
@@ -51,9 +51,9 @@ Reutilizadas pelos workflows acima, mas também podem ser invocadas diretamente.
 |---|---|
 | [`brainstorming`](./brainstorming/) | Conduz uma sessão de brainstorming de produto/solução a partir de um tema e gera um pitch em `docs/brainstorming/`. |
 | [`interview`](./interview/) | Conduz uma entrevista de levantamento de requisitos e gera `docs/interview/PRD.md`. |
-| [`kanban`](./kanban/) | Decompõe um PRD (`docs/interview/PRD.md`, ou `PRD.md` na raiz) em tarefas verificáveis e gerencia a implementação com um board em `.kanban/board.md`; antes de cada tarefa, verifica se há issues pendentes (geradas pelo `/audit`) e pergunta se devem ser resolvidas primeiro. |
-| [`audit`](./audit/) | Revisa código (bugs, performance, simplificação) e registra os achados aprovados como issues em `.kanban/issues.md`, para o `/kanban` resolver; funciona standalone, sem depender de board existente. |
-| [`prototype`](./prototype/) | Conduz decisões de design e gera um mockup visual como Artifact para aprovação; pode ser sugerida pelo `/kanban` em tarefas de frontend. |
+| [`create-tasks`](./create-tasks/) | Decompõe requisitos — de um PRD (`docs/interview/PRD.md`, ou `PRD.md` na raiz) ou de uma descrição passada no comando — em uma lista sequencial de tarefas verificáveis com checkbox markdown, salva em `docs/tasks/TASKS.md`. Só decompõe; a implementação e a marcação das checkboxes acontecem em outra sessão. |
+| [`audit`](./audit/) | Revisa código (bugs, performance, simplificação) e registra os achados aprovados como issues com checkbox em `docs/tasks/ISSUES.md`, para serem resolvidas numa sessão de implementação; funciona standalone. |
+| [`prototype`](./prototype/) | Conduz decisões de design e gera um mockup visual como Artifact para aprovação antes da implementação de uma tela. |
 
 ### Design systems
 
