@@ -53,7 +53,7 @@ Reutilizadas pelos workflows acima, mas também podem ser invocadas diretamente.
 | [`interview`](./interview/) | Conduz uma entrevista de levantamento de requisitos e gera `docs/interview/PRD.md`. |
 | [`create-tasks`](./create-tasks/) | Decompõe requisitos — de um PRD (`docs/interview/PRD.md`, ou `PRD.md` na raiz) ou de uma descrição passada no comando — em uma lista sequencial de tarefas verificáveis com checkbox markdown, salva em `docs/tasks/TASKS.md`. Só decompõe; a implementação e a marcação das checkboxes acontecem em outra sessão. |
 | [`audit`](./audit/) | Revisa código (bugs, performance, simplificação) e registra os achados aprovados como issues com checkbox em `docs/tasks/ISSUES.md`, para serem resolvidas numa sessão de implementação; funciona standalone. |
-| [`prototype`](./prototype/) | Conduz decisões de design e gera um mockup visual como Artifact para aprovação antes da implementação de uma tela. |
+| [`prototype`](./prototype/) | Conduz decisões de design e gera um mockup visual como Artifact para aprovação antes da implementação de uma tela; após aprovado, registra o protótipo em `docs/prototypes/<slug>.md` + `INDEX.md`. |
 
 ### Design systems
 

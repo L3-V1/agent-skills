@@ -54,6 +54,9 @@ si, não um wireframe de caixas genéricas com labels. Represente cada estado de
 dentro do mesmo Artifact (por exemplo, como seções ou abas navegáveis), para que o usuário
 avalie todos de uma vez sem pedir um mockup por estado. Publique via `Artifact`.
 
+Ao publicar, defina um `title` estável e curto para o Artifact — ele vira o nome do arquivo em
+`docs/prototypes/` no Passo 5, e precisa continuar o mesmo em republicações.
+
 ## Passo 4 — Gate de aprovação
 
 Mostre o Artifact ao usuário e pergunte se está aprovado ou se algo precisa mudar (cor,
@@ -61,7 +64,44 @@ densidade, um estado faltando, hierarquia de ações). Ajustes pequenos devem re
 Artifact (mesmo `file_path`, mesma URL) em vez de criar um novo a cada iteração. Só avance para
 o Passo 5 depois de aprovação explícita — não assuma aprovação pelo silêncio.
 
-## Passo 5 — Devolver o controle
+## Passo 5 — Persistir o registro do protótipo
 
-Entregue ao usuário o link do Artifact aprovado, para usar como referência visual na
-implementação da tela. Não crie nem edite arquivos de tarefas.
+Só execute este passo **depois da aprovação explícita do Passo 4**. O registro vive no
+repositório da aplicação, em `docs/prototypes/`:
+
+- `docs/prototypes/INDEX.md` — índice em tabela: Tela | Arquivo | Data | Link do Artifact.
+- `docs/prototypes/<slug>.md` — uma entrada por tela.
+
+1. **Evitar duplicata.** Se `docs/prototypes/INDEX.md` existe, procure uma linha da mesma
+   tela. Se existir, **edite** essa entrada (e republique o mesmo Artifact) em vez de criar
+   arquivos novos.
+2. **Criar/atualizar a entrada.** `docs/prototypes/<slug>.md` a partir do template abaixo. O
+   slug é curto, em kebab-case, derivado da tela — ex.: `cadastro-de-fornecedores.md`,
+   `dashboard-financeiro.md`. Preencha as decisões com o que foi definido nos Passos 1–2 e
+   inclua a URL do Artifact aprovado.
+3. **Atualizar o índice.** Adicione ou atualize a linha no `INDEX.md` (crie o arquivo se não
+   existir). Faça isso na mesma leva de edições — não deixe para depois.
+4. **Devolver o controle.** Entregue ao usuário o caminho do markdown criado e o link do
+   Artifact, para usar como referência visual na implementação da tela.
+
+Não crie nem edite arquivos de tarefas (`docs/tasks/*`) — este passo só mexe em
+`docs/prototypes/`.
+
+### Template da entrada
+
+```markdown
+# Protótipo — <nome da tela>
+
+- **Data:** AAAA-MM-DD
+- **Artifact:** <URL do Artifact aprovado>
+- **Público/uso:** <para qual usuário, o que a tela permite fazer>
+
+## Decisões de design
+- **Layout/padrão:** <escolha do Passo 2.1> — <porquê>
+- **Responsividade/plataforma:** <escolha do Passo 2.2>
+- **Estados prototipados:** <ex.: caminho feliz, vazio, erro>
+
+## Notas de implementação
+Pontos que a implementação da tela deve respeitar (hierarquia de ações, densidade,
+componentes, comportamento por estado).
+```
