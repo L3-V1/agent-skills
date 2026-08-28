@@ -66,5 +66,6 @@ Reutilizadas pelos workflows acima, mas também podem ser invocadas diretamente.
 | Skill | Descrição |
 |---|---|
 | [`onboarding`](./onboarding/) | Mapeia o estado de um projeto herdado/existente e gera `docs/onboarding/ONBOARDING.md`. |
+| [`knowledge-base`](./knowledge-base/) | Acervo consultável de armadilhas já resolvidas no projeto (`docs/knowledge/` + `INDEX.md`). Auto-dispara para consultar antes de brigar com um erro obscuro/recorrente e para registrar problema + causa + solução depois de resolver algo não-óbvio. |
 | [`better-init`](./better-init/) | Gera um `AGENTS.md` conciso e agnóstico de agente, com `CLAUDE.md` linkado a ele (symlink no Unix, hard link no Windows) em vez de duplicado. |
 | [`scaffold`](./scaffold/) | Entrevista sobre stack, configs iniciais e skills deste repositório a linkar, e cria a fundação de um projeto novo (estrutura, scaffolder da stack, `git init`, deps, symlinks de skills). |
