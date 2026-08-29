@@ -52,6 +52,7 @@ Reutilizadas pelos workflows acima, mas também podem ser invocadas diretamente.
 | [`brainstorming`](./brainstorming/) | Conduz uma sessão de brainstorming de produto/solução a partir de um tema e gera um pitch em `docs/brainstorming/`. |
 | [`interview`](./interview/) | Conduz uma entrevista de levantamento de requisitos e gera `docs/interview/PRD.md`. |
 | [`create-tasks`](./create-tasks/) | Decompõe requisitos — de um PRD (`docs/interview/PRD.md`, ou `PRD.md` na raiz) ou de uma descrição passada no comando — em uma lista sequencial de tarefas verificáveis com checkbox markdown, salva em `docs/tasks/TASKS.md`. Só decompõe; a implementação e a marcação das checkboxes acontecem em outra sessão. |
+| [`implement-tdd`](./implement-tdd/) | Implementa uma lista de tarefas já decomposta (`docs/tasks/TASKS.md` do `/create-tasks`, outro arquivo, ou tarefas coladas no comando) com TDD red-green-refactor, um ciclo por tarefa. Roda a suíte de testes a cada ciclo e marca as checkboxes; não commita. |
 | [`audit`](./audit/) | Revisa código (bugs, performance, simplificação) e registra os achados aprovados como issues com checkbox em `docs/tasks/ISSUES.md`, para serem resolvidas numa sessão de implementação; funciona standalone. |
 | [`prototype`](./prototype/) | Conduz decisões de design e gera um mockup visual como Artifact para aprovação antes da implementação de uma tela; após aprovado, registra o protótipo em `docs/prototypes/<slug>.md` + `INDEX.md`. |
 
