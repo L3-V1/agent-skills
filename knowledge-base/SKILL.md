@@ -1,6 +1,6 @@
 ---
 name: knowledge-base
-description: "Base de conhecimento do projeto: acervo de problemas já resolvidos e suas soluções, em docs/knowledge/. Use esta skill em DOIS momentos, sem esperar o usuário pedir. (1) CONSULTA — sempre que travar numa tarefa, bater num erro obscuro ou recorrente, ver comportamento inesperado de build/ambiente/dependência/framework, ou for começar algo numa área que já deu problema antes: consulte o índice antes de tentar de novo às cegas ('não sei por que isso não funciona', 'já tentei de tudo', 'esse erro de novo'). (2) REGISTRO — logo depois de desvendar um problema que exigiu investigação real (várias tentativas, pesquisa, becos sem saída), documente problema + causa + solução para a próxima sessão não repetir o sofrimento. Não dispare para dúvidas triviais nem para decisões de produto/arquitetura."
+description: "Base de conhecimento do projeto (docs/knowledge/): problemas já resolvidos e suas soluções. Use sem esperar o usuário pedir — para CONSULTAR ao travar num erro obscuro/recorrente ou área que já deu dor de cabeça antes ('esse erro de novo', 'já tentei de tudo'); para REGISTRAR logo após resolver algo que exigiu investigação real. Não usar para dúvidas triviais nem decisões de arquitetura/produto."
 ---
 
 # Knowledge Base — base de conhecimento do projeto
@@ -40,25 +40,24 @@ O acervo vive em `docs/knowledge/` no repositório do projeto:
 
 ## Fluxo de consulta
 
-1. **Abrir o índice.** Ler `docs/knowledge/INDEX.md`. Se `docs/knowledge/` não
-   existe ainda, apenas siga com a tarefa — a base começa vazia e você a cria no
-   primeiro registro.
-2. **Casar.** Procurar na tabela por palavras-chave do erro / tags / área. Abrir
-   1–3 entradas candidatas e ler.
-3. **Aplicar.** Usar a solução. Se precisou adaptá-la (versão diferente, contexto
-   um pouco diferente), **atualize a entrada**: acrescente a variação na seção
-   "Solução" e atualize a data. Avise o usuário em uma linha que usou/atualizou a
-   base — sem interromper o fluxo do trabalho.
+1. **Abrir o índice.** Ler `docs/knowledge/INDEX.md` (não abra as entradas
+   individuais ainda). Se `docs/knowledge/` não existe, siga com a tarefa — a
+   base começa vazia e você a cria no primeiro registro.
+2. **Casar.** Na tabela do índice, procurar por palavras-chave do erro / tags /
+   área. Abrir só 1–3 entradas candidatas que parecerem batidas — nunca a base
+   inteira.
+3. **Aplicar.** Usar a solução. Se precisou adaptá-la, **atualize a entrada**
+   (acrescente a variação em "Solução", atualize a data) e avise o usuário em
+   uma linha — sem interromper o fluxo do trabalho.
 
 ## Fluxo de registro
 
-1. **Evitar duplicata.** Antes de criar, procure no `INDEX.md` uma entrada do
-   mesmo sintoma. Se existir, **edite** essa entrada em vez de criar outra.
-2. **Criar a entrada.** `docs/knowledge/<slug>.md` a partir do template abaixo. O
-   slug é curto, em kebab-case, derivado do sintoma — ex.:
-   `vite-hmr-nao-atualiza-em-wsl.md`, `phpunit-sqlite-driver-nao-encontrado.md`.
-3. **Atualizar o índice.** Adicione ou atualize a linha no `INDEX.md`. Faça isso na
-   mesma leva de edições da correção — não deixe "para depois", senão não acontece.
+1. **Evitar duplicata.** Procure no `INDEX.md` uma entrada do mesmo sintoma. Se
+   existir, **edite** essa entrada em vez de criar outra.
+2. **Criar a entrada.** `docs/knowledge/<slug>.md` a partir do template abaixo,
+   slug curto em kebab-case derivado do sintoma (ex.: `vite-hmr-wsl.md`).
+3. **Atualizar o índice.** Adicione/atualize a linha no `INDEX.md` na mesma leva
+   de edições da correção — não deixe "para depois".
 
 ## Template da entrada
 
