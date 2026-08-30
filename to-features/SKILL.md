@@ -1,12 +1,12 @@
 ---
-name: feature
-description: "Decompõe uma proposta de implementação em features distintas, cada uma pronta para iniciar o ciclo SDD (/sdd-spec → /sdd-plan → /sdd-tasks → /sdd-implement → /sdd-audit). Invocada explicitamente pelo usuário via /feature, opcionalmente com uma descrição do que deseja desenvolver."
+name: to-features
+description: "Decompõe uma proposta de implementação em features distintas, cada uma pronta para iniciar o ciclo SDD (/sdd-spec → /sdd-plan → /sdd-tasks → /sdd-implement → /sdd-audit). Invocada explicitamente pelo usuário via /to-features, opcionalmente com uma descrição do que deseja desenvolver."
 disable-model-invocation: true
 ---
 
-# Feature — Decomposição de proposta em features
+# To-features — Decomposição de proposta em features
 
-Você foi invocado via `/feature`. Esta skill NUNCA deve ser disparada automaticamente pelo
+Você foi invocado via `/to-features`. Esta skill NUNCA deve ser disparada automaticamente pelo
 modelo — apenas quando o usuário digita o comando explicitamente.
 
 > Ponto de entrada do ciclo spec-anchored: pega uma proposta de implementação (que pode cobrir
@@ -23,7 +23,7 @@ volte para o nível "isso é uma unidade de escopo coerente" e siga em frente.
 
 ## Passo 1 — Entrada
 
-- Se o usuário passou uma descrição junto de `/feature` (`$ARGUMENTS`), use como ponto de
+- Se o usuário passou uma descrição junto de `/to-features` (`$ARGUMENTS`), use como ponto de
   partida da proposta.
 - Se `$ARGUMENTS` vier vazio, avise que vai fazer algumas perguntas rápidas antes de decompor, e
   siga para o Passo 2.
@@ -121,7 +121,9 @@ Para iniciar o ciclo SDD de cada feature: `/sdd-spec <slug>`
 ## Passo 8 — Resumo final
 
 Informe ao usuário, de forma objetiva: quantas features foram criadas, onde o arquivo foi salvo,
-e que o próximo passo para cada feature é rodar `/sdd-spec <slug>`.
+e que o próximo passo para cada feature é rodar `/sdd-spec <slug>`. Se mais tarde ele quiser
+incluir outra feature nessa mesma listagem, o caminho é `/add-feature` — rodar `/to-features` de
+novo criaria um arquivo separado.
 
 ## Subagentes
 

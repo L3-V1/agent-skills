@@ -23,7 +23,7 @@ usuário digitar o comando.
 - **Economia de tokens é o ponto.** Entrevista curta, sem subagentes por padrão, sem
   reespecificar o que já está claro. Se o projeto for grande o bastante para justificar
   rastreabilidade formal (AC → tarefa → teste), diga isso ao usuário e sugira o pipeline
-  `/feature` + `/sdd-*` em vez de inchar este fluxo.
+  `/to-features` + `/sdd-*` em vez de inchar este fluxo.
 - **Não delegue para outras skills.** O comportamento delas está reimplementado aqui de
   forma simplificada de propósito — não invoque `/interview`, `/create-tasks`, `/audit` etc.
 - **Todo código implementado rastreia a uma tarefa `D-XX`.** Se durante a implementação
