@@ -1,6 +1,7 @@
 ---
 name: brainstorming
-description: "Utilize esta skill para conduzir uma sessão de brainstorming e gerar ideias criativas e inovadoras com foco em produtos e soluções de software. O brainstorming é uma técnica que estimula a criatividade e ajuda a explorar diferentes perspectivas."
+description: "Conduz uma sessão de brainstorming para gerar ideias de produtos e soluções de software a partir de um tema ou ideia vaga, terminando em uma proposta de produto (pitch) salva em docs/brainstorming/. Invocada explicitamente pelo usuário via /brainstorming."
+disable-model-invocation: true
 ---
 
 # Brainstorming

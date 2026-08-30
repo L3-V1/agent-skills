@@ -1,6 +1,7 @@
 ---
 name: vilt-design-system
-description: Documenta os padrões técnicos de backend/frontend do stack VILT (Laravel + Inertia + Vue 3 + PrimeVue/PrimeIcons + Tailwind), a arquitetura Controller→Service→Repository, nomenclatura em português e tema claro/escuro, usados como base para sistemas administrativos/institucionais. Use ao criar um novo sistema Laravel+Inertia+Vue+PrimeVue seguindo este design system, ao adicionar páginas/layouts/temas/telas a um projeto que já segue esse padrão (mesmo sem o termo "design system"), ou ao revisar se uma tela nova está consistente com o resto do sistema.
+description: "Documenta os padrões técnicos do stack VILT (Laravel + Inertia + Vue 3 + PrimeVue/PrimeIcons + Tailwind), a arquitetura Controller→Service→Repository, nomenclatura em português e tema claro/escuro, para bootstrap de sistemas novos ou evolução consistente de sistemas existentes que já seguem o padrão. Invocada explicitamente pelo usuário via /vilt-design-system."
+disable-model-invocation: true
 ---
 
 # Design System VILT

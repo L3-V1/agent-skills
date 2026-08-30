@@ -1,6 +1,7 @@
 ---
 name: onboarding
-description: "Use esta skill sempre que o usuário assumir, herdar ou pedir ajuda para se situar em um projeto em andamento que não foi iniciado por ele — por exemplo \"acabei de assumir esse projeto\" ou \"esse código não é meu, me ajuda a entender o estado atual\" — e em qualquer pedido de mapear pendências, funcionalidades implementadas ou estado geral de um repositório existente antes de continuar o desenvolvimento. Também use para gerar ou atualizar um ONBOARDING.md."
+description: "Mapeia o estado de um projeto assumido ou herdado — funcionalidades implementadas, pendências, riscos, cobertura de testes — e gera ou atualiza docs/onboarding/ONBOARDING.md. Invocada explicitamente pelo usuário via /onboarding, ao assumir/herdar um projeto que não foi iniciado por ele ou pedir para mapear o estado geral de um repositório existente."
+disable-model-invocation: true
 ---
 
 # Onboarding
