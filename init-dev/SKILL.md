@@ -1,12 +1,12 @@
 ---
-name: better-init
-description: "Gera ou normaliza a documentação de contexto do projeto para agentes de IA: cria um AGENTS.md conciso (visão geral, stack, convenções, docs auxiliares, comandos de setup/execução) e, mediante confirmação do usuário, adiciona um bloco com o fluxo de desenvolvimento SDD e as regras de conduta para agentes — podendo inclusive já encadear a 1ª etapa (constituição). Garante que CLAUDE.md seja um link para o AGENTS.md, não um arquivo duplicado. Invocada explicitamente pelo usuário via /better-init."
+name: init-dev
+description: "Gera ou normaliza a documentação de contexto do projeto para agentes de IA: cria um AGENTS.md conciso (visão geral, stack, convenções, docs auxiliares, comandos de setup/execução) e, mediante confirmação do usuário, adiciona um bloco com o fluxo de desenvolvimento SDD e as regras de conduta para agentes — podendo inclusive já encadear a 1ª etapa (constituição). Garante que CLAUDE.md seja um link para o AGENTS.md, não um arquivo duplicado. Invocada explicitamente pelo usuário via /init-dev."
 disable-model-invocation: true
 ---
 
-# Better Init
+# Init Dev
 
-Você foi invocado via `/better-init`. NUNCA dispare esta skill por conta própria.
+Você foi invocado via `/init-dev`. NUNCA dispare esta skill por conta própria.
 
 > Versão enxuta e agnóstica de agente do `/init`: em vez de gerar um `CLAUDE.md` acoplado só ao
 > Claude, esta skill mantém `AGENTS.md` como fonte única de verdade e `CLAUDE.md` como um link para

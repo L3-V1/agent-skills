@@ -9,9 +9,9 @@ disable-model-invocation: true
 Você foi invocado via `/scaffold`. NUNCA dispare esta skill por conta própria — ela cria arquivos e
 roda comandos reais no disco.
 
-> Complementa `better-init`: `scaffold` cria a fundação do projeto (stack, config, deps, skills
-> disponíveis); `better-init` documenta o que existe (`AGENTS.md`). Rode `scaffold` primeiro, sugira
-> `better-init` no final.
+> Complementa `init-dev`: `scaffold` cria a fundação do projeto (stack, config, deps, skills
+> disponíveis); `init-dev` documenta o que existe (`AGENTS.md`). Rode `scaffold` primeiro, sugira
+> `init-dev` no final.
 
 ## Passo 1 — Ler contexto inicial
 
@@ -67,7 +67,7 @@ puro, implemente-a agora, depois que a fundação (Passo 4) estiver de pé. Não
 
 ## Passo 6 — Sugerir próximos passos
 
-Mencione que `/better-init` gera `AGENTS.md`/`CLAUDE.md` pro projeto novo. Não dispare `/better-init`
+Mencione que `/init-dev` gera `AGENTS.md`/`CLAUDE.md` pro projeto novo. Não dispare `/init-dev`
 sozinho — só sugira.
 
 ## Passo 7 — Resumo final
