@@ -1,6 +1,6 @@
 ---
 name: better-init
-description: "Gera ou normaliza a documentação de contexto do projeto para agentes de IA: cria um AGENTS.md conciso (visão geral, stack, convenções, docs auxiliares, comandos de setup/execução) mais um bloco fixo com o fluxo de desenvolvimento SDD e as regras de conduta obrigatórias para agentes, e garante que CLAUDE.md seja um link para ele, não um arquivo duplicado. Invocada explicitamente pelo usuário via /better-init."
+description: "Gera ou normaliza a documentação de contexto do projeto para agentes de IA: cria um AGENTS.md conciso (visão geral, stack, convenções, docs auxiliares, comandos de setup/execução) e, mediante confirmação do usuário, adiciona um bloco com o fluxo de desenvolvimento SDD e as regras de conduta para agentes — podendo inclusive já encadear a 1ª etapa (constituição). Garante que CLAUDE.md seja um link para o AGENTS.md, não um arquivo duplicado. Invocada explicitamente pelo usuário via /better-init."
 disable-model-invocation: true
 ---
 
@@ -31,7 +31,7 @@ Antes de escrever qualquer coisa, cheque o que já existe na raiz do projeto:
   arquivos reais com conteúdo divergente, ou `CLAUDE.md` é um link quebrado/aponta para outro lugar
   — trate como fora do padrão. A política aqui é reescrever do zero, não tentar mesclar conteúdo
   antigo: gere um `AGENTS.md` novo a partir do estado atual do projeto (Passo 2) e refaça o link
-  (Passo 4). Se havia conteúdo relevante em algum dos arquivos antigos, mencione brevemente ao
+  (Passo 5). Se havia conteúdo relevante em algum dos arquivos antigos, mencione brevemente ao
   usuário no resumo final o que foi substituído.
 
 ## Passo 2 — Levantar informações do projeto
@@ -52,7 +52,26 @@ Só inclua o que você conseguir observar de fato no repositório — não inven
 - **Comandos**: setup (instalar dependências) e execução (dev server, testes, build) — extraídos de
   `package.json` (`scripts`), `Makefile`, `docker-compose.yml`, ou do próprio `README.md`.
 
-## Passo 3 — Escrever `AGENTS.md`
+## Passo 3 — Perguntar sobre a metodologia SDD
+
+Antes de escrever o `AGENTS.md`, pergunte ao usuário se ele quer incluir no arquivo o bloco de
+metodologia de desenvolvimento SDD junto das regras de conduta para agentes. Sempre que o
+ambiente oferecer uma interface de opções selecionáveis (ex.: `AskUserQuestion` na extensão
+Claude Code no VSCode), use-a. Caso contrário, pergunte pelo chat em formato de múltipla escolha
+enumerada. Nos dois casos, destaque a recomendação: **incluir** (este repositório é centrado em
+SDD).
+
+- **Se o usuário recusar:** o `AGENTS.md` sai só com as cinco seções descritivas — omita os
+  blocos `## Metodologia de Desenvolvimento` e `## Regras de Conduta`. Siga para o Passo 4 e pule
+  o Passo 6.
+- **Se o usuário aceitar:** os dois blocos entram no arquivo (Passo 4). Em seguida, faça uma
+  segunda pergunta (mesma preferência de interface): **deseja já iniciar agora a 1ª etapa da
+  metodologia, a "constituição"?** — uma entrevista técnica de levantamento de requisitos seguida
+  da decomposição do projeto em features. Recomendação: iniciar agora se o projeto ainda não tem
+  `docs/constitution/`. Guarde a resposta para o Passo 6; ela não altera a geração do `AGENTS.md`
+  nem do link.
+
+## Passo 4 — Escrever `AGENTS.md`
 
 Use exatamente esta estrutura de seções, mantendo cada uma curta:
 
@@ -73,6 +92,8 @@ Use exatamente esta estrutura de seções, mantendo cada uma curta:
 
 ## Comandos
 <setup e execução: instalar deps, rodar em dev, rodar testes, build>
+
+<!-- Os dois blocos abaixo só entram se o usuário aceitou a metodologia SDD no Passo 3. -->
 
 ## Metodologia de Desenvolvimento
 
@@ -108,15 +129,22 @@ Obrigatórias para qualquer agente de IA que trabalhe neste projeto:
   e a recomendação; a decisão é do usuário.
 - **SEMPRE faça perguntas ao usuário** quando identificar lacunas nas instruções, ambiguidade
   de escopo, ou quando surgirem dúvidas durante a execução. Preferir perguntar a assumir.
+- **PREFIRA interface gráfica ao perguntar ao usuário.** Quando o ambiente oferecer uma
+  interface de opções selecionáveis (ex. `AskUserQuestion` na extensão Claude Code no VSCode),
+  use-a. Se não houver interface disponível no ambiente, faça as perguntas pelo chat em formato
+  de múltipla escolha enumerada, sempre oferecendo e destacando a alternativa recomendada e o
+  porquê, dado o contexto atual do projeto.
 ```
 
 Omita uma seção inteira se não houver nada real para preencher nela (ex. projeto sem docs
-auxiliares) — não deixe cabeçalhos vazios. **Exceção:** `## Metodologia de Desenvolvimento` e
-`## Regras de Conduta` são fixas — sempre inclua as duas na íntegra, com o texto literal acima,
-sem adaptar ao projeto. A regra de omissão vale só para as cinco seções descritivas (Visão
-geral, Stack técnica, Convenções de código, Documentação adicional, Comandos).
+auxiliares) — não deixe cabeçalhos vazios. **Blocos condicionais:** `## Metodologia de
+Desenvolvimento` e `## Regras de Conduta` só entram se o usuário aceitou a metodologia SDD no
+Passo 3; quando entram, é na íntegra, com o texto literal acima, sem adaptar ao projeto; quando
+o usuário recusa, os dois são omitidos por completo. A regra de omissão por falta de conteúdo
+real vale para as cinco seções descritivas (Visão geral, Stack técnica, Convenções de código,
+Documentação adicional, Comandos).
 
-## Passo 4 — Criar o link `CLAUDE.md` → `AGENTS.md`
+## Passo 5 — Criar o link `CLAUDE.md` → `AGENTS.md`
 
 Detecte o sistema operacional antes de escolher o comando:
 
@@ -136,13 +164,58 @@ usuário explicitamente que não foi possível criar o link, e então copie o co
 para um `CLAUDE.md` real como fallback — para não deixar os dois arquivos ausentes ou vazios. Deixe
 claro nesse aviso que os dois arquivos podem divergir no futuro já que não estão mais linkados.
 
-## Passo 5 — Resumo final
+## Passo 6 — Iniciar a constituição (se solicitado)
+
+Execute este passo **só se** o usuário aceitou a metodologia SDD no Passo 3 **e** respondeu que
+quer iniciar a constituição agora. Caso contrário, pule direto para o Passo 7.
+
+A própria skill conduz a etapa — não delegue para outras skills:
+
+1. **Entrevista técnica de levantamento de requisitos.** Faça as perguntas **uma de cada vez**,
+   aguardando resposta antes da próxima, com preferência por interface gráfica
+   (`AskUserQuestion`) e, no fallback de chat, múltipla escolha enumerada com recomendação
+   destacada. Roteiro mínimo (pule o que não se aplicar): problema e público-alvo; papéis e
+   atores; escopo dentro/fora desta versão; requisitos funcionais; requisitos não funcionais
+   (performance, segurança, escala) quando relevantes; stack técnica e restrições; critérios de
+   sucesso; riscos e casos de borda conhecidos. Mantenha entre ~10 e 20 perguntas no total, a
+   menos que o usuário peça mais.
+2. **Decomposição em features.** A partir das respostas, identifique features distintas —
+   unidades de escopo coerentes, cada uma pequena o bastante para virar uma spec isolada, nem
+   tão grande que "faça tudo" nem tão pequena que seja subtarefa de implementação. Para cada
+   uma: nome curto, slug em kebab-case, descrição de 2–4 frases e dependências ("nenhuma" se não
+   houver).
+3. **Confirme a decomposição com o usuário** antes de salvar — adicionar, remover, fundir ou
+   dividir features. Não salve sem essa confirmação.
+4. **Salve** em `docs/constitution/<slug-do-projeto>.md` (crie a pasta se não existir):
+
+```markdown
+# Constituição: <nome do projeto>
+
+## Propósito
+<1-3 frases: o que o projeto entrega e para quem>
+
+## Princípios inegociáveis
+- <decisões e restrições que nenhuma feature pode violar>
+
+## Features
+### 1. <Nome da feature> (`slug-da-feature`)
+<descrição>
+**Depende de:** <slugs, ou "nenhuma">
+
+## Próximos passos
+Para iniciar o ciclo SDD de cada feature: `/sdd-spec <slug>`
+```
+
+## Passo 7 — Resumo final
 
 Informe ao usuário, de forma objetiva:
 
 - Se `AGENTS.md` foi criado do zero ou regenerado (e por quê, se havia algo fora do padrão antes).
 - Se o link `CLAUDE.md` foi criado normalmente ou se caiu no fallback de cópia.
 - Um resumo curto do conteúdo final do `AGENTS.md` (as seções preenchidas).
-- Que o `AGENTS.md` inclui o bloco fixo `## Metodologia de Desenvolvimento` (fluxo SDD) e
-  `## Regras de Conduta` — boilerplate que o usuário pode editar se o projeto usar outra
-  convenção de caminhos/etapas.
+- Se os blocos `## Metodologia de Desenvolvimento` (fluxo SDD) e `## Regras de Conduta` foram
+  incluídos ou omitidos, conforme a escolha do usuário no Passo 3 — quando incluídos, são
+  boilerplate que o usuário pode editar se o projeto usar outra convenção de caminhos/etapas.
+- Se a constituição foi conduzida: que `docs/constitution/<slug>.md` foi criado e que o próximo
+  passo é `/sdd-spec <slug>` por feature. Se não foi: que a etapa de Constituição fica pendente
+  como próximo passo do fluxo SDD.
