@@ -203,7 +203,7 @@ A própria skill conduz a etapa — não delegue para outras skills:
 **Depende de:** <slugs, ou "nenhuma">
 
 ## Próximos passos
-Para iniciar o ciclo SDD de cada feature: `/sdd-spec <slug>`
+Para conduzir o ciclo SDD de cada feature: `/sdd <slug>`
 ```
 
 ## Passo 7 — Resumo final
@@ -217,5 +217,5 @@ Informe ao usuário, de forma objetiva:
   incluídos ou omitidos, conforme a escolha do usuário no Passo 3 — quando incluídos, são
   boilerplate que o usuário pode editar se o projeto usar outra convenção de caminhos/etapas.
 - Se a constituição foi conduzida: que `docs/constitution/<slug>.md` foi criado e que o próximo
-  passo é `/sdd-spec <slug>` por feature. Se não foi: que a etapa de Constituição fica pendente
-  como próximo passo do fluxo SDD.
+  passo é `/sdd <slug>` por feature. Se não foi: que a etapa de Constituição fica pendente
+  como próximo passo do fluxo SDD (a própria skill `/sdd` também conduz a constituição).

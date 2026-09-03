@@ -31,43 +31,18 @@ Depois de criar ou atualizar os symlinks, rode `/reload-skills` no Claude Code p
 
 ## Skills disponíveis
 
-### Workflows de desenvolvimento
+### Workflow de desenvolvimento
 
 | Skill | Descrição |
 |---|---|
-| [`diy`](./diy/) | Fluxo completo ponta a ponta em **um único comando e um único documento** (`docs/diy/<slug>.md`): formular a ideia → entrevista curta → plano → tarefas → implementação com acompanhamento → revisão de código. Versão enxuta e econômica em tokens das skills abaixo + `brainstorming`/`interview`/`create-tasks`/`audit`; para projetos grandes com rastreabilidade formal, use o pipeline `sdd-*`. |
-| [`to-features`](./to-features/) | Fase 0: decompõe uma proposta de implementação em features distintas, cada uma pronta para iniciar o ciclo via `/sdd-spec <slug>`. |
-| [`add-feature`](./add-feature/) | Acrescenta uma feature à decomposição existente em `docs/features/` sem recriar o documento — variante incremental do `/to-features`. |
-| [`sdd-spec`](./sdd-spec/) | 1ª fase do workflow spec-anchored: especificação formal em notação EARS via entrevista guiada. |
-| [`sdd-plan`](./sdd-plan/) | 2ª fase: deriva o plano técnico a partir de uma spec aprovada. |
-| [`sdd-tasks`](./sdd-tasks/) | 3ª fase: decompõe o plano em tarefas atômicas e rastreáveis. |
-| [`sdd-implement`](./sdd-implement/) | 4ª fase: implementa as tarefas aprovadas em loop de TDD. |
-| [`sdd-audit`](./sdd-audit/) | 5ª e última fase: auditoria independente de rastreabilidade e gate final de merge. |
-
-### Skills de apoio
-
-Reutilizadas pelos workflows acima, mas também podem ser invocadas diretamente.
-
-| Skill | Descrição |
-|---|---|
-| [`brainstorming`](./brainstorming/) | Conduz uma sessão de brainstorming de produto/solução a partir de um tema e gera um pitch em `docs/brainstorming/`. |
-| [`interview`](./interview/) | Conduz uma entrevista de levantamento de requisitos e gera `docs/interview/PRD.md`. |
-| [`create-tasks`](./create-tasks/) | Decompõe requisitos — de um PRD (`docs/interview/PRD.md`, ou `PRD.md` na raiz) ou de uma descrição passada no comando — em uma lista sequencial de tarefas verificáveis com checkbox markdown, salva em `docs/tasks/TASKS.md`. Só decompõe; a implementação e a marcação das checkboxes acontecem em outra sessão. |
-| [`implement-tdd`](./implement-tdd/) | Implementa uma lista de tarefas já decomposta (`docs/tasks/TASKS.md` do `/create-tasks`, outro arquivo, ou tarefas coladas no comando) com TDD red-green-refactor, um ciclo por tarefa. Roda a suíte de testes a cada ciclo e marca as checkboxes; não commita. |
-| [`audit`](./audit/) | Revisa código (bugs, performance, simplificação) e registra os achados aprovados como issues com checkbox em `docs/tasks/ISSUES.md`, para serem resolvidas numa sessão de implementação; funciona standalone. |
-| [`prototype`](./prototype/) | Conduz decisões de design e gera um mockup visual como Artifact para aprovação antes da implementação de uma tela; após aprovado, registra o protótipo em `docs/prototypes/<slug>.md` + `INDEX.md`. |
-
-### Design systems
-
-| Skill | Descrição |
-|---|---|
-| [`vilt-design-system`](./vilt-design-system/) | Padrões técnicos e de layout para sistemas Vue + Inertia + Laravel + Tailwind (PrimeVue/PrimeIcons), arquitetura Controller→Service→Repository e tema claro/escuro. |
+| [`sdd`](./sdd/) | Conduz o fluxo spec-anchored (SDD) completo de uma feature, ponta a ponta, numa única skill: **constituição** (`docs/constitution/<slug>.md`, decompõe o projeto em features) → **especificação** em EARS (`docs/specs/<slug>.md`) → **plano técnico** (`docs/plans/<slug>.md`) → **tarefas atômicas** (`docs/tasks/<slug>.md`) → **implementação em TDD** (atualiza o progresso no arquivo de tarefas). Ao ser invocada, avalia o estado atual do projeto e retoma da etapa pendente. Cada etapa que gera artefato é um gate para revisão do usuário. |
 
 ### Utilitários de projeto
 
 | Skill | Descrição |
 |---|---|
+| [`prototype`](./prototype/) | Conduz decisões de design e gera um mockup visual como Artifact para aprovação antes da implementação de uma tela; após aprovado, registra o protótipo em `docs/prototypes/<slug>.md` + `INDEX.md`. |
 | [`onboarding`](./onboarding/) | Mapeia o estado de um projeto herdado/existente e gera `docs/onboarding/ONBOARDING.md`. |
 | [`knowledge-base`](./knowledge-base/) | Acervo consultável de armadilhas já resolvidas no projeto (`docs/knowledge/` + `INDEX.md`). Auto-dispara para consultar antes de brigar com um erro obscuro/recorrente e para registrar problema + causa + solução depois de resolver algo não-óbvio. |
-| [`init-dev`](./init-dev/) | Gera um `AGENTS.md` conciso e agnóstico de agente (mais um bloco fixo com o fluxo SDD e as regras de conduta obrigatórias para agentes), com `CLAUDE.md` linkado a ele (symlink no Unix, hard link no Windows) em vez de duplicado. |
+| [`init-dev`](./init-dev/) | Gera um `AGENTS.md` conciso e agnóstico de agente (mais um bloco fixo com o fluxo SDD e as regras de conduta obrigatórias para agentes), com `CLAUDE.md` linkado a ele (symlink no Unix, hard link no Windows) em vez de duplicado. Pode encadear a 1ª etapa do `/sdd` (constituição). |
 | [`scaffold`](./scaffold/) | Entrevista sobre stack, configs iniciais e skills deste repositório a linkar, e cria a fundação de um projeto novo (estrutura, scaffolder da stack, `git init`, deps, symlinks de skills). |

@@ -26,7 +26,7 @@ comando exato em vez de adivinhar — não invente flags ou templates.
 | Stack | Comando |
 |---|---|
 | Laravel | `composer create-project laravel/laravel <nome>` |
-| Laravel + Inertia + Vue (VILT) | scaffold com o comando acima, depois seguir `vilt-design-system` (ou `pms-design-system` se for sistema da Prefeitura de Santos) pra instalar Inertia/Vue/PrimeVue |
+| Laravel + Inertia + Vue | `composer create-project laravel/laravel <nome>`, depois instalar Inertia/Vue conforme a doc oficial da stack (pergunte ao usuário se ele tem um starter kit preferido) |
 
 ## Python
 

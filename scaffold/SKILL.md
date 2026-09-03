@@ -28,10 +28,8 @@ responde pelo número ou escreve outra coisa.
 
 - **Nome/caminho do projeto** — diretório novo ou pasta atual.
 - **Stack** — linguagem, framework, gerenciador de pacotes. Campo livre, não trave em nenhuma stack
-  específica. Se a resposta for Laravel + Inertia + Vue + PrimeVue, avise que dá pra usar as skills
-  `vilt-design-system`/`pms-design-system` depois (mas não force a escolha).
-  Consulte `references/stack-commands.md` para comandos de scaffold conhecidos; se a stack pedida
-  não estiver lá, pergunte ao usuário o comando exato em vez de adivinhar.
+  específica. Consulte `references/stack-commands.md` para comandos de scaffold conhecidos; se a
+  stack pedida não estiver lá, pergunte ao usuário o comando exato em vez de adivinhar.
 - **Configs iniciais** — só as que fazem sentido pra stack escolhida (ex. TypeScript sim/não,
   linter/formatter, testes, `git init`, licença).
 - **Skills deste repositório a linkar no projeto** — liste as skills disponíveis em
