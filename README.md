@@ -35,7 +35,7 @@ Depois de criar ou atualizar os symlinks, rode `/reload-skills` no Claude Code p
 
 | Skill | Descrição |
 |---|---|
-| [`sdd`](./sdd/) | Conduz o fluxo spec-anchored (SDD) completo de uma feature, ponta a ponta, numa única skill: **constituição** (`docs/constitution/<slug>.md`, decompõe o projeto em features) → **especificação** em EARS (`docs/specs/<slug>.md`) → **plano técnico** (`docs/plans/<slug>.md`) → **tarefas atômicas** (`docs/tasks/<slug>.md`) → **implementação em TDD** (atualiza o progresso no arquivo de tarefas). Ao ser invocada, avalia o estado atual do projeto e retoma da etapa pendente. Cada etapa que gera artefato é um gate para revisão do usuário. |
+| [`sdd`](./sdd/) | Conduz o fluxo spec-anchored (SDD) completo de uma feature, ponta a ponta, numa única skill: **constituição** (`docs/constitution/<slug>.md`, decompõe o projeto em features) → **especificação** em EARS (`docs/specs/<slug>.md`) → **plano técnico** (`docs/plans/<slug>.md`) → **tarefas atômicas** (`docs/tasks/<slug>.md`) → **implementação em TDD** (atualiza o progresso no arquivo de tarefas) → **testes visuais** (`docs/tests/<slug>.md`, roteiro de verificação para features com recurso visual, com execução opcional assistida via Playwright MCP quando disponível). Ao ser invocada, avalia o estado atual do projeto e retoma da etapa pendente. Cada etapa que gera artefato é um gate para revisão do usuário. |
 
 ### Utilitários de projeto
 
