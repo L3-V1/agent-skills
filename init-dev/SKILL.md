@@ -116,6 +116,11 @@ aprovados pelo usuário.
 5. **Implementação (TDD)** — `docs/tasks/<slug-da-feature>.md` (atualiza o progresso)
    Implementação em ciclos red-green-refactor, uma tarefa por vez, marcando o progresso no
    próprio arquivo de tarefas. A suíte de testes roda a cada ciclo.
+6. **Testes visuais** — `docs/tests/<slug-da-feature>.md`
+   Para features com recurso visual implementado: roteiro de verificação passo a passo,
+   rastreável aos critérios de aceite. Se o ambiente tiver o MCP do Playwright disponível, o
+   usuário pode optar por deixar o próprio agente executar o roteiro e anotar o resultado no
+   mesmo arquivo.
 
 ## Regras de Conduta
 

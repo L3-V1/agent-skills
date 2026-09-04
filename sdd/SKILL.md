@@ -46,6 +46,8 @@ ele está:
    - `docs/plans/<slug>.md` existe e `Status: gerado`? → plano feito.
    - `docs/tasks/<slug>.md` existe e `Status: gerado`? → tarefas feitas.
    - Em `docs/tasks/<slug>.md`, todas as checkboxes `- [x]`? → implementação concluída.
+   - `docs/tests/<slug>.md` existe e `Status: gerado` (ou marcado como `N/A — sem frontend`)?
+     → testes visuais feitos.
    Monte mentalmente uma tabela feature × próxima etapa pendente.
 3. **Seleção da feature:**
    - Se o usuário passou um slug em `$ARGUMENTS`, trabalhe nessa feature.
@@ -388,7 +390,82 @@ confirmado paralelização:
 Apresente um resumo: quantas tarefas concluídas, quantas bloqueadas (se houver) e quais
 arquivos foram alterados.
 
-## Passo 7 — Encerramento
+## Passo 7 — Etapa 6: Testes visuais → `docs/tests/<slug-da-feature>.md`
+
+Só se aplica a features com recurso visual (tela, componente de UI) implementado. Não é
+sobre testes automatizados — isso já aconteceu no Passo 6 (TDD). Aqui o objetivo é um
+roteiro de verificação visual, e opcionalmente sua execução assistida via Playwright MCP.
+
+### Localizar contexto
+
+Leia `docs/tasks/<slug>.md` (deve estar com todas as checkboxes `- [x]`), a spec
+(`docs/specs/<slug>.md`) e o plano (`docs/plans/<slug>.md`).
+
+### Decidir se a feature tem recurso visual
+
+Inspecione spec, plano e tarefas em busca de menção a UI, tela, componente visual, rota de
+frontend etc. Apresente a conclusão da inferência ao usuário (via `AskUserQuestion` quando
+disponível, senão pergunta única no chat) pedindo confirmação de 1 clique: "Detectei que
+esta feature tem/não tem frontend implementado — está correto?".
+
+- Se a resposta for "sem frontend": não crie `docs/tests/<slug>.md`. Registre isso (ex.:
+  anotação em `docs/tasks/<slug>.md` ou apenas no resumo apresentado) e siga para o
+  Encerramento.
+- Se "com frontend": continue.
+
+### Gerar o roteiro de teste manual
+
+Para cada `AC-XX` da spec que tenha manifestação visual, gere um passo a passo objetivo e
+verificável: pré-condição, ação do usuário, resultado esperado observável na tela. Agrupe
+por fluxo/tela quando fizer sentido. Reaproveite a rastreabilidade `AC-XX` já estabelecida
+nas etapas anteriores.
+
+### Salvar
+
+Crie `docs/tests/` se não existir. Salve em `docs/tests/<slug>.md`:
+
+```markdown
+# Testes visuais: <nome da feature>
+
+**Status:** rascunho | gerado
+**Slug:** <slug>
+**Tarefas de referência:** docs/tasks/<slug>.md
+
+## Como testar
+<instruções gerais: como subir o ambiente/app antes de seguir o roteiro>
+
+## Roteiro
+### <AC-XX ou nome do fluxo>
+- [ ] Pré-condição: ...
+- [ ] Ação: ...
+- [ ] Resultado esperado: ...
+
+## Execução automatizada (Playwright MCP)
+<preenchido só se o agente rodou o roteiro via Playwright; por passo: ✅/❌ + observação>
+```
+
+### Checar disponibilidade do Playwright MCP
+
+Verifique se há, entre as ferramentas disponíveis no ambiente, alguma com nome contendo
+`playwright` (ex.: `mcp__plugin_playwright_playwright__*`). Se houver, pergunte ao usuário
+(uma pergunta, com recomendação) se ele quer que o próprio agente execute o roteiro usando o
+Playwright agora, em vez de (ou além de) testar manualmente.
+
+- **Se aceitar:** conduza o roteiro passo a passo usando as ferramentas do Playwright MCP
+  (navegação, cliques, screenshots, asserts visuais) e **atualize o mesmo arquivo**
+  `docs/tests/<slug>.md`, marcando cada passo executado com resultado (✅/❌) e observações
+  inline na seção "Execução automatizada (Playwright MCP)", preservando o roteiro original.
+- **Se recusar ou o MCP não estiver disponível:** o arquivo fica como roteiro manual para o
+  usuário seguir por conta própria; `Status:` permanece `gerado` (roteiro pronto, execução
+  pendente).
+
+### Ao concluir
+
+Apresente um resumo: arquivo gerado (ou motivo de ter sido pulado), se os testes foram
+rodados via Playwright e quantos passos passaram/falharam. **Pare aqui** — não encadeie o
+Encerramento além do resumo textual.
+
+## Passo 8 — Encerramento
 
 Informe ao usuário, de forma objetiva:
 
