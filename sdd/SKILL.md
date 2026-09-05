@@ -46,9 +46,9 @@ ele está:
    - `docs/plans/<slug>.md` existe e `Status: gerado`? → plano feito.
    - `docs/tasks/<slug>.md` existe e `Status: gerado`? → tarefas feitas.
    - Em `docs/tasks/<slug>.md`, todas as checkboxes `- [x]`? → implementação concluída.
-   - `docs/tests/<slug>.md` existe e `Status: gerado` (ou marcado como `N/A — sem frontend`)?
-     → testes visuais feitos.
-   Monte mentalmente uma tabela feature × próxima etapa pendente.
+   Monte mentalmente uma tabela feature × próxima etapa pendente. O fluxo do `/sdd`
+   termina na implementação; testes visuais de frontend são um passo opcional
+   separado, conduzido pela skill `/test-guide`.
 3. **Seleção da feature:**
    - Se o usuário passou um slug em `$ARGUMENTS`, trabalhe nessa feature.
    - Senão, apresente a tabela (feature → próxima etapa pendente) via `AskUserQuestion` e
@@ -337,7 +337,8 @@ implementação. **Pare aqui.**
 > disponíveis no ambiente, não as utilize nesta etapa. Isso não proíbe testar frontend no
 > TDD — só que os testes são escritos por meios alternativos (testing-library / DOM
 > testing, testes de componente, render headless, unit/integration de UI). O Playwright
-> MCP é exclusivo do Passo 7, depois do roteiro de testes visuais.
+> MCP é exclusivo da skill `/test-guide` (testes visuais), um passo opcional que roda
+> depois da implementação.
 
 ### Localizar as tarefas
 
@@ -370,7 +371,7 @@ Para cada tarefa `T-XX`, na ordem definida por dependências:
    provoca o evento e verifica a resposta. Para `AC-XX` com manifestação visual, use o
    framework de teste do projeto (testing-library / DOM testing, teste de componente,
    render headless) — nunca o Playwright MCP. Se o comportamento só puder ser verificado
-   com navegador real, registre-o como item para o Passo 7 e siga.
+   com navegador real, registre-o para cobrir depois com a skill `/test-guide` e siga.
 3. Rode o teste e confirme que falha (evita teste que "passa por acidente").
 4. Implemente o mínimo necessário para o teste passar.
 5. Rode o teste de novo. Se passar, faça um passe de refactor (limpeza, remoção de
@@ -399,84 +400,7 @@ confirmado paralelização:
 Apresente um resumo: quantas tarefas concluídas, quantas bloqueadas (se houver) e quais
 arquivos foram alterados.
 
-## Passo 7 — Etapa 6: Testes visuais → `docs/tests/<slug-da-feature>.md`
-
-Só se aplica a features com recurso visual (tela, componente de UI) implementado. Não é
-sobre testes automatizados — isso já aconteceu no Passo 6 (TDD). Aqui o objetivo é um
-roteiro de verificação visual, e opcionalmente sua execução assistida via Playwright MCP.
-**Esta é a única etapa do fluxo em que o Playwright MCP é usado** — e sempre depois de o
-roteiro estar elaborado.
-
-### Localizar contexto
-
-Leia `docs/tasks/<slug>.md` (deve estar com todas as checkboxes `- [x]`), a spec
-(`docs/specs/<slug>.md`) e o plano (`docs/plans/<slug>.md`).
-
-### Decidir se a feature tem recurso visual
-
-Inspecione spec, plano e tarefas em busca de menção a UI, tela, componente visual, rota de
-frontend etc. Apresente a conclusão da inferência ao usuário (via `AskUserQuestion` quando
-disponível, senão pergunta única no chat) pedindo confirmação de 1 clique: "Detectei que
-esta feature tem/não tem frontend implementado — está correto?".
-
-- Se a resposta for "sem frontend": não crie `docs/tests/<slug>.md`. Registre isso (ex.:
-  anotação em `docs/tasks/<slug>.md` ou apenas no resumo apresentado) e siga para o
-  Encerramento.
-- Se "com frontend": continue.
-
-### Gerar o roteiro de teste manual
-
-Para cada `AC-XX` da spec que tenha manifestação visual, gere um passo a passo objetivo e
-verificável: pré-condição, ação do usuário, resultado esperado observável na tela. Agrupe
-por fluxo/tela quando fizer sentido. Reaproveite a rastreabilidade `AC-XX` já estabelecida
-nas etapas anteriores.
-
-### Salvar
-
-Crie `docs/tests/` se não existir. Salve em `docs/tests/<slug>.md`:
-
-```markdown
-# Testes visuais: <nome da feature>
-
-**Status:** rascunho | gerado
-**Slug:** <slug>
-**Tarefas de referência:** docs/tasks/<slug>.md
-
-## Como testar
-<instruções gerais: como subir o ambiente/app antes de seguir o roteiro>
-
-## Roteiro
-### <AC-XX ou nome do fluxo>
-- [ ] Pré-condição: ...
-- [ ] Ação: ...
-- [ ] Resultado esperado: ...
-
-## Execução automatizada (Playwright MCP)
-<preenchido só se o agente rodou o roteiro via Playwright; por passo: ✅/❌ + observação>
-```
-
-### Checar disponibilidade do Playwright MCP
-
-Verifique se há, entre as ferramentas disponíveis no ambiente, alguma com nome contendo
-`playwright` (ex.: `mcp__plugin_playwright_playwright__*`). Se houver, pergunte ao usuário
-(uma pergunta, com recomendação) se ele quer que o próprio agente execute o roteiro usando o
-Playwright agora, em vez de (ou além de) testar manualmente.
-
-- **Se aceitar:** conduza o roteiro passo a passo usando as ferramentas do Playwright MCP
-  (navegação, cliques, screenshots, asserts visuais) e **atualize o mesmo arquivo**
-  `docs/tests/<slug>.md`, marcando cada passo executado com resultado (✅/❌) e observações
-  inline na seção "Execução automatizada (Playwright MCP)", preservando o roteiro original.
-- **Se recusar ou o MCP não estiver disponível:** o arquivo fica como roteiro manual para o
-  usuário seguir por conta própria; `Status:` permanece `gerado` (roteiro pronto, execução
-  pendente).
-
-### Ao concluir
-
-Apresente um resumo: arquivo gerado (ou motivo de ter sido pulado), se os testes foram
-rodados via Playwright e quantos passos passaram/falharam. **Pare aqui** — não encadeie o
-Encerramento além do resumo textual.
-
-## Passo 8 — Encerramento
+## Passo 7 — Encerramento
 
 Informe ao usuário, de forma objetiva:
 
@@ -487,6 +411,9 @@ Informe ao usuário, de forma objetiva:
   usuário antes de avançar.
 - Se a implementação foi concluída, que o próximo passo (revisão de código, merge) fica a
   cargo do usuário.
+- Que testes visuais de frontend são um passo opcional à parte: rodar `/test-guide <slug>`
+  gera o roteiro de verificação pela interface e, se o Playwright MCP estiver disponível,
+  pode executá-lo.
 
 ## Subagentes
 

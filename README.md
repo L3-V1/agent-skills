@@ -35,7 +35,8 @@ Depois de criar ou atualizar os symlinks, rode `/reload-skills` no Claude Code p
 
 | Skill | Descrição |
 |---|---|
-| [`sdd`](./sdd/) | Conduz o fluxo spec-anchored (SDD) completo de uma feature, ponta a ponta, numa única skill: **constituição** (`docs/constitution/<slug>.md`, decompõe o projeto em features) → **especificação** em EARS (`docs/specs/<slug>.md`) → **plano técnico** (`docs/plans/<slug>.md`) → **tarefas atômicas** (`docs/tasks/<slug>.md`) → **implementação em TDD** (atualiza o progresso no arquivo de tarefas) → **testes visuais** (`docs/tests/<slug>.md`, roteiro de verificação para features com recurso visual, com execução opcional assistida via Playwright MCP quando disponível). Ao ser invocada, avalia o estado atual do projeto e retoma da etapa pendente. Cada etapa que gera artefato é um gate para revisão do usuário. |
+| [`sdd`](./sdd/) | Conduz o fluxo spec-anchored (SDD) completo de uma feature, ponta a ponta, numa única skill: **constituição** (`docs/constitution/<slug>.md`, decompõe o projeto em features) → **especificação** em EARS (`docs/specs/<slug>.md`) → **plano técnico** (`docs/plans/<slug>.md`) → **tarefas atômicas** (`docs/tasks/<slug>.md`) → **implementação em TDD** (atualiza o progresso no arquivo de tarefas). Ao ser invocada, avalia o estado atual do projeto e retoma da etapa pendente. Cada etapa que gera artefato é um gate para revisão do usuário. Testes visuais de frontend são um passo opcional separado — ver `/test-guide`. |
+| [`test-guide`](./test-guide/) | Elabora um roteiro de testes visuais de frontend (`docs/tests/<slug>.md`) — passo a passo verificável, rastreável aos critérios de aceite quando existirem — e, se o Playwright MCP estiver disponível, se oferece para executar o roteiro e anotar o resultado no mesmo arquivo. Funciona como sequência opcional do `/sdd` ou isolada em qualquer projeto. |
 
 ### Utilitários de projeto
 
