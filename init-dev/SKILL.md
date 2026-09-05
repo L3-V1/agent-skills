@@ -115,12 +115,14 @@ aprovados pelo usuário.
    da spec.
 5. **Implementação (TDD)** — `docs/tasks/<slug-da-feature>.md` (atualiza o progresso)
    Implementação em ciclos red-green-refactor, uma tarefa por vez, marcando o progresso no
-   próprio arquivo de tarefas. A suíte de testes roda a cada ciclo.
+   próprio arquivo de tarefas. A suíte de testes roda a cada ciclo. Testes de frontend
+   usam o framework de teste do projeto (testing-library, teste de componente, render
+   headless) — nunca o MCP do Playwright.
 6. **Testes visuais** — `docs/tests/<slug-da-feature>.md`
    Para features com recurso visual implementado: roteiro de verificação passo a passo,
-   rastreável aos critérios de aceite. Se o ambiente tiver o MCP do Playwright disponível, o
-   usuário pode optar por deixar o próprio agente executar o roteiro e anotar o resultado no
-   mesmo arquivo.
+   rastreável aos critérios de aceite. Esta é a única etapa que usa o MCP do Playwright:
+   se ele estiver disponível, o usuário pode optar por deixar o agente executar o roteiro
+   e anotar o resultado no mesmo arquivo.
 
 ## Regras de Conduta
 

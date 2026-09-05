@@ -333,6 +333,12 @@ implementação. **Pare aqui.**
 
 ## Passo 6 — Etapa 5: Implementação (TDD) → atualiza `docs/tasks/<slug-da-feature>.md`
 
+> **O TDD não usa o Playwright MCP.** Mesmo que ferramentas `*playwright*` estejam
+> disponíveis no ambiente, não as utilize nesta etapa. Isso não proíbe testar frontend no
+> TDD — só que os testes são escritos por meios alternativos (testing-library / DOM
+> testing, testes de componente, render headless, unit/integration de UI). O Playwright
+> MCP é exclusivo do Passo 7, depois do roteiro de testes visuais.
+
 ### Localizar as tarefas
 
 Leia `docs/tasks/<slug>.md` e também a spec e o plano correspondentes para o contexto
@@ -361,7 +367,10 @@ Para cada tarefa `T-XX`, na ordem definida por dependências:
 1. Releia o(s) critério(s) de aceite (`AC-XX`) que essa tarefa cobre.
 2. Escreva o teste que expressa esse critério antes de qualquer código de implementação. A
    forma EARS já sugere o teste: "Quando `<evento>`, deve `<resposta>`" vira um teste que
-   provoca o evento e verifica a resposta.
+   provoca o evento e verifica a resposta. Para `AC-XX` com manifestação visual, use o
+   framework de teste do projeto (testing-library / DOM testing, teste de componente,
+   render headless) — nunca o Playwright MCP. Se o comportamento só puder ser verificado
+   com navegador real, registre-o como item para o Passo 7 e siga.
 3. Rode o teste e confirme que falha (evita teste que "passa por acidente").
 4. Implemente o mínimo necessário para o teste passar.
 5. Rode o teste de novo. Se passar, faça um passe de refactor (limpeza, remoção de
@@ -395,6 +404,8 @@ arquivos foram alterados.
 Só se aplica a features com recurso visual (tela, componente de UI) implementado. Não é
 sobre testes automatizados — isso já aconteceu no Passo 6 (TDD). Aqui o objetivo é um
 roteiro de verificação visual, e opcionalmente sua execução assistida via Playwright MCP.
+**Esta é a única etapa do fluxo em que o Playwright MCP é usado** — e sempre depois de o
+roteiro estar elaborado.
 
 ### Localizar contexto
 
@@ -486,4 +497,5 @@ Informe ao usuário, de forma objetiva:
 - **Planejamento:** subagentes para investigação técnica paralela e independente, Haiku
   para a leitura/varredura. As decisões de arquitetura em si ficam no orquestrador.
 - **Implementação:** subagentes para grupos de tarefas explicitamente independentes; Haiku
-  para tarefas de complexidade baixa, modelo padrão para média/alta.
+  para tarefas de complexidade baixa, modelo padrão para média/alta. Cada subagente segue
+  o loop de TDD sem Playwright MCP.
