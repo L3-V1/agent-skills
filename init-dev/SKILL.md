@@ -1,6 +1,6 @@
 ---
 name: init-dev
-description: "Gera ou normaliza a documentação de contexto do projeto para agentes de IA: cria um AGENTS.md conciso (visão geral, stack, convenções, docs auxiliares, comandos de setup/execução) e, mediante confirmação do usuário, adiciona um bloco com o fluxo de desenvolvimento SDD e as regras de conduta para agentes — podendo inclusive já encadear a 1ª etapa (constituição). Garante que CLAUDE.md seja um link para o AGENTS.md, não um arquivo duplicado. Invocada explicitamente pelo usuário via /init-dev."
+description: "Gera ou normaliza a documentação de contexto do projeto para agentes de IA: cria um AGENTS.md conciso (visão geral, stack, convenções, docs auxiliares, comandos de setup/execução) e, mediante confirmação do usuário, adiciona um bloco com o fluxo de desenvolvimento SDD, um mapa de onde ficam os artefatos de cada etapa e as regras de conduta para agentes — podendo inclusive já encadear a 1ª etapa (constituição). Garante que CLAUDE.md seja um link para o AGENTS.md, não um arquivo duplicado. Invocada explicitamente pelo usuário via /init-dev."
 disable-model-invocation: true
 ---
 
@@ -62,9 +62,10 @@ enumerada. Nos dois casos, destaque a recomendação: **incluir** (este reposit�
 SDD).
 
 - **Se o usuário recusar:** o `AGENTS.md` sai só com as cinco seções descritivas — omita os
-  blocos `## Metodologia de Desenvolvimento` e `## Regras de Conduta`. Siga para o Passo 4 e pule
-  o Passo 6.
-- **Se o usuário aceitar:** os dois blocos entram no arquivo (Passo 4). Em seguida, faça uma
+  blocos `## Mapa de artefatos do projeto`, `## Metodologia de Desenvolvimento` e
+  `## Regras de Conduta`. Siga para o Passo 4 e pule o Passo 6.
+- **Se o usuário aceitar:** os três blocos (o mapa de artefatos, a metodologia e as regras de
+  conduta) entram no arquivo (Passo 4). Em seguida, faça uma
   segunda pergunta (mesma preferência de interface): **deseja já iniciar agora a 1ª etapa da
   metodologia, a "constituição"?** — uma entrevista técnica de levantamento de requisitos seguida
   da decomposição do projeto em features. Recomendação: iniciar agora se o projeto ainda não tem
@@ -93,7 +94,26 @@ Use exatamente esta estrutura de seções, mantendo cada uma curta:
 ## Comandos
 <setup e execução: instalar deps, rodar em dev, rodar testes, build>
 
-<!-- Os dois blocos abaixo só entram se o usuário aceitou a metodologia SDD no Passo 3. -->
+<!-- Os três blocos abaixo só entram se o usuário aceitou a metodologia SDD no Passo 3. -->
+
+## Mapa de artefatos do projeto
+
+Índice de onde ficam os artefatos versionados produzidos pelas skills de desenvolvimento.
+`<slug-do-projeto>` e `<slug-da-feature>` são definidos ao longo do fluxo (sempre kebab-case);
+enquanto não existirem, valem apenas as pastas e o padrão de nome abaixo. O slug de uma feature é
+o mesmo em todas as etapas: `docs/specs/checkout.md`, `docs/plans/checkout.md` e
+`docs/tasks/checkout.md` referem-se todos à feature `checkout`.
+
+| Artefato | Local | Skill que produz |
+|---|---|---|
+| Constituição (propósito + features do projeto) | `docs/constitution/<slug-do-projeto>.md` | `/init-dev`, `/sdd` |
+| Especificação da feature (critérios de aceite EARS) | `docs/specs/<slug-da-feature>.md` | `/sdd` |
+| Plano técnico da feature | `docs/plans/<slug-da-feature>.md` | `/sdd` |
+| Tarefas atômicas + progresso da implementação | `docs/tasks/<slug-da-feature>.md` | `/sdd` |
+| Roteiro de testes visuais de frontend | `docs/tests/<slug-da-feature>.md` | `/test-guide` |
+| Levantamento de estado de projeto herdado | `docs/onboarding/ONBOARDING.md` | `/onboarding` |
+| Base de conhecimento (armadilhas já resolvidas) | `docs/knowledge/INDEX.md` + `docs/knowledge/<slug>.md` | `/knowledge-base` |
+| Protótipos de tela aprovados | `docs/prototypes/INDEX.md` + `docs/prototypes/<slug>.md` | `/prototype` |
 
 ## Metodologia de Desenvolvimento
 
@@ -145,10 +165,11 @@ Obrigatórias para qualquer agente de IA que trabalhe neste projeto:
 ```
 
 Omita uma seção inteira se não houver nada real para preencher nela (ex. projeto sem docs
-auxiliares) — não deixe cabeçalhos vazios. **Blocos condicionais:** `## Metodologia de
-Desenvolvimento` e `## Regras de Conduta` só entram se o usuário aceitou a metodologia SDD no
-Passo 3; quando entram, é na íntegra, com o texto literal acima, sem adaptar ao projeto; quando
-o usuário recusa, os dois são omitidos por completo. A regra de omissão por falta de conteúdo
+auxiliares) — não deixe cabeçalhos vazios. **Blocos condicionais:** `## Mapa de artefatos do
+projeto`, `## Metodologia de Desenvolvimento` e `## Regras de Conduta` só entram se o usuário
+aceitou a metodologia SDD no Passo 3; quando entram, é na íntegra, com o texto literal acima, sem
+adaptar ao projeto (a tabela do mapa também sai sem preencher slugs reais); quando o usuário
+recusa, os três são omitidos por completo. A regra de omissão por falta de conteúdo
 real vale para as cinco seções descritivas (Visão geral, Stack técnica, Convenções de código,
 Documentação adicional, Comandos).
 
@@ -221,9 +242,10 @@ Informe ao usuário, de forma objetiva:
 - Se `AGENTS.md` foi criado do zero ou regenerado (e por quê, se havia algo fora do padrão antes).
 - Se o link `CLAUDE.md` foi criado normalmente ou se caiu no fallback de cópia.
 - Um resumo curto do conteúdo final do `AGENTS.md` (as seções preenchidas).
-- Se os blocos `## Metodologia de Desenvolvimento` (fluxo SDD) e `## Regras de Conduta` foram
-  incluídos ou omitidos, conforme a escolha do usuário no Passo 3 — quando incluídos, são
-  boilerplate que o usuário pode editar se o projeto usar outra convenção de caminhos/etapas.
+- Se os blocos `## Mapa de artefatos do projeto`, `## Metodologia de Desenvolvimento` (fluxo SDD)
+  e `## Regras de Conduta` foram incluídos ou omitidos, conforme a escolha do usuário no Passo 3
+  — quando incluídos, são boilerplate que o usuário pode editar se o projeto usar outra convenção
+  de caminhos/etapas.
 - Se a constituição foi conduzida: que `docs/constitution/<slug>.md` foi criado e que o próximo
   passo é `/sdd <slug>` por feature. Se não foi: que a etapa de Constituição fica pendente
   como próximo passo do fluxo SDD (a própria skill `/sdd` também conduz a constituição).
