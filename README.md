@@ -43,6 +43,7 @@ Depois de criar ou atualizar os symlinks, rode `/reload-skills` no Claude Code p
 | Skill | Descrição |
 |---|---|
 | [`prototype`](./prototype/) | Conduz decisões de design e gera um mockup visual como Artifact para aprovação antes da implementação de uma tela; após aprovado, registra o protótipo em `docs/prototypes/<slug>.md` + `INDEX.md`. |
+| [`create-design-system`](./create-design-system/) | Monta o design system do projeto e o registra em `docs/ui/DESIGN.md` (template fixo: tokens, layout, arquitetura de tela, componentes, interação, acessibilidade, tema) — documento único consultável por agentes de IA. Escolhe uma de três abordagens por execução: entrevista do zero, análise da codebase, ou referências externas. |
 | [`onboarding`](./onboarding/) | Mapeia o estado de um projeto herdado/existente e gera `docs/onboarding/ONBOARDING.md`. |
 | [`knowledge-base`](./knowledge-base/) | Acervo consultável de armadilhas já resolvidas no projeto (`docs/knowledge/` + `INDEX.md`). Auto-dispara para consultar antes de brigar com um erro obscuro/recorrente e para registrar problema + causa + solução depois de resolver algo não-óbvio. |
 | [`init-dev`](./init-dev/) | Gera um `AGENTS.md` conciso e agnóstico de agente (mais blocos fixos com o fluxo SDD, um mapa de onde ficam os artefatos de cada etapa e as regras de conduta obrigatórias para agentes), com `CLAUDE.md` linkado a ele (symlink no Unix, hard link no Windows) em vez de duplicado. Pode encadear a 1ª etapa do `/sdd` (constituição). |

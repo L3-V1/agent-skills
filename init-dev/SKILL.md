@@ -114,6 +114,7 @@ o mesmo em todas as etapas: `docs/specs/checkout.md`, `docs/plans/checkout.md` e
 | Levantamento de estado de projeto herdado | `docs/onboarding/ONBOARDING.md` | `/onboarding` |
 | Base de conhecimento (armadilhas já resolvidas) | `docs/knowledge/INDEX.md` + `docs/knowledge/<slug>.md` | `/knowledge-base` |
 | Protótipos de tela aprovados | `docs/prototypes/INDEX.md` + `docs/prototypes/<slug>.md` | `/prototype` |
+| Design system do projeto (tokens, layout, UI) | `docs/ui/DESIGN.md` | `/create-design-system` |
 
 ## Metodologia de Desenvolvimento
 
