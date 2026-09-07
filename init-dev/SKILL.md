@@ -106,7 +106,7 @@ o mesmo em todas as etapas: `docs/specs/checkout.md`, `docs/plans/checkout.md` e
 
 | Artefato | Local | Skill que produz |
 |---|---|---|
-| Pitch de produto (fase 0, opcional) | `docs/brainstorming/<slug-do-produto>.md` | `/brainstorming` |
+| Descrição do projeto (fase 0, opcional) | `docs/brainstorming/PROJECT.md` | `/brainstorming` |
 | Constituição (propósito + features do projeto) | `docs/constitution/<slug-do-projeto>.md` | `/init-dev`, `/sdd` |
 | Especificação da feature (critérios de aceite EARS) | `docs/specs/<slug-da-feature>.md` | `/sdd` |
 | Plano técnico da feature | `docs/plans/<slug-da-feature>.md` | `/sdd` |
@@ -202,6 +202,10 @@ quer iniciar a constituição agora. Caso contrário, pule direto para o Passo 7
 
 A própria skill conduz a etapa — não delegue para outras skills:
 
+0. **Contexto existente.** Se `docs/brainstorming/PROJECT.md` existir (Fase 0 conduzida pelo
+   `/brainstorming`), leia-o antes de perguntar qualquer coisa e use-o como ponto de partida:
+   pule as perguntas já respondidas, confirme só os pontos ambíguos e leve a "Decomposição
+   preliminar em features" como base para o passo 2.
 1. **Entrevista técnica de levantamento de requisitos.** Faça as perguntas **uma de cada vez**,
    aguardando resposta antes da próxima, com preferência por interface gráfica
    (`AskUserQuestion`) e, no fallback de chat, múltipla escolha enumerada com recomendação

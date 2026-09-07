@@ -66,6 +66,11 @@ use-a — não refaça o Passo 2.
 Documento de fundação: propósito, princípios inegociáveis e decomposição do projeto em
 features distintas. A própria skill conduz — não delegue.
 
+0. **Contexto existente.** Se `docs/brainstorming/PROJECT.md` existir (Fase 0 conduzida
+   pelo `/brainstorming`), leia-o antes de perguntar qualquer coisa e use-o como ponto de
+   partida: pule as perguntas já respondidas, apenas confirme os pontos ambíguos e leve a
+   "Decomposição preliminar em features" como base para o passo 2. O gate de confirmação
+   da decomposição com o usuário (passo 3) continua valendo.
 1. **Entrevista técnica de levantamento de requisitos.** Perguntas uma de cada vez, com
    preferência por `AskUserQuestion`. Roteiro mínimo (pule o que não se aplicar): problema
    e público-alvo; papéis e atores; escopo dentro/fora desta versão; requisitos
