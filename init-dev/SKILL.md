@@ -106,6 +106,7 @@ o mesmo em todas as etapas: `docs/specs/checkout.md`, `docs/plans/checkout.md` e
 
 | Artefato | Local | Skill que produz |
 |---|---|---|
+| Pitch de produto (fase 0, opcional) | `docs/brainstorming/<slug-do-produto>.md` | `/brainstorming` |
 | Constituição (propósito + features do projeto) | `docs/constitution/<slug-do-projeto>.md` | `/init-dev`, `/sdd` |
 | Especificação da feature (critérios de aceite EARS) | `docs/specs/<slug-da-feature>.md` | `/sdd` |
 | Plano técnico da feature | `docs/plans/<slug-da-feature>.md` | `/sdd` |
