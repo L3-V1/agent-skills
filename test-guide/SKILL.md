@@ -1,24 +1,23 @@
 ---
 name: test-guide
-description: "Elabora um roteiro de testes visuais de frontend — passo a passo verificável, rastreável aos critérios de aceite quando existirem — e salva em docs/tests/<slug>.md. Se o Playwright MCP estiver disponível no ambiente, se oferece para executar o roteiro e anota o resultado no mesmo arquivo. Invocada explicitamente pelo usuário via /test-guide (opcionalmente com o slug de uma feature) ou encadeada por outra skill. Use ao terminar de implementar uma tela/componente de UI, quando o usuário pedir um plano de teste manual de frontend, um roteiro de QA visual, ou quiser que o agente clique pela interface verificando a feature. Funciona tanto num projeto que segue a metodologia SDD (docs/specs, docs/plans, docs/tasks) quanto isolado."
+description: "Elabora um roteiro de testes visuais de frontend — passo a passo verificável, rastreável aos critérios de aceite quando existirem — e salva em docs/tests/<slug>.md. Se o Playwright MCP estiver disponível no ambiente, se oferece para executar o roteiro e anota o resultado no mesmo arquivo. Invocada explicitamente pelo usuário via /test-guide (opcionalmente com o slug de uma feature). Use ao terminar de implementar uma tela/componente de UI, quando o usuário pedir um plano de teste manual de frontend, um roteiro de QA visual, ou quiser que o agente clique pela interface verificando a feature. Funciona tanto num projeto que segue a metodologia SDD (docs/specs, docs/plans, docs/tasks) quanto isolado."
 disable-model-invocation: true
 ---
 
 # Test Guide — Roteiro de testes visuais de frontend
 
-Você foi invocado via `/test-guide` (ou encadeado por outra skill). Esta skill
-NUNCA deve ser disparada automaticamente pelo modelo — apenas quando o usuário
-digita o comando ou quando outra skill a chama como parte de um fluxo já iniciado.
+Você foi invocado via `/test-guide`. Esta skill NUNCA deve ser disparada
+automaticamente pelo modelo — apenas quando o usuário digita o comando.
 
 > Esta é a etapa de **verificação visual**: não é sobre testes automatizados
-> (unit / integração / componente), que são responsabilidade do fluxo de
-> implementação. Aqui o objetivo é um roteiro de verificação pela interface —
+> (unit / integração / componente), que são responsabilidade da implementação.
+> Aqui o objetivo é um roteiro de verificação pela interface —
 > pré-condição, ação, resultado observável na tela — e, opcionalmente, sua
 > execução assistida pelo agente via Playwright MCP.
 >
-> **Esta é a única etapa em que o Playwright MCP é usado.** No TDD da metodologia
-> SDD ele continua proibido: testes de frontend lá usam o framework do projeto
-> (testing-library, render headless, teste de componente).
+> Na implementação em TDD o Playwright MCP não é usado: os testes de frontend lá
+> usam o framework do projeto (testing-library, render headless, teste de
+> componente). O Playwright MCP entra só aqui, nesta verificação visual.
 
 ## Regra de ouro
 

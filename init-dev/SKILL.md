@@ -107,10 +107,10 @@ o mesmo em todas as etapas: `docs/specs/checkout.md`, `docs/plans/checkout.md` e
 | Artefato | Local | Skill que produz |
 |---|---|---|
 | Descrição do projeto (fase 0, opcional) | `docs/brainstorming/PROJECT.md` | `/brainstorming` |
-| Constituição (propósito + features do projeto) | `docs/constitution/<slug-do-projeto>.md` | `/init-dev`, `/sdd` |
-| Especificação da feature (critérios de aceite EARS) | `docs/specs/<slug-da-feature>.md` | `/sdd` |
-| Plano técnico da feature | `docs/plans/<slug-da-feature>.md` | `/sdd` |
-| Tarefas atômicas + progresso da implementação | `docs/tasks/<slug-da-feature>.md` | `/sdd` |
+| Constituição (propósito + features do projeto) | `docs/constitution/<slug-do-projeto>.md` | `/constitute`, `/init-dev` |
+| Especificação da feature (critérios de aceite EARS) | `docs/specs/<slug-da-feature>.md` | `/specify` |
+| Plano técnico da feature | `docs/plans/<slug-da-feature>.md` | `/plan` |
+| Tarefas atômicas + progresso da implementação | `docs/tasks/<slug-da-feature>.md` | `/to-tasks` (produz), `/to-tdd` (atualiza progresso) |
 | Roteiro de testes visuais de frontend | `docs/tests/<slug-da-feature>.md` | `/test-guide` |
 | Levantamento de estado de projeto herdado | `docs/onboarding/ONBOARDING.md` | `/onboarding` |
 | Base de conhecimento (armadilhas já resolvidas) | `docs/knowledge/INDEX.md` + `docs/knowledge/<slug>.md` | `/knowledge-base` |
@@ -238,7 +238,7 @@ A própria skill conduz a etapa — não delegue para outras skills:
 **Depende de:** <slugs, ou "nenhuma">
 
 ## Próximos passos
-Para conduzir o ciclo SDD de cada feature: `/sdd <slug>`
+Próxima etapa por feature: `/specify <slug>`
 ```
 
 ## Passo 7 — Resumo final
@@ -253,5 +253,5 @@ Informe ao usuário, de forma objetiva:
   — quando incluídos, são boilerplate que o usuário pode editar se o projeto usar outra convenção
   de caminhos/etapas.
 - Se a constituição foi conduzida: que `docs/constitution/<slug>.md` foi criado e que o próximo
-  passo é `/sdd <slug>` por feature. Se não foi: que a etapa de Constituição fica pendente
-  como próximo passo do fluxo SDD (a própria skill `/sdd` também conduz a constituição).
+  passo é `/specify <slug>` por feature. Se não foi: que a etapa de Constituição fica pendente
+  como próximo passo do fluxo SDD (a skill `/constitute` a conduz).

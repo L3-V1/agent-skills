@@ -1,14 +1,14 @@
 ---
 name: brainstorming
-description: "Fase 0 (pré-constituição) do fluxo SDD: a partir de um tema ou ideia vaga, explora ideias de software, converge para um único projeto e produz uma descrição completa dele em docs/brainstorming/PROJECT.md — pronta para a constituição do /sdd e a decomposição em features. Invocada explicitamente pelo usuário via /brainstorming."
+description: "Fase 0 (pré-constituição) do fluxo SDD: a partir de um tema ou ideia vaga, explora ideias de software, converge para um único projeto e produz uma descrição completa dele em docs/brainstorming/PROJECT.md — pronta para a fase de constituição e a decomposição em features. Invocada explicitamente pelo usuário via /brainstorming."
 disable-model-invocation: true
 ---
 
 # Brainstorming — Fase 0 pré-constituição do SDD
 
 > Essa skill sugere ideias e guia o usuário na criação de produtos ou soluções de
-> software, terminando numa **descrição completa do projeto** que antecede a constituição
-> do `/sdd`.
+> software, terminando numa **descrição completa do projeto** que antecede a fase de
+> constituição.
 
 ## Visão Geral
 
@@ -20,9 +20,10 @@ disable-model-invocation: true
   um único projeto**. Uma vez escolhido, o agente aprofunda esse projeto até ter uma
   descrição completa.
 - O entregável é `docs/brainstorming/PROJECT.md` — a descrição completa do projeto, no
-  nível de "o que é o projeto", não de spec de feature. Ela alimenta a **constituição do
-  `/sdd`**, que é o gate que valida escopo, princípios e a lista final de features. O slug
-  do projeto só é definido na constituição — por isso o arquivo tem nome fixo.
+  nível de "o que é o projeto", não de spec de feature. Ela alimenta a **fase de
+  constituição** (`/constitute`), que é o gate que valida escopo, princípios e a lista
+  final de features. O slug do projeto só é definido na constituição — por isso o arquivo
+  tem nome fixo.
 
 ---
 
@@ -54,8 +55,8 @@ disable-model-invocation: true
 
 6. **Aprofunde o projeto escolhido (levantamento dirigido à constituição)**: Com o projeto
    definido, faça perguntas de levantamento — uma de cada vez, com preferência por
-   `AskUserQuestion` — cobrindo os mesmos eixos da entrevista de constituição do `/sdd`
-   (ver `sdd/SKILL.md`, Passo 2), no nível "descrição de projeto":
+   `AskUserQuestion` — cobrindo os mesmos eixos da entrevista da fase de constituição
+   (ver `../_shared/sdd/interview-constitute.md`), no nível "descrição de projeto":
    - problema e público-alvo;
    - papéis e atores;
    - escopo dentro / fora desta versão;
@@ -67,9 +68,9 @@ disable-model-invocation: true
    - esboço de decomposição em features.
 
    Pule o que não se aplicar e não repita perguntas cuja resposta já apareceu. Este
-   levantamento é um **esboço para acelerar a constituição** — não a substitui. A
-   constituição do `/sdd` continua sendo o gate que confirma escopo, princípios e a lista
-   final de features.
+   levantamento é um **esboço para acelerar a constituição** — não a substitui. A fase de
+   constituição continua sendo o gate que confirma escopo, princípios e a lista final de
+   features.
 
 ---
 
@@ -82,9 +83,9 @@ com o usuário antes de sobrescrever.
 ```markdown
 # Projeto: <nome provisório do projeto>
 
-> Descrição completa do projeto — Fase 0 (pré-constituição). Alimenta a constituição do
-> `/sdd`, que confirma escopo, princípios e a decomposição final em features. O slug do
-> projeto só é definido na constituição.
+> Descrição completa do projeto — Fase 0 (pré-constituição). Alimenta a fase de
+> constituição, que confirma escopo, princípios e a decomposição final em features. O slug
+> do projeto só é definido na constituição.
 
 ## Resumo
 <2-4 frases: o que o projeto entrega e para quem>
@@ -117,10 +118,10 @@ com o usuário antes de sobrescrever.
 - ...
 
 ## Decomposição preliminar em features
-<lista de features candidatas, 1-2 frases cada. A constituição do /sdd confirma, funde ou divide.>
+<lista de features candidatas, 1-2 frases cada. A fase de constituição confirma, funde ou divide.>
 - **<Nome da feature>** — <descrição curta>
 ```
 
 Ao final, apresente o documento e informe que o próximo passo é `/init-dev` (para
-configurar o projeto) ou `/sdd` (a constituição consome o `PROJECT.md` como contexto e
-pula as perguntas já respondidas).
+configurar o projeto) ou `/constitute` (consome o `PROJECT.md` como contexto e pula as
+perguntas já respondidas).

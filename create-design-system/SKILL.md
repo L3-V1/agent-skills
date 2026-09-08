@@ -9,10 +9,9 @@ disable-model-invocation: true
 Você foi invocado via `/create-design-system`. NUNCA dispare esta skill por conta própria.
 
 > Gera o design system do projeto inteiro num arquivo único, `docs/ui/DESIGN.md`, feito para
-> ser lido por agentes de IA antes de construir ou revisar qualquer tela. Difere de
-> `/prototype`, que decide e mocka **uma tela** específica: aqui o alvo é a linguagem visual e
-> os padrões que valem para **todas** as telas. O `docs/ui/DESIGN.md` entra no mapa de
-> artefatos do projeto (`/init-dev`) e deve ser referenciado no `AGENTS.md`.
+> ser lido por agentes de IA antes de construir ou revisar qualquer tela. O escopo aqui é a
+> linguagem visual e os padrões que valem para **todas** as telas — não o mockup de uma
+> tela específica. O `docs/ui/DESIGN.md` deve ser referenciado no `AGENTS.md` do projeto.
 
 ## Regra de ouro
 
@@ -239,8 +238,7 @@ Informe ao usuário, de forma objetiva:
 - Quais seções ficaram preenchidas e quais ficaram como `> A definir` (o que ainda falta
   decidir ou verificar).
 - No modo atualizar: o que mudou em relação à versão anterior.
-- Que o arquivo deve ser referenciado no contexto dos agentes do projeto — via `AGENTS.md`
-  (a skill `/init-dev` já inclui `docs/ui/DESIGN.md` no mapa de artefatos).
+- Que o arquivo deve ser referenciado no contexto dos agentes do projeto — via `AGENTS.md`.
 
 ## Subagentes
 

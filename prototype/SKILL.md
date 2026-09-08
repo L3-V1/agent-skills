@@ -14,7 +14,7 @@ Você foi invocado via `/prototype`. NUNCA dispare esta skill por conta própria
 ## Passo 1 — Entender o que prototipar
 
 Pergunte diretamente ao usuário o que ele quer prototipar: qual tela, para qual usuário, e o
-que ela precisa permitir fazer. Se houver uma descrição da tela em `docs/tasks/TASKS.md` ou num
+que ela precisa permitir fazer. Se houver uma descrição da tela em `docs/tasks/<slug>.md` ou num
 PRD que o usuário aponte, use isso como ponto de partida em vez de perguntar do zero.
 
 ## Passo 2 — Entrevista de decisões de design

@@ -33,7 +33,7 @@ O acervo vive em `docs/knowledge/` no repositório do projeto:
 ## Quando NÃO usar
 
 - Erros triviais: digitação, import faltando, typo de nome de variável.
-- Decisões de arquitetura ou de produto — isso é do fluxo `/sdd`.
+- Decisões de arquitetura ou de produto — isso é levantado com o usuário, não registrado aqui.
 - Preferências de estilo de código — isso é decisão de estilo / revisão de código, não base de conhecimento.
 - "Como usar a biblioteca X" em geral — a base é sobre *o que deu errado neste
   projeto*, não documentação de API.

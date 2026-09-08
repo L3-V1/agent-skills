@@ -1,0 +1,140 @@
+# Templates de artefato — fluxo spec-anchored
+
+> Material compartilhado das skills de fase. Não é uma skill. Os quatro templates abaixo
+> são a fonte única de verdade do formato dos artefatos em `docs/` — mantê-los idênticos
+> entre as skills que os produzem.
+
+O slug de uma feature é o mesmo em todas as etapas: `docs/specs/checkout.md`,
+`docs/plans/checkout.md` e `docs/tasks/checkout.md` referem-se todos à feature `checkout`.
+
+---
+
+## Constituição → `docs/constitution/<slug-do-projeto>.md`
+
+```markdown
+# Constituição: <nome do projeto>
+
+## Propósito
+<1-3 frases: o que o projeto entrega e para quem>
+
+## Princípios inegociáveis
+- <decisões e restrições que nenhuma feature pode violar>
+
+## Features
+### 1. <Nome da feature> (`slug-da-feature`)
+<descrição>
+**Depende de:** <slugs, ou "nenhuma">
+
+## Próximos passos
+Próxima etapa por feature: `/specify <slug-da-feature>`
+```
+
+---
+
+## Especificação (EARS) → `docs/specs/<slug-da-feature>.md`
+
+```markdown
+# Spec: <nome da feature>
+
+**Status:** rascunho | gerado
+**Slug:** <slug>
+
+## Problema
+<resumo do problema e público-alvo>
+
+## Escopo
+### Dentro
+- ...
+### Fora
+- ...
+
+## Restrições
+- ...
+
+## Critérios de aceite (EARS)
+- **AC-01** — Quando ..., o sistema deve ...
+- **AC-02** — ...
+
+## Comportamentos indesejados
+- **AC-0N** — Se ..., então o sistema deve ...
+
+## Próximos passos
+Próxima etapa: `/plan <slug>`
+```
+
+---
+
+## Plano técnico → `docs/plans/<slug-da-feature>.md`
+
+```markdown
+# Plano técnico: <nome da feature>
+
+**Status:** rascunho | gerado
+**Slug:** <slug>
+**Spec de referência:** docs/specs/<slug>.md
+
+## Resumo da abordagem
+<1-2 parágrafos>
+
+## Pontos de integração
+- ...
+
+## Decisões de arquitetura
+### Decisão: <nome>
+- Opções consideradas: A, B, C
+- Escolhida: B
+- Motivo: ...
+
+## Impacto em dados
+- ...
+
+## Riscos e mitigação
+- ...
+
+## Fora do escopo deste plano
+- ...
+
+## Rastreabilidade
+Este plano cobre os critérios: AC-01, AC-02, AC-03... (liste todos os AC-XX da spec e
+marque se algum ainda não tem abordagem técnica definida).
+
+## Próximos passos
+Próxima etapa: `/to-tasks <slug>`
+```
+
+---
+
+## Tarefas → `docs/tasks/<slug-da-feature>.md`
+
+```markdown
+# Tarefas: <nome da feature>
+
+**Status:** rascunho | gerado
+**Slug:** <slug>
+**Plano de referência:** docs/plans/<slug>.md
+**Paralelização:** sim | não
+
+- [ ] **T-01** — <título>
+  - **Cobre:** AC-01, AC-02
+  - **Depende de:** nenhuma
+  - **Complexidade:** baixa
+  - **Pronto quando:** teste de AC-01 e AC-02 passam
+
+- [ ] **T-02** — <título>
+  - **Cobre:** AC-03
+  - **Depende de:** T-01
+  - **Complexidade:** média
+  - **Pronto quando:** ...
+
+## Grupos paralelizáveis
+- Grupo A (independentes entre si): T-01, T-03
+- Sequencial: T-02 (depende de T-01), T-04 (depende de T-02)
+
+## Rastreabilidade reversa
+- AC-01 → T-01
+- AC-02 → T-01
+- AC-03 → T-02
+
+## Próximos passos
+Próxima etapa: `/to-tdd <slug>`
+```
