@@ -88,6 +88,14 @@ Próxima etapa: `/plan <slug>`
 ## Impacto em dados
 - ...
 
+## Conformidade com o design
+<Se a feature não tem superfície visual: "> sem superfície visual" e nada mais.
+Caso contrário, referencie docs/blueprint/DESIGN.md:>
+- Tokens aplicáveis: <cores/tipografia/espaçamento/raio — nomes reais da seção 2>
+- Padrões de tela: <listagem | detalhe | formulário — seção 3>
+- Componentes-base: <nomes da seção 4; "novo componente" só se justificado aqui>
+- Estados obrigatórios: vazio, carregando, erro, sem permissão (seção 5)
+
 ## Riscos e mitigação
 - ...
 
@@ -113,6 +121,10 @@ Próxima etapa: `/to-tasks <slug>`
 **Slug:** <slug>
 **Plano de referência:** docs/plans/<slug>.md
 **Paralelização:** sim | não
+
+<!-- Em tarefas de UI, "Pronto quando" inclui conformidade com docs/blueprint/DESIGN.md:
+     ex. "teste de AC-03 passa e a tela usa os tokens/componentes do DESIGN.md
+     (sem cor/medida fora da escala)". -->
 
 - [ ] **T-01** — <título>
   - **Cobre:** AC-01, AC-02

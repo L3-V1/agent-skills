@@ -17,7 +17,10 @@ etapas seguintes.
 
 ## Entrevista
 
-Perguntas uma de cada vez:
+Você pode agrupar mais de uma pergunta por vez, desde que as respostas sejam independentes
+entre si — quando a resposta de uma muda o conteúdo ou a relevância da próxima, faça-as em
+sequência. Prefira `AskUserQuestion` (aceita várias perguntas numa só chamada, até ~4 por
+vez); no fallback de chat, múltipla escolha enumerada com a recomendação destacada.
 
 1. **Nome/slug da feature.** Ex.: "checkout-parcelado", "auth-2fa". Vira o nome do arquivo.
 2. **Problema e público.** Que problema isso resolve, e para quem (que tipo de
@@ -34,7 +37,8 @@ Perguntas uma de cada vez:
    conhecidos a evitar, condições de falha a tratar.
 
 Se uma resposta já responder uma pergunta futura, não pergunte de novo — confirme o que
-entendeu e siga.
+entendeu e siga. É a mesma lógica da regra acima: perguntas cuja resposta depende de outra
+não vão na mesma rodada.
 
 ## Converter para EARS
 

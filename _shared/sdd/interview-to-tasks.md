@@ -14,6 +14,10 @@ Leia `docs/plans/<slug>.md` e a spec (`docs/specs/<slug>.md`) para ter a lista c
 
 ## Entrevista
 
+As três perguntas abaixo são independentes entre si — pode fazê-las numa só rodada
+(`AskUserQuestion`, até ~4 por vez); no fallback de chat, múltipla escolha enumerada com a
+recomendação destacada.
+
 1. **Granularidade.** Tarefas bem pequenas (uma função/endpoint por tarefa) ou maiores por
    área? Recomendação: pequenas o bastante para serem implementadas e testadas em uma
    única sessão de foco (tipicamente < ~1h de trabalho de agente).
@@ -30,8 +34,10 @@ Para cada critério (ou grupo de critérios relacionados), gere uma ou mais tare
 tarefa é um item de checkbox markdown com ID e título na mesma linha, e precisa ter: ID
 (`T-01`, ...), título curto, `AC-XX` cobertos, dependências (outros `T-XX` ou "nenhuma"),
 complexidade (baixa/média/alta — orienta a escolha de modelo para subagentes) e critério
-de pronto (geralmente: teste correspondente ao AC passando). Marque explicitamente quais
-tarefas são independentes entre si.
+de pronto (geralmente: teste correspondente ao AC passando). Para tarefas com manifestação
+visual, o critério de pronto inclui conformidade com `docs/blueprint/DESIGN.md` — a tela usa
+os tokens, componentes e padrões da seção "Conformidade com o design" do plano, sem cor ou
+medida fora da escala. Marque explicitamente quais tarefas são independentes entre si.
 
 ## Salvar
 

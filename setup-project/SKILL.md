@@ -132,6 +132,9 @@ Obrigatórias para qualquer agente de IA que trabalhe neste projeto:
   e a recomendação; a decisão é do usuário.
 - **SEMPRE faça perguntas ao usuário** quando identificar lacunas nas instruções, ambiguidade
   de escopo, ou quando surgirem dúvidas durante a execução. Preferir perguntar a assumir.
+- **SIGA o design system.** Quando existir `docs/blueprint/DESIGN.md`, implemente e revise
+  qualquer UI com os tokens, componentes e padrões de tela definidos nele — valores literais,
+  sem improviso. Desvio necessário se levanta com o usuário antes.
 - **PREFIRA interface gráfica ao perguntar ao usuário.** Quando o ambiente oferecer uma
   interface de opções selecionáveis (ex. `AskUserQuestion` na extensão Claude Code no VSCode),
   use-a. Se não houver interface disponível no ambiente, faça as perguntas pelo chat em formato
@@ -161,10 +164,10 @@ A própria skill conduz a etapa — não delegue para outras skills:
    a "Decomposição preliminar em features" como base para o passo 2. Se
    `docs/blueprint/ARCHITECTURE.md` também existir, releia-o para não repetir
    perguntas sobre stack/arquitetura.
-1. **Entrevista técnica de levantamento de requisitos.** Faça as perguntas **uma de cada
-   vez**, aguardando resposta antes da próxima, com preferência por interface gráfica
-   (`AskUserQuestion`) e, no fallback de chat, múltipla escolha enumerada com recomendação
-   destacada. Roteiro mínimo (pule o que não se aplicar): problema e público-alvo; papéis e
+1. **Entrevista técnica de levantamento de requisitos.** Agrupe perguntas independentes numa
+   só rodada (`AskUserQuestion`, até ~4 por vez); só faça em sequência quando a resposta de
+   uma afeta o conteúdo ou a relevância da próxima. No fallback de chat, múltipla escolha
+   enumerada com recomendação destacada. Roteiro mínimo (pule o que não se aplicar): problema e público-alvo; papéis e
    atores; escopo dentro/fora desta versão; requisitos funcionais; requisitos não funcionais
    (performance, segurança, escala) quando relevantes; stack técnica e restrições; critérios de
    sucesso; riscos e casos de borda conhecidos. Mantenha entre ~10 e 20 perguntas no total, a

@@ -13,8 +13,11 @@ sem plano, pergunte qual.
 
 ## Entrevista
 
-Uma pergunta de cada vez. Sempre que houver mais de uma abordagem técnica razoável,
-apresente as alternativas com uma recomendação e o porquê — a decisão final é do usuário.
+Você pode agrupar perguntas independentes numa só rodada (`AskUserQuestion`, até ~4 por
+vez); só faça em sequência quando a resposta de uma afeta a próxima — o que é comum aqui: a
+pergunta 2 (decisões de arquitetura) costuma depender da 1 (pontos de integração) e da
+investigação técnica. Sempre que houver mais de uma abordagem técnica razoável, apresente as
+alternativas com uma recomendação e o porquê — a decisão final é do usuário.
 
 1. **Pontos de integração.** Este plano toca sistemas/serviços/módulos existentes? Quais?
 2. **Decisões de arquitetura em aberto.** Existe alguma decisão técnica que a spec não
@@ -24,7 +27,13 @@ apresente as alternativas com uma recomendação e o porquê — a decisão fina
 3. **Impacto em dados.** Precisa de migração, nova tabela/coleção, mudança de schema?
 4. **Riscos técnicos.** O que tem mais chance de dar errado ou atrasar? Vale um spike
    antes de decompor em tarefas?
-5. **Fora do plano.** Algo que parece tentador mas deve ficar de fora deste incremento
+5. **Superfície visual.** Esta feature tem telas ou componentes de UI? Se sim e existir
+   `docs/blueprint/DESIGN.md`, leia-o e liste os tokens (cores, tipografia, espaçamento,
+   raio), os padrões de tela (listagem/detalhe/formulário) e os componentes-base que se
+   aplicam. Os estados obrigatórios da seção 5 do DESIGN.md (vazio, carregando, erro, sem
+   permissão) valem para toda tela com dados. Isso vira a seção "Conformidade com o design"
+   do plano.
+6. **Fora do plano.** Algo que parece tentador mas deve ficar de fora deste incremento
    (débito técnico aceito, otimizações futuras)?
 
 ## Investigação técnica (se necessário)
@@ -38,4 +47,6 @@ leitura/varredura. O orquestrador sintetiza os achados e faz a recomendação.
 
 Use o template de plano em `templates.md`. Crie `docs/plans/` se não existir. Salve em
 `docs/plans/<slug>.md` (mesmo slug da spec). Confira que todo `AC-XX` da spec tem cobertura
-no plano; se algum não tiver, avise o usuário explicitamente.
+no plano; se algum não tiver, avise o usuário explicitamente. Se a feature tem UI, confira
+também que a seção "Conformidade com o design" está preenchida (ou marcada como "sem
+superfície visual").

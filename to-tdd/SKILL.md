@@ -28,15 +28,21 @@ Você foi invocado via `/to-tdd`. NUNCA dispare esta skill por conta própria.
 - **Sem aprovação por tarefa.** A revisão humana acontece nas pontas, não a cada tarefa —
   isso viraria microgerenciamento.
 - **Prefira interface gráfica ao perguntar** (`AskUserQuestion`); sem ela, múltipla escolha
-  enumerada no chat com recomendação destacada.
+  enumerada no chat com recomendação destacada. Agrupe perguntas independentes numa só
+  rodada (até ~4); só em sequência quando a resposta de uma afeta a próxima.
+- **UI obedece o design system.** Quando `docs/blueprint/DESIGN.md` existir, todo código de
+  interface usa os tokens, componentes e padrões de tela dele. Valor fora da escala/token,
+  ou componente ad-hoc quando já há equivalente no DESIGN.md → pare e confirme com o usuário
+  (é decisão de design, não implementação livre).
 
 ## Passo 0 — Reunir contexto
 
 A implementação depende das **tarefas** (Fase 4), idealmente com spec e plano por trás.
 
 - **`docs/tasks/<slug>.md` existe?** Leia-o e também `docs/specs/<slug>.md` e
-  `docs/plans/<slug>.md` para o contexto completo dos critérios de aceite. O progresso
-  será marcado neste arquivo (`- [ ]` → `- [x]`).
+  `docs/plans/<slug>.md` para o contexto completo dos critérios de aceite. Se a feature
+  tocar UI e existir `docs/blueprint/DESIGN.md`, leia-o também. O progresso
+  será marcado no arquivo de tarefas (`- [ ]` → `- [x]`).
 - **Não existe?** Pergunte ao usuário (`AskUserQuestion`, fallback múltipla escolha) como
   proceder:
   1. **Entrevista curta de contexto** (recomendado) — levanto o que implementar, os
@@ -55,7 +61,8 @@ tarefas pendentes, pergunte qual; se só houver um, confirme em uma linha.
 
 ## Passo 2 — Entrevista curta
 
-A maior parte já foi decidida na Fase 4. Confirme só o que muda a execução:
+A maior parte já foi decidida na Fase 4. Confirme só o que muda a execução — as duas
+perguntas são independentes, pergunte as duas de uma vez:
 
 1. **Modo de execução.** Se o arquivo marcou "Paralelização: sim", confirme: despachar os
    grupos independentes em paralelo, ou acompanhar tarefa por tarefa mesmo assim?
@@ -75,14 +82,18 @@ ordem definida por dependências:
 2. Escreva o teste que expressa esse critério **antes** de qualquer código de
    implementação. A forma EARS já sugere o teste: "Quando `<evento>`, deve `<resposta>`"
    vira um teste que provoca o evento e verifica a resposta. Para `AC-XX` com manifestação
-   visual, prefira o framework de teste do projeto. Se o comportamento só puder ser
-   verificado com navegador real: use o Playwright MCP quando disponível (navegue, interaja
-   e verifique/tire screenshot dentro do ciclo); se indisponível, registre o critério para
-   um passo de verificação visual posterior e siga.
+   visual, releia antes a seção aplicável do `docs/blueprint/DESIGN.md` e a seção
+   "Conformidade com o design" do plano, e prefira o framework de teste do projeto. Se o
+   comportamento só puder ser verificado com navegador real: use o Playwright MCP quando
+   disponível (navegue, interaja e verifique/tire screenshot dentro do ciclo, conferindo
+   contra os valores do `DESIGN.md`); se indisponível, registre o critério para um passo de
+   verificação visual posterior e siga.
 3. Rode o teste e confirme que **falha** (evita teste que "passa por acidente").
 4. Implemente o mínimo necessário para o teste passar.
 5. Rode o teste de novo. Se passar, faça um passe de refactor (limpeza, remoção de
-   duplicação) mantendo o teste verde. Rode a suíte a cada ciclo.
+   duplicação) mantendo o teste verde. Em tarefas de UI, confirme nesse passe que o markup
+   final usa tokens/classes reais do `DESIGN.md`, não valores hardcoded fora da escala. Rode
+   a suíte a cada ciclo.
 6. Se houver `docs/tasks/<slug>.md`, marque a tarefa como concluída (troque `- [ ]` por
    `- [x]` no checkbox do `T-XX`).
 
@@ -101,5 +112,7 @@ subagentes paralelos.
 ## Passo 5 — Encerramento
 
 Apresente um resumo: quantas tarefas concluídas, quantas bloqueadas (se houver) e quais
-arquivos foram alterados. A revisão de código e o merge ficam a cargo do usuário. **Pare
-aqui** — não encadeie nenhuma outra etapa.
+arquivos foram alterados. Se a feature tocou UI, registre em uma linha que a implementação
+seguiu o `docs/blueprint/DESIGN.md` (ou aponte os desvios conscientes que o usuário aprovou).
+A revisão de código e o merge ficam a cargo do usuário. **Pare aqui** — não encadeie nenhuma
+outra etapa.

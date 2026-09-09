@@ -14,9 +14,11 @@ sobre stack técnica e restrições já decididas.
 
 ## 1. Entrevista técnica de levantamento de requisitos
 
-Perguntas **uma de cada vez**, com preferência por `AskUserQuestion`; no fallback de chat,
-múltipla escolha enumerada com a recomendação destacada. Roteiro mínimo (pule o que não se
-aplicar): problema e público-alvo; papéis e atores; escopo dentro/fora desta versão;
+Você pode agrupar mais de uma pergunta por vez, desde que as respostas sejam independentes
+entre si — quando a resposta de uma pergunta muda o conteúdo ou a relevância da próxima,
+faça-as em sequência. Prefira `AskUserQuestion` (que aceita várias perguntas numa só chamada,
+até ~4 por vez); no fallback de chat, múltipla escolha enumerada com a recomendação
+destacada. Roteiro mínimo (pule o que não se aplicar): problema e público-alvo; papéis e atores; escopo dentro/fora desta versão;
 requisitos funcionais; requisitos não funcionais (performance, segurança, escala) quando
 relevantes; stack técnica e restrições; critérios de sucesso; riscos e casos de borda
 conhecidos. Entre ~10 e 20 perguntas no total, salvo pedido do usuário por mais.

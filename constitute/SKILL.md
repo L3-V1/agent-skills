@@ -21,8 +21,9 @@ Você foi invocado via `/constitute`. NUNCA dispare esta skill por conta própri
   gerado e **pare**. Não encadeie a próxima fase.
 - **Prefira interface gráfica ao perguntar.** Quando o ambiente oferecer `AskUserQuestion`
   (extensão Claude Code no VSCode), use-a. Sem essa interface, pergunte no chat em múltipla
-  escolha enumerada, sempre destacando a recomendação e o porquê. Perguntas de entrevista
-  vão **uma de cada vez**, aguardando resposta antes da próxima.
+  escolha enumerada, sempre destacando a recomendação e o porquê. Agrupe perguntas
+  independentes numa só rodada (`AskUserQuestion`, até ~4); só faça em sequência quando a
+  resposta de uma afeta o conteúdo ou a relevância da próxima.
 
 ## Passo 0 — Reunir contexto
 
@@ -40,7 +41,8 @@ A constituição é a primeira fase, então não há artefato anterior obrigató
 ## Passo 1 — Conduzir a entrevista e a decomposição
 
 Siga `../_shared/sdd/interview-constitute.md` na íntegra: contexto existente → entrevista
-técnica (uma pergunta de cada vez) → decomposição em features → confirmação com o usuário.
+técnica (perguntas independentes agrupadas) → decomposição em features → confirmação com o
+usuário.
 
 ## Passo 2 — Salvar
 

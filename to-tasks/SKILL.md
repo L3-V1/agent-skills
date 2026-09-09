@@ -21,7 +21,8 @@ Você foi invocado via `/to-tasks`. NUNCA dispare esta skill por conta própria.
 - **Gate do usuário.** Ao terminar, apresente as tarefas, marque `Status: gerado` e
   **pare**.
 - **Prefira interface gráfica ao perguntar** (`AskUserQuestion`); sem ela, múltipla escolha
-  enumerada no chat com recomendação destacada. Uma pergunta de cada vez.
+  enumerada no chat com recomendação destacada. Agrupe perguntas independentes numa só
+  rodada (até ~4); só em sequência quando a resposta de uma afeta a próxima.
 
 ## Passo 0 — Reunir contexto
 

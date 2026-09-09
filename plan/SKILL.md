@@ -20,7 +20,8 @@ Você foi invocado via `/plan`. NUNCA dispare esta skill por conta própria.
   recomendação; a escolha é dele.
 - **Gate do usuário.** Ao terminar, apresente o plano, marque `Status: gerado` e **pare**.
 - **Prefira interface gráfica ao perguntar** (`AskUserQuestion`); sem ela, múltipla escolha
-  enumerada no chat com recomendação destacada. Uma pergunta de cada vez.
+  enumerada no chat com recomendação destacada. Agrupe perguntas independentes numa só
+  rodada (até ~4); só em sequência quando a resposta de uma afeta a próxima.
 
 ## Passo 0 — Reunir contexto
 
@@ -28,7 +29,9 @@ O plano depende da **spec** (Fase 2).
 
 - **`docs/specs/<slug>.md` existe?** Leia-a e leia também `docs/constitution/*.md` e
   `docs/blueprint/ARCHITECTURE.md`, se existirem, para contexto — o segundo traz a
-  stack e os padrões arquiteturais já decididos para o projeto. Extraia a lista
+  stack e os padrões arquiteturais já decididos para o projeto. Se a feature tiver
+  qualquer superfície visual e existir `docs/blueprint/DESIGN.md`, leia-o também para
+  extrair os tokens, padrões de tela e componentes-base aplicáveis. Extraia a lista
   completa de `AC-XX`.
 - **Não existe?** Pergunte ao usuário (`AskUserQuestion`, fallback múltipla escolha) como
   proceder:

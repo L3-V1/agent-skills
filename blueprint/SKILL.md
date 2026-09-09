@@ -50,8 +50,9 @@ Você foi invocado via `/blueprint`. NUNCA dispare esta skill por conta própria
    combine ou melhore algumas.
 5. **Avalie e selecione**: analise, junto ao usuário, viabilidade, originalidade,
    impacto e esforço. Ajude-o a escolher **um único projeto** para levar adiante.
-6. **Aprofunde o projeto escolhido**: faça perguntas de levantamento — uma de cada
-   vez, com preferência por `AskUserQuestion` — cobrindo os mesmos eixos da
+6. **Aprofunde o projeto escolhido**: faça perguntas de levantamento — agrupando as
+   independentes numa só rodada (`AskUserQuestion`, até ~4), só em sequência quando a
+   resposta de uma afeta a próxima — cobrindo os mesmos eixos da
    entrevista de constituição (ver `../_shared/sdd/interview-constitute.md`), no
    nível "descrição de projeto": problema e público-alvo; papéis e atores; escopo
    dentro/fora desta versão; requisitos funcionais principais; requisitos não
@@ -112,9 +113,11 @@ Apresente o documento e pergunte se o usuário quer seguir para a Etapa 2 (Arqui
 > Ramificação da Etapa 1: decide, junto com o usuário, a stack técnica, os padrões
 > arquiteturais e as convenções de código do projeto.
 
-Faça **uma pergunta de cada vez**, aguardando resposta antes da próxima, com
-preferência por `AskUserQuestion`; no fallback de chat, múltipla escolha enumerada
-com recomendação destacada. Roteiro (pule o que não se aplicar):
+Agrupe perguntas independentes numa só rodada (`AskUserQuestion`, até ~4 por vez); no
+fallback de chat, múltipla escolha enumerada com recomendação destacada. Faça em
+sequência quando a resposta de uma afeta a próxima — é o caso das primeiras perguntas do
+roteiro (1 stack → 2 padrão arquitetural → 3 estrutura de pastas). Roteiro (pule o que não
+se aplicar):
 
 1. **Stack técnica** — linguagem(ns) e framework(s) de backend/frontend, banco de
    dados. Se `docs/blueprint/PROJECT.md` já indicar restrições técnicas, confirme em
@@ -202,8 +205,9 @@ com custom properties, uma pasta de componentes com telas reais → recomende
 
 #### Entrevista do zero
 
-Faça **uma pergunta de cada vez**. Roteiro (pule o que claramente não se aplica;
-~12–18 perguntas no total): personalidade visual (2-3 adjetivos); cor primária/de
+Agrupe perguntas independentes numa só rodada (`AskUserQuestion`, até ~4 por vez); só
+faça em sequência quando a resposta de uma afeta a próxima. Roteiro (pule o que claramente
+não se aplica; ~12–18 perguntas no total): personalidade visual (2-3 adjetivos); cor primária/de
 marca (hex) e cores de estado derivadas; superfície e fundo (claro/escuro/os dois);
 tipografia (família texto/título, escala, pesos); unidade de espaçamento e escala
 (recomende base 4px); raio de borda; sombra/elevação; breakpoints e largura de
@@ -322,6 +326,9 @@ Ao concluir (ou interromper) o fluxo, informe ao usuário, de forma objetiva:
 - Que o próximo passo é `/constitute` (consome `PROJECT.md` e pula perguntas já
   respondidas) ou `/setup-project` (documenta o projeto para agentes de IA e pode
   encadear a constituição).
+- Que o `DESIGN.md`, além de alimentar as duas skills acima, é consumido adiante por
+  `/plan` (vira a seção "Conformidade com o design" da feature) e por `/to-tdd` (guia a
+  implementação da UI).
 
 ## Subagentes
 
