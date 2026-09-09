@@ -11,9 +11,9 @@ etapas seguintes.
 
 - O usuário passou `$ARGUMENTS`? Use como ponto de partida e pule perguntas já respondidas
   — mas confirme os pontos ambíguos.
-- Existe `docs/constitution/<slug-do-projeto>.md`, README na raiz ou
-  `docs/onboarding/ONBOARDING.md` que já responda parte do contexto de negócio? Leia antes
-  de perguntar, para não repetir perguntas cuja resposta já está no projeto.
+- Existe `docs/constitution/<slug-do-projeto>.md` ou README na raiz que já responda
+  parte do contexto de negócio? Leia antes de perguntar, para não repetir perguntas
+  cuja resposta já está no projeto.
 
 ## Entrevista
 

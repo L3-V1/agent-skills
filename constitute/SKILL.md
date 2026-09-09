@@ -1,6 +1,6 @@
 ---
 name: constitute
-description: "Fase 1 do fluxo spec-anchored (SDD): entrevista técnica de levantamento de requisitos e decomposição do projeto em features distintas, gerando docs/constitution/<slug-do-projeto>.md. Funciona como início do fluxo SDD ou isolada — sempre que o usuário quiser um documento de fundação do projeto (propósito, princípios inegociáveis, lista de features com dependências). Consome docs/brainstorming/PROJECT.md como contexto se existir. Invocada explicitamente pelo usuário via /constitute."
+description: "Fase 1 do fluxo spec-anchored (SDD): entrevista técnica de levantamento de requisitos e decomposição do projeto em features distintas, gerando docs/constitution/<slug-do-projeto>.md. Funciona como início do fluxo SDD ou isolada — sempre que o usuário quiser um documento de fundação do projeto (propósito, princípios inegociáveis, lista de features com dependências). Consome docs/blueprint/PROJECT.md e docs/blueprint/ARCHITECTURE.md como contexto se existirem. Invocada explicitamente pelo usuário via /constitute."
 disable-model-invocation: true
 ---
 
@@ -31,8 +31,11 @@ A constituição é a primeira fase, então não há artefato anterior obrigató
 - **`docs/constitution/<slug>.md` já existe?** Leia. Pergunte ao usuário se quer
   **atualizar** (mesclar o levantamento desta execução, preservando o que já está
   registrado), **sobrescrever** (regenerar do zero) ou **abortar**.
-- **`docs/brainstorming/PROJECT.md` existe?** É a Fase 0 (opcional). Leia antes de
-  perguntar qualquer coisa e use como ponto de partida.
+- **`docs/blueprint/PROJECT.md` existe?** É a Etapa 1 do `/blueprint` (opcional).
+  Leia antes de perguntar qualquer coisa e use como ponto de partida.
+- **`docs/blueprint/ARCHITECTURE.md` existe?** É a Etapa 2 do `/blueprint`
+  (opcional). Leia para não repetir perguntas sobre stack técnica e restrições
+  já decididas.
 
 ## Passo 1 — Conduzir a entrevista e a decomposição
 

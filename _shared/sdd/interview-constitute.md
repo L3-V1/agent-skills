@@ -5,10 +5,12 @@
 
 ## 0. Contexto existente
 
-Se `docs/brainstorming/PROJECT.md` existir, leia-o antes de perguntar qualquer coisa e
+Se `docs/blueprint/PROJECT.md` existir, leia-o antes de perguntar qualquer coisa e
 use-o como ponto de partida: pule as perguntas já respondidas, confirme só os pontos
 ambíguos e leve a "Decomposição preliminar em features" como base para o passo 2. O gate de
-confirmação da decomposição com o usuário (passo 3) continua valendo.
+confirmação da decomposição com o usuário (passo 3) continua valendo. Se
+`docs/blueprint/ARCHITECTURE.md` também existir, releia-o para não repetir perguntas
+sobre stack técnica e restrições já decididas.
 
 ## 1. Entrevista técnica de levantamento de requisitos
 

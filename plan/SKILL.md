@@ -26,8 +26,10 @@ Você foi invocado via `/plan`. NUNCA dispare esta skill por conta própria.
 
 O plano depende da **spec** (Fase 2).
 
-- **`docs/specs/<slug>.md` existe?** Leia-a e leia também `docs/constitution/*.md` se
-  existir, para contexto. Extraia a lista completa de `AC-XX`.
+- **`docs/specs/<slug>.md` existe?** Leia-a e leia também `docs/constitution/*.md` e
+  `docs/blueprint/ARCHITECTURE.md`, se existirem, para contexto — o segundo traz a
+  stack e os padrões arquiteturais já decididos para o projeto. Extraia a lista
+  completa de `AC-XX`.
 - **Não existe?** Pergunte ao usuário (`AskUserQuestion`, fallback múltipla escolha) como
   proceder:
   1. **Entrevista curta de contexto** (recomendado) — levanto em poucas perguntas o
