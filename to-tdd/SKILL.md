@@ -1,6 +1,6 @@
 ---
 name: to-tdd
-description: "Fase 5 do fluxo spec-anchored (SDD): implementa as tarefas de uma feature em abordagem TDD, com o ciclo RED → GREEN → REFACTOR, rodando a suíte a cada ciclo e atualizando o progresso no arquivo de tarefas (marcando - [x]) quando ele existir. Funciona no fluxo SDD (após a decomposição em tarefas) ou isolada, sempre que o usuário quiser implementar algo dirigido por testes. Não usa o Playwright MCP — testes de frontend usam o framework do projeto. Invocada explicitamente pelo usuário via /to-tdd, opcionalmente com o slug da feature."
+description: "Fase 5 do fluxo spec-anchored (SDD): implementa as tarefas de uma feature em abordagem TDD, com o ciclo RED → GREEN → REFACTOR, rodando a suíte a cada ciclo e atualizando o progresso no arquivo de tarefas (marcando - [x]) quando ele existir. Funciona no fluxo SDD (após a decomposição em tarefas) ou isolada, sempre que o usuário quiser implementar algo dirigido por testes. Testes de frontend usam o framework do projeto; critérios com manifestação visual podem incluir testes de navegador via Playwright MCP quando ele estiver disponível. Invocada explicitamente pelo usuário via /to-tdd, opcionalmente com o slug da feature."
 disable-model-invocation: true
 ---
 
@@ -13,11 +13,13 @@ Você foi invocado via `/to-tdd`. NUNCA dispare esta skill por conta própria.
 > serve a nenhuma tarefa/critério, pare e pergunte ao usuário. Fase 5 do fluxo
 > spec-anchored (SDD), mas pode ser rodada isolada.
 
-> **Esta skill NÃO usa o Playwright MCP.** Mesmo que ferramentas `*playwright*` estejam
-> disponíveis, não as utilize aqui. Isso não proíbe testar frontend — só que os testes são
-> escritos pelo framework do projeto (testing-library / DOM testing, teste de componente,
-> render headless, unit/integration de UI). Verificação visual por navegador é um passo
-> separado, fora desta skill.
+> **Testes de frontend usam o framework do projeto** (testing-library / DOM testing, teste
+> de componente, render headless, unit/integration de UI) — é a forma padrão e preferida.
+> **Exceção:** quando um `AC-XX` só puder ser verificado com navegador real (layout,
+> regressão visual, fluxo ponta a ponta na UI) e o **Playwright MCP estiver disponível**,
+> escreva um teste visual com ele dentro do mesmo ciclo RED → GREEN → REFACTOR. Se o
+> Playwright MCP não estiver disponível, registre o critério para um passo de verificação
+> visual posterior e siga.
 
 ## Regra de ouro
 
@@ -73,9 +75,10 @@ ordem definida por dependências:
 2. Escreva o teste que expressa esse critério **antes** de qualquer código de
    implementação. A forma EARS já sugere o teste: "Quando `<evento>`, deve `<resposta>`"
    vira um teste que provoca o evento e verifica a resposta. Para `AC-XX` com manifestação
-   visual, use o framework de teste do projeto — nunca o Playwright MCP. Se o comportamento
-   só puder ser verificado com navegador real, registre-o para cobrir depois num passo de
-   verificação visual e siga.
+   visual, prefira o framework de teste do projeto. Se o comportamento só puder ser
+   verificado com navegador real: use o Playwright MCP quando disponível (navegue, interaja
+   e verifique/tire screenshot dentro do ciclo); se indisponível, registre o critério para
+   um passo de verificação visual posterior e siga.
 3. Rode o teste e confirme que **falha** (evita teste que "passa por acidente").
 4. Implemente o mínimo necessário para o teste passar.
 5. Rode o teste de novo. Se passar, faça um passe de refactor (limpeza, remoção de
@@ -91,8 +94,9 @@ o que foi tentado e o que falhou, e chame o usuário antes de prosseguir.
 Quando o arquivo indicar um grupo de tarefas independentes entre si e o usuário tiver
 confirmado paralelização, siga `../_shared/sdd/subagentes.md`: um subagente por tarefa do
 grupo (Haiku para complexidade baixa, modelo padrão para média/alta), cada um no loop de
-TDD sem Playwright MCP; o orquestrador consolida, resolve conflitos e só então marca as
-tarefas.
+TDD; o orquestrador consolida, resolve conflitos e só então marca as tarefas. Testes
+visuais com Playwright MCP ficam a cargo do orquestrador (execução serial), não dos
+subagentes paralelos.
 
 ## Passo 5 — Encerramento
 

@@ -10,6 +10,7 @@
   para a leitura/varredura. As decisões de arquitetura em si ficam no orquestrador.
 - **Implementação (TDD):** subagentes para grupos de tarefas explicitamente independentes;
   Haiku para tarefas de complexidade baixa, modelo padrão da sessão para média/alta. Cada
-  subagente segue o loop de TDD isoladamente e sem Playwright MCP. Nunca paralelize tarefas
-  com dependência entre si. Depois que os subagentes terminarem, o orquestrador revisa os
-  resultados, resolve conflitos e só então marca as tarefas como concluídas.
+  subagente segue o loop de TDD isoladamente; testes visuais com Playwright MCP ficam a
+  cargo do orquestrador (execução serial), não dos subagentes paralelos. Nunca paralelize
+  tarefas com dependência entre si. Depois que os subagentes terminarem, o orquestrador
+  revisa os resultados, resolve conflitos e só então marca as tarefas como concluídas.

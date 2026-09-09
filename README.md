@@ -54,7 +54,7 @@ As skills não se encadeiam sozinhas nem se referenciam entre si.
 | [`specify`](./specify/) | **Fase 2 — Especificação.** Define **o QUÊ** será implementado numa feature — problema, escopo, restrições e critérios de aceite observáveis em EARS (`AC-XX`) → `docs/specs/<slug-da-feature>.md`. |
 | [`plan`](./plan/) | **Fase 3 — Planejamento.** Define **o COMO** — pontos de integração, decisões de arquitetura, impacto em dados, riscos — derivado da spec e rastreado aos `AC-XX` → `docs/plans/<slug-da-feature>.md`. |
 | [`to-tasks`](./to-tasks/) | **Fase 4 — Tarefas.** Decompõe o plano em tarefas atômicas verificáveis (`T-XX`), com dependências, complexidade e grupos paralelizáveis, rastreadas aos `AC-XX` → `docs/tasks/<slug-da-feature>.md`. |
-| [`to-tdd`](./to-tdd/) | **Fase 5 — Implementação.** Implementa as tarefas em TDD (RED → GREEN → REFACTOR), roda a suíte a cada ciclo e marca o progresso no arquivo de tarefas (`- [x]`). Não usa o Playwright MCP. |
+| [`to-tdd`](./to-tdd/) | **Fase 5 — Implementação.** Implementa as tarefas em TDD (RED → GREEN → REFACTOR), roda a suíte a cada ciclo e marca o progresso no arquivo de tarefas (`- [x]`). Critérios com manifestação visual podem usar testes de navegador via Playwright MCP quando disponível. |
 
 ### Utilitários de projeto
 
