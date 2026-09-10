@@ -1,6 +1,6 @@
 ---
 name: to-tasks
-description: "Fase 4 do fluxo spec-anchored (SDD): decompõe o plano técnico de uma feature em tarefas atômicas, verificáveis e rastreáveis aos critérios de aceite (AC-XX), com dependências, complexidade, critério de pronto e grupos paralelizáveis. Salva em docs/tasks/<slug-da-feature>.md. Funciona no fluxo SDD (após o planejamento) ou isolada, sempre que o usuário quiser quebrar um plano em tarefas executáveis. Invocada explicitamente pelo usuário via /to-tasks, opcionalmente com o slug da feature."
+description: "Fase 4 do fluxo spec-anchored (SDD): decompõe o plano técnico de uma feature em tarefas atômicas, verificáveis e rastreáveis aos critérios de aceite (AC-XX), com dependências, complexidade, critério de pronto e grupos paralelizáveis. Salva em docs/tasks/<NN-slug-da-feature>.md (NN = ID sequencial da feature, mesmo prefixo do plano). Funciona no fluxo SDD (após o planejamento) ou isolada, sempre que o usuário quiser quebrar um plano em tarefas executáveis. Invocada explicitamente pelo usuário via /to-tasks, opcionalmente com o slug da feature."
 disable-model-invocation: true
 ---
 
@@ -28,8 +28,8 @@ Você foi invocado via `/to-tasks`. NUNCA dispare esta skill por conta própria.
 
 As tarefas dependem do **plano** (Fase 3) e da **spec** (Fase 2, para a lista de `AC-XX`).
 
-- **`docs/plans/<slug>.md` existe?** Leia-o e a spec correspondente
-  (`docs/specs/<slug>.md`).
+- **`docs/plans/<NN-slug>.md` existe?** (localize por `docs/plans/*-<slug>.md`) Leia-o e a
+  spec correspondente pelo mesmo prefixo (`docs/specs/<NN-slug>.md`).
 - **Não existe?** Pergunte ao usuário (`AskUserQuestion`, fallback múltipla escolha) como
   proceder:
   1. **Entrevista curta de contexto** (recomendado) — levanto a abordagem técnica e os
@@ -43,8 +43,9 @@ As tarefas dependem do **plano** (Fase 3) e da **spec** (Fase 2, para a lista de
 
 ## Passo 1 — Selecionar a feature
 
-Slug de `$ARGUMENTS` se veio. Senão, se houver mais de um plano sem arquivo de tarefas,
-pergunte qual; se só houver um, confirme em uma linha.
+Slug (ou `NN-slug`, ou só `NN`) de `$ARGUMENTS` se veio. Senão, se houver mais de um plano
+sem arquivo de tarefas, pergunte qual (mostre `NN — nome`); se só houver um, confirme em
+uma linha.
 
 ## Passo 2 — Conduzir a entrevista e gerar as tarefas
 
@@ -52,14 +53,15 @@ Siga `../_shared/sdd/interview-to-tasks.md` na íntegra.
 
 ## Passo 3 — Salvar
 
-Salve em `docs/tasks/<slug>.md` usando o template de tarefas em
-`../_shared/sdd/templates.md`. Crie `docs/tasks/` se não existir. Confira a cobertura de
-todos os `AC-XX`; avise se algum ficou de fora.
+Salve em `docs/tasks/<NN-slug>.md` reutilizando o prefixo `NN-<slug>` do plano (nunca
+reatribua o ID) usando o template de tarefas em `../_shared/sdd/templates.md`. Crie
+`docs/tasks/` se não existir. Confira a cobertura de todos os `AC-XX`; avise se algum ficou
+de fora.
 
 ## Passo 4 — Encerramento
 
 Apresente as tarefas, atualize `Status: gerado` e informe que a próxima etapa é
-`/to-tdd <slug>` — sem disparar nada.
+`/to-tdd <NN-slug>` — sem disparar nada.
 
 ## Subagentes
 

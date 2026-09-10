@@ -8,8 +8,9 @@ para a etapa de especificação.
 
 ## Localizar a spec
 
-Leia `docs/specs/<slug>.md`. Se o slug não veio em `$ARGUMENTS` e houver mais de uma spec
-sem plano, pergunte qual.
+`$ARGUMENTS` pode vir como `<slug>`, `<NN-slug>` ou só `<NN>` — resolva qualquer forma
+localizando `docs/specs/*-<slug>.md` (ou `docs/specs/<NN>-*.md`). Se o slug não veio e
+houver mais de uma spec sem plano, pergunte qual (mostre `NN — nome da feature`).
 
 ## Entrevista
 
@@ -46,7 +47,10 @@ leitura/varredura. O orquestrador sintetiza os achados e faz a recomendação.
 ## Salvar
 
 Use o template de plano em `templates.md`. Crie `docs/plans/` se não existir. Salve em
-`docs/plans/<slug>.md` (mesmo slug da spec). Confira que todo `AC-XX` da spec tem cobertura
+`docs/plans/<NN-slug>.md` **reutilizando exatamente o prefixo `NN-<slug>` da spec de
+origem** — nunca reatribua o ID. Se esta fase rodar isolada, sem spec, determine o ID pelo
+fallback de numeração descrito em `interview-specify.md`, aplicado a `docs/plans/`. Confira
+que todo `AC-XX` da spec tem cobertura
 no plano; se algum não tiver, avise o usuário explicitamente. Se a feature tem UI, confira
 também que a seção "Conformidade com o design" está preenchida (ou marcada como "sem
 superfície visual").

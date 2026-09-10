@@ -27,8 +27,16 @@ conhecidos. Entre ~10 e 20 perguntas no total, salvo pedido do usuário por mais
 
 Identifique features distintas — unidades de escopo coerentes, cada uma pequena o bastante
 para virar uma spec isolada, nem tão grande que "faça tudo" nem tão pequena que seja
-subtarefa de implementação. Para cada uma: nome curto, slug em kebab-case, descrição de
-2–4 frases e dependências ("nenhuma" se não houver).
+subtarefa de implementação. Para cada uma: **ID sequencial de 2 dígitos com zero à
+esquerda** (`01`, `02`, … na ordem de listagem), nome curto, slug em kebab-case, descrição
+de 2–4 frases e dependências ("nenhuma" se não houver; sempre por slug).
+
+O ID é a âncora de identidade da feature: ele prefixa os arquivos de todas as fases
+seguintes no formato `NN-<slug>` (`docs/specs/02-checkout.md`, `docs/plans/02-checkout.md`,
+…). IDs são estáveis e **não reaproveitados**. No modo **atualizar** de uma constituição
+existente: features já registradas mantêm o ID que têm; features novas recebem o próximo ID
+livre (maior ID atual + 1), mesmo que algum número intermediário tenha ficado vago por
+remoção.
 
 ## 3. Confirme a decomposição com o usuário
 
@@ -38,4 +46,7 @@ confirmação.
 ## 4. Salvar
 
 Use o template de constituição em `templates.md`. Crie `docs/constitution/` se não existir.
-Salve em `docs/constitution/<slug-do-projeto>.md`.
+Salve em `docs/constitution/<slug-do-projeto>.md` (o arquivo da constituição **não** recebe
+prefixo de ID — ele é do projeto inteiro). Cada feature na seção "Features" entra numerada
+com o seu ID (`### 01. Nome (`slug`)`); esse número é o prefixo dos arquivos das fases
+seguintes.

@@ -55,8 +55,9 @@ preservando as decisões já registradas.
 Apresente o documento completo e informe, de forma objetiva:
 
 - Que `docs/constitution/<slug>.md` foi criado / atualizado / sobrescrito.
-- A lista de features decompostas (nome + slug).
-- Que a próxima etapa por feature é `/specify <slug>` — sem disparar nada.
+- A lista de features decompostas (ID + nome + slug). O ID de 2 dígitos prefixa os
+  arquivos de todas as fases seguintes (`docs/specs/<NN-slug>.md`, etc.).
+- Que a próxima etapa por feature é `/specify <NN-slug>` — sem disparar nada.
 
 ## Subagentes
 

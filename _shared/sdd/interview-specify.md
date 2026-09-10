@@ -15,6 +15,20 @@ etapas seguintes.
   parte do contexto de negócio? Leia antes de perguntar, para não repetir perguntas
   cuja resposta já está no projeto.
 
+### Determinar o ID da feature
+
+A feature é identificada por um **ID de 2 dígitos com zero à esquerda** (`01`, `02`, …)
+que prefixa o nome do arquivo: `docs/specs/<NN-slug>.md`.
+
+- **Constituição existe e lista a feature-alvo?** O ID é o número dela na seção
+  "Features" (`### 03. …` → ID `03`).
+- **Sem constituição (ou feature não listada nela)?** Varra `docs/specs/` por arquivos
+  `NN-*.md` (dois dígitos + hífen), pegue o maior prefixo e use **o próximo**. Se a pasta
+  não existir ou não tiver nenhum arquivo assim, o ID é `01`.
+
+Esse é o **fallback padrão de numeração** — as fases seguintes que rodam isoladas
+referenciam esta regra, aplicando-a à sua própria pasta (`docs/plans/`, `docs/tasks/`).
+
 ## Entrevista
 
 Você pode agrupar mais de uma pergunta por vez, desde que as respostas sejam independentes
@@ -22,7 +36,8 @@ entre si — quando a resposta de uma muda o conteúdo ou a relevância da próx
 sequência. Prefira `AskUserQuestion` (aceita várias perguntas numa só chamada, até ~4 por
 vez); no fallback de chat, múltipla escolha enumerada com a recomendação destacada.
 
-1. **Nome/slug da feature.** Ex.: "checkout-parcelado", "auth-2fa". Vira o nome do arquivo.
+1. **Nome/slug da feature.** Ex.: "checkout-parcelado", "auth-2fa". O slug, prefixado pelo
+   ID (ver acima), vira o nome do arquivo: `docs/specs/<NN-slug>.md`.
 2. **Problema e público.** Que problema isso resolve, e para quem (que tipo de
    usuário/ator)?
 3. **Escopo.** O que está dentro e o que está explicitamente fora desta mudança? Se o
@@ -47,4 +62,4 @@ Ver `ears.md`. Numere cada critério (`AC-01`, ...).
 ## Salvar
 
 Use o template de spec em `templates.md`. Crie `docs/specs/` se não existir. Salve em
-`docs/specs/<slug>.md`.
+`docs/specs/<NN-slug>.md`, preenchendo os campos `**ID:**` e `**Slug:**`.

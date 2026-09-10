@@ -9,8 +9,10 @@ pare e avise o usuário em vez de criar a tarefa mesmo assim.
 
 ## Localizar o plano
 
-Leia `docs/plans/<slug>.md` e a spec (`docs/specs/<slug>.md`) para ter a lista completa de
-`AC-XX`.
+`$ARGUMENTS` pode vir como `<slug>`, `<NN-slug>` ou só `<NN>`. Localize o plano por
+`docs/plans/*-<slug>.md` (ou `docs/plans/<NN>-*.md`) e a spec irmã pelo mesmo prefixo
+(`docs/specs/<NN-slug>.md`) para ter a lista completa de `AC-XX`. Se houver mais de um plano
+sem arquivo de tarefas, pergunte qual (mostre `NN — nome`).
 
 ## Entrevista
 
@@ -42,5 +44,7 @@ medida fora da escala. Marque explicitamente quais tarefas são independentes en
 ## Salvar
 
 Use o template de tarefas em `templates.md`. Crie `docs/tasks/` se não existir. Salve em
-`docs/tasks/<slug>.md`. Confira que todo `AC-XX` está coberto por pelo menos uma tarefa; se
-algum ficou de fora, avise antes de encerrar.
+`docs/tasks/<NN-slug>.md` **reutilizando o prefixo `NN-<slug>` do plano de origem** — nunca
+reatribua o ID. Se esta fase rodar isolada, sem plano, use o fallback de numeração de
+`interview-specify.md` aplicado a `docs/tasks/`. Confira que todo `AC-XX` está coberto por
+pelo menos uma tarefa; se algum ficou de fora, avise antes de encerrar.

@@ -107,17 +107,19 @@ Use exatamente esta estrutura de seções, mantendo cada uma curta:
 
 Índice de onde ficam os artefatos versionados produzidos pelas skills de desenvolvimento.
 `<slug-do-projeto>` e `<slug-da-feature>` são definidos ao longo do fluxo (sempre kebab-case);
-enquanto não existirem, valem apenas as pastas e o padrão de nome abaixo. O slug de uma feature é
-o mesmo em todas as etapas: `docs/specs/checkout.md`, `docs/plans/checkout.md` e
-`docs/tasks/checkout.md` referem-se todos à feature `checkout`.
+enquanto não existirem, valem apenas as pastas e o padrão de nome abaixo. Cada feature recebe
+na constituição um **ID sequencial de 2 dígitos** (`01`, `02`, …), usado como prefixo do nome
+de arquivo em todas as fases. O par ID+slug é o mesmo em todas as etapas:
+`docs/specs/02-checkout.md`, `docs/plans/02-checkout.md` e `docs/tasks/02-checkout.md`
+referem-se todos à feature `checkout` (ID `02`).
 
 | Artefato | Local | Skill que produz |
 |---|---|---|
 | Descrição do projeto, arquitetura e design (fase 0, opcional) | `docs/blueprint/PROJECT.md`, `ARCHITECTURE.md`, `DESIGN.md` | `/blueprint` |
 | Constituição (propósito + features do projeto) | `docs/constitution/<slug-do-projeto>.md` | `/constitute`, `/setup-project` |
-| Especificação da feature (critérios de aceite EARS) | `docs/specs/<slug-da-feature>.md` | `/specify` |
-| Plano técnico da feature | `docs/plans/<slug-da-feature>.md` | `/plan` |
-| Tarefas atômicas + progresso da implementação | `docs/tasks/<slug-da-feature>.md` | `/to-tasks` (produz), `/to-tdd` (atualiza progresso) |
+| Especificação da feature (critérios de aceite EARS) | `docs/specs/<NN-slug-da-feature>.md` | `/specify` |
+| Plano técnico da feature | `docs/plans/<NN-slug-da-feature>.md` | `/plan` |
+| Tarefas atômicas + progresso da implementação | `docs/tasks/<NN-slug-da-feature>.md` | `/to-tasks` (produz), `/to-tdd` (atualiza progresso) |
 | Base de conhecimento (armadilhas já resolvidas) | `docs/knowledge/INDEX.md` + `docs/knowledge/<slug>.md` | `knowledge-base` |
 
 ## Regras de Conduta
@@ -175,8 +177,9 @@ A própria skill conduz a etapa — não delegue para outras skills:
 2. **Decomposição em features.** A partir das respostas, identifique features distintas —
    unidades de escopo coerentes, cada uma pequena o bastante para virar uma spec isolada, nem
    tão grande que "faça tudo" nem tão pequena que seja subtarefa de implementação. Para cada
-   uma: nome curto, slug em kebab-case, descrição de 2–4 frases e dependências ("nenhuma" se não
-   houver).
+   uma: ID sequencial de 2 dígitos (`01`, `02`, … na ordem de listagem — prefixa os arquivos
+   das fases seguintes, não é reaproveitado), nome curto, slug em kebab-case, descrição de 2–4
+   frases e dependências ("nenhuma" se não houver; por slug).
 3. **Confirme a decomposição com o usuário** antes de salvar — adicionar, remover, fundir ou
    dividir features. Não salve sem essa confirmação.
 4. **Salve** em `docs/constitution/<slug-do-projeto>.md` (crie a pasta se não existir):
@@ -191,12 +194,15 @@ A própria skill conduz a etapa — não delegue para outras skills:
 - <decisões e restrições que nenhuma feature pode violar>
 
 ## Features
-### 1. <Nome da feature> (`slug-da-feature`)
+<!-- O número de cada feature é o ID dela (2 dígitos, zero à esquerda, na ordem de
+     listagem). Ele prefixa os arquivos de spec/plano/tarefas como `NN-<slug>` e não é
+     reaproveitado. Dependências ficam por slug. -->
+### 01. <Nome da feature> (`slug-da-feature`)
 <descrição>
 **Depende de:** <slugs, ou "nenhuma">
 
 ## Próximos passos
-Próxima etapa por feature: `/specify <slug>`
+Próxima etapa por feature: `/specify <NN-slug>`
 ```
 
 ## Passo 7 — Resumo final
@@ -211,5 +217,5 @@ Informe ao usuário, de forma objetiva:
   incluídos, são boilerplate que o usuário pode editar se o projeto usar outra
   convenção de caminhos/etapas.
 - Se a constituição foi conduzida: que `docs/constitution/<slug>.md` foi criado e que o próximo
-  passo é `/specify <slug>` por feature. Se não foi: que a etapa de Constituição fica pendente
+  passo é `/specify <NN-slug>` por feature. Se não foi: que a etapa de Constituição fica pendente
   como próximo passo do fluxo SDD (a skill `/constitute` a conduz).

@@ -1,6 +1,6 @@
 ---
 name: specify
-description: "Fase 2 do fluxo spec-anchored (SDD): define O QUÊ será implementado numa feature — problema, público, escopo (dentro/fora), restrições e critérios de aceite observáveis em notação EARS — e salva em docs/specs/<slug-da-feature>.md. Funciona no fluxo SDD (após a constituição) ou isolada, sempre que o usuário quiser uma especificação formal de uma feature. Invocada explicitamente pelo usuário via /specify, opcionalmente com o slug da feature."
+description: "Fase 2 do fluxo spec-anchored (SDD): define O QUÊ será implementado numa feature — problema, público, escopo (dentro/fora), restrições e critérios de aceite observáveis em notação EARS — e salva em docs/specs/<NN-slug-da-feature>.md (NN = ID sequencial da feature). Funciona no fluxo SDD (após a constituição) ou isolada, sempre que o usuário quiser uma especificação formal de uma feature. Invocada explicitamente pelo usuário via /specify, opcionalmente com o slug da feature."
 disable-model-invocation: true
 ---
 
@@ -28,7 +28,9 @@ Você foi invocado via `/specify`. NUNCA dispare esta skill por conta própria.
 A spec depende da **constituição** (Fase 1) — mas só como contexto, não como bloqueio.
 
 - **`docs/constitution/<slug-do-projeto>.md` existe?** Leia para entender o projeto e a
-  feature-alvo dentro da decomposição.
+  feature-alvo dentro da decomposição. O **ID** da feature (prefixo `NN-` do arquivo) é o
+  número dela na seção "Features"; sem constituição, ele vem da varredura de `docs/specs/`
+  — ver `../_shared/sdd/interview-specify.md`.
 - **Não existe?** Pergunte ao usuário (`AskUserQuestion`, fallback múltipla escolha) como
   proceder:
   1. **Entrevista curta de contexto** (recomendado) — descrevo em 2–3 perguntas o projeto
@@ -41,9 +43,9 @@ A spec depende da **constituição** (Fase 1) — mas só como contexto, não co
 
 ## Passo 1 — Selecionar a feature
 
-Se o usuário passou um slug em `$ARGUMENTS`, use-o. Senão, se a constituição listar várias
-features sem `docs/specs/<slug>.md`, pergunte qual via `AskUserQuestion`; se só houver uma
-pendente, confirme em uma linha.
+Se o usuário passou um slug (ou `NN-slug`) em `$ARGUMENTS`, use-o. Senão, se a constituição
+listar várias features sem `docs/specs/<NN-slug>.md`, pergunte qual via `AskUserQuestion`;
+se só houver uma pendente, confirme em uma linha.
 
 ## Passo 2 — Conduzir a entrevista e converter para EARS
 
@@ -52,13 +54,13 @@ Siga `../_shared/sdd/interview-specify.md` na íntegra e a tabela EARS em
 
 ## Passo 3 — Salvar
 
-Salve em `docs/specs/<slug>.md` usando o template de spec em `../_shared/sdd/templates.md`.
-Crie `docs/specs/` se não existir.
+Salve em `docs/specs/<NN-slug>.md` usando o template de spec em
+`../_shared/sdd/templates.md`. Crie `docs/specs/` se não existir.
 
 ## Passo 4 — Encerramento
 
 Apresente a spec completa, atualize `Status: gerado` e informe que a próxima etapa é
-`/plan <slug>` — sem disparar nada.
+`/plan <NN-slug>` — sem disparar nada.
 
 ## Subagentes
 

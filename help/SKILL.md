@@ -32,10 +32,10 @@ código.
 | "Preciso do design system antes de construir telas" | `/blueprint` (Etapa 3 — Design) | `docs/blueprint/DESIGN.md` |
 | "Quero documentar o contexto do projeto para agentes de IA" | `/setup-project` | `AGENTS.md` ou `CLAUDE.md` |
 | "Preciso formalizar propósito, princípios e as features do projeto" | `/constitute` | `docs/constitution/<slug-do-projeto>.md` |
-| "Preciso definir o QUÊ de uma feature (critérios de aceite)" | `/specify` | `docs/specs/<slug-da-feature>.md` |
-| "Preciso definir o COMO de uma feature (arquitetura/integração)" | `/plan` | `docs/plans/<slug-da-feature>.md` |
-| "Preciso quebrar o plano em tarefas atômicas" | `/to-tasks` | `docs/tasks/<slug-da-feature>.md` |
-| "Hora de implementar em TDD" | `/to-tdd` | atualiza `docs/tasks/<slug-da-feature>.md` |
+| "Preciso definir o QUÊ de uma feature (critérios de aceite)" | `/specify` | `docs/specs/<NN-slug-da-feature>.md` |
+| "Preciso definir o COMO de uma feature (arquitetura/integração)" | `/plan` | `docs/plans/<NN-slug-da-feature>.md` |
+| "Preciso quebrar o plano em tarefas atômicas" | `/to-tasks` | `docs/tasks/<NN-slug-da-feature>.md` |
+| "Hora de implementar em TDD" | `/to-tdd` | atualiza `docs/tasks/<NN-slug-da-feature>.md` |
 | "Bati num erro obscuro/recorrente, ou resolvi algo que exigiu investigação" | `knowledge-base` (dispara sozinha) | `docs/knowledge/INDEX.md` + `docs/knowledge/<slug>.md` |
 
 ## Ordem recomendada de ponta a ponta
@@ -60,3 +60,8 @@ código.
   quando o usuário optar por incluí-lo.
 - **"Que skill devo rodar depois de terminar uma feature?"** Volte ao passo 4 para a
   próxima feature (`/specify` → `/plan` → `/to-tasks` → `/to-tdd`).
+- **"Por que os arquivos das features têm um número na frente?"** Cada feature recebe na
+  constituição um ID sequencial de 2 dígitos (`01`, `02`, …) que prefixa o nome do arquivo
+  em todas as fases (`docs/specs/02-checkout.md`, `docs/plans/02-checkout.md`, …). O ID é
+  estável e não é reaproveitado. Rodando uma fase isolada sem constituição, o número vem da
+  varredura da pasta `docs/` daquela fase.

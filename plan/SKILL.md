@@ -1,6 +1,6 @@
 ---
 name: plan
-description: "Fase 3 do fluxo spec-anchored (SDD): define a abordagem técnica de COMO uma feature será implementada — pontos de integração, decisões de arquitetura com trade-offs, impacto em dados, riscos — derivada da spec aprovada e rastreada aos critérios de aceite (AC-XX). Salva em docs/plans/<slug-da-feature>.md. Funciona no fluxo SDD (após a especificação) ou isolada, sempre que o usuário quiser um plano técnico de uma feature. Invocada explicitamente pelo usuário via /plan, opcionalmente com o slug da feature."
+description: "Fase 3 do fluxo spec-anchored (SDD): define a abordagem técnica de COMO uma feature será implementada — pontos de integração, decisões de arquitetura com trade-offs, impacto em dados, riscos — derivada da spec aprovada e rastreada aos critérios de aceite (AC-XX). Salva em docs/plans/<NN-slug-da-feature>.md (NN = ID sequencial da feature, mesmo prefixo da spec). Funciona no fluxo SDD (após a especificação) ou isolada, sempre que o usuário quiser um plano técnico de uma feature. Invocada explicitamente pelo usuário via /plan, opcionalmente com o slug da feature."
 disable-model-invocation: true
 ---
 
@@ -27,7 +27,8 @@ Você foi invocado via `/plan`. NUNCA dispare esta skill por conta própria.
 
 O plano depende da **spec** (Fase 2).
 
-- **`docs/specs/<slug>.md` existe?** Leia-a e leia também `docs/constitution/*.md` e
+- **`docs/specs/<NN-slug>.md` existe?** (localize por `docs/specs/*-<slug>.md`) Leia-a e
+  leia também `docs/constitution/*.md` e
   `docs/blueprint/ARCHITECTURE.md`, se existirem, para contexto — o segundo traz a
   stack e os padrões arquiteturais já decididos para o projeto. Se a feature tiver
   qualquer superfície visual e existir `docs/blueprint/DESIGN.md`, leia-o também para
@@ -40,7 +41,7 @@ O plano depende da **spec** (Fase 2).
      provisórios para dar rastreabilidade ao plano, sem salvar a spec.
   2. **Gerar a spec primeiro** — conduzo a entrevista completa da Fase 2 seguindo
      `../_shared/sdd/interview-specify.md` + `../_shared/sdd/ears.md`, salvo
-     `docs/specs/<slug>.md` e só então sigo para o plano. (Se faltar contexto de projeto,
+     `docs/specs/<NN-slug>.md` e só então sigo para o plano. (Se faltar contexto de projeto,
      essa entrevista já cobre o mínimo necessário — não suba até a constituição salvo
      pedido do usuário.)
   3. **Apontar um arquivo/descrição existente** — PRD, issue, nota; uso como ponto de
@@ -48,8 +49,8 @@ O plano depende da **spec** (Fase 2).
 
 ## Passo 1 — Selecionar a feature
 
-Slug de `$ARGUMENTS` se veio. Senão, se houver mais de uma spec sem plano, pergunte qual;
-se só houver uma, confirme em uma linha.
+Slug (ou `NN-slug`, ou só `NN`) de `$ARGUMENTS` se veio. Senão, se houver mais de uma spec
+sem plano, pergunte qual (mostre `NN — nome`); se só houver uma, confirme em uma linha.
 
 ## Passo 2 — Conduzir a entrevista e a investigação técnica
 
@@ -57,14 +58,15 @@ Siga `../_shared/sdd/interview-plan.md` na íntegra.
 
 ## Passo 3 — Salvar
 
-Salve em `docs/plans/<slug>.md` (mesmo slug da spec) usando o template de plano em
-`../_shared/sdd/templates.md`. Crie `docs/plans/` se não existir. Confira que todo `AC-XX`
-tem cobertura; avise explicitamente se algum não tiver.
+Salve em `docs/plans/<NN-slug>.md` reutilizando exatamente o prefixo `NN-<slug>` da spec
+(nunca reatribua o ID) usando o template de plano em `../_shared/sdd/templates.md`. Crie
+`docs/plans/` se não existir. Confira que todo `AC-XX` tem cobertura; avise explicitamente
+se algum não tiver.
 
 ## Passo 4 — Encerramento
 
 Apresente o plano, atualize `Status: gerado` e informe que a próxima etapa é
-`/to-tasks <slug>` — sem disparar nada.
+`/to-tasks <NN-slug>` — sem disparar nada.
 
 ## Subagentes
 

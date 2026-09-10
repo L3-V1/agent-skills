@@ -4,8 +4,15 @@
 > são a fonte única de verdade do formato dos artefatos em `docs/` — mantê-los idênticos
 > entre as skills que os produzem.
 
-O slug de uma feature é o mesmo em todas as etapas: `docs/specs/checkout.md`,
-`docs/plans/checkout.md` e `docs/tasks/checkout.md` referem-se todos à feature `checkout`.
+Cada feature tem um **ID sequencial de 2 dígitos com zero à esquerda** (`01`, `02`, …),
+atribuído na constituição (Fase 1) pela ordem em que a feature aparece na seção
+"Features". Esse ID prefixa o nome do arquivo da feature em **todas as fases**, no
+formato `NN-<slug>`: `docs/specs/02-checkout.md`, `docs/plans/02-checkout.md` e
+`docs/tasks/02-checkout.md` referem-se todos à feature `checkout` (ID `02`, slug
+`checkout`). O ID é estável — uma vez atribuído não muda, e IDs de features removidas
+não são reaproveitados (gaps são permitidos). Quando uma fase roda isolada, sem
+constituição, o ID vem da varredura da pasta `docs/` daquela fase (ver
+`interview-specify.md`).
 
 ---
 
@@ -21,22 +28,27 @@ O slug de uma feature é o mesmo em todas as etapas: `docs/specs/checkout.md`,
 - <decisões e restrições que nenhuma feature pode violar>
 
 ## Features
-### 1. <Nome da feature> (`slug-da-feature`)
+<!-- O número de cada feature é o ID dela (2 dígitos, zero à esquerda), na ordem de
+     listagem. Ele prefixa os arquivos de spec/plano/tarefas como `NN-<slug>`. IDs são
+     estáveis e não reaproveitados: ao atualizar esta constituição, features novas
+     recebem o próximo ID livre (maior ID atual + 1). Dependências ficam por slug. -->
+### 01. <Nome da feature> (`slug-da-feature`)
 <descrição>
 **Depende de:** <slugs, ou "nenhuma">
 
 ## Próximos passos
-Próxima etapa por feature: `/specify <slug-da-feature>`
+Próxima etapa por feature: `/specify <NN-slug-da-feature>`
 ```
 
 ---
 
-## Especificação (EARS) → `docs/specs/<slug-da-feature>.md`
+## Especificação (EARS) → `docs/specs/<NN-slug-da-feature>.md`
 
 ```markdown
 # Spec: <nome da feature>
 
 **Status:** rascunho | gerado
+**ID:** <NN>
 **Slug:** <slug>
 
 ## Problema
@@ -59,19 +71,20 @@ Próxima etapa por feature: `/specify <slug-da-feature>`
 - **AC-0N** — Se ..., então o sistema deve ...
 
 ## Próximos passos
-Próxima etapa: `/plan <slug>`
+Próxima etapa: `/plan <NN-slug>` (o slug sozinho também é aceito)
 ```
 
 ---
 
-## Plano técnico → `docs/plans/<slug-da-feature>.md`
+## Plano técnico → `docs/plans/<NN-slug-da-feature>.md`
 
 ```markdown
 # Plano técnico: <nome da feature>
 
 **Status:** rascunho | gerado
+**ID:** <NN>
 **Slug:** <slug>
-**Spec de referência:** docs/specs/<slug>.md
+**Spec de referência:** docs/specs/<NN-slug>.md
 
 ## Resumo da abordagem
 <1-2 parágrafos>
@@ -107,19 +120,20 @@ Este plano cobre os critérios: AC-01, AC-02, AC-03... (liste todos os AC-XX da 
 marque se algum ainda não tem abordagem técnica definida).
 
 ## Próximos passos
-Próxima etapa: `/to-tasks <slug>`
+Próxima etapa: `/to-tasks <NN-slug>`
 ```
 
 ---
 
-## Tarefas → `docs/tasks/<slug-da-feature>.md`
+## Tarefas → `docs/tasks/<NN-slug-da-feature>.md`
 
 ```markdown
 # Tarefas: <nome da feature>
 
 **Status:** rascunho | gerado
+**ID:** <NN>
 **Slug:** <slug>
-**Plano de referência:** docs/plans/<slug>.md
+**Plano de referência:** docs/plans/<NN-slug>.md
 **Paralelização:** sim | não
 
 <!-- Em tarefas de UI, "Pronto quando" inclui conformidade com docs/blueprint/DESIGN.md:
@@ -148,5 +162,5 @@ Próxima etapa: `/to-tasks <slug>`
 - AC-03 → T-02
 
 ## Próximos passos
-Próxima etapa: `/to-tdd <slug>`
+Próxima etapa: `/to-tdd <NN-slug>`
 ```

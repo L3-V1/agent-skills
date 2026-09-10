@@ -39,8 +39,9 @@ Você foi invocado via `/to-tdd`. NUNCA dispare esta skill por conta própria.
 
 A implementação depende das **tarefas** (Fase 4), idealmente com spec e plano por trás.
 
-- **`docs/tasks/<slug>.md` existe?** Leia-o e também `docs/specs/<slug>.md` e
-  `docs/plans/<slug>.md` para o contexto completo dos critérios de aceite. Se a feature
+- **`docs/tasks/<NN-slug>.md` existe?** (localize por `docs/tasks/*-<slug>.md`) Leia-o e
+  também os arquivos irmãos pelo mesmo prefixo — `docs/specs/<NN-slug>.md` e
+  `docs/plans/<NN-slug>.md` — para o contexto completo dos critérios de aceite. Se a feature
   tocar UI e existir `docs/blueprint/DESIGN.md`, leia-o também. O progresso
   será marcado no arquivo de tarefas (`- [ ]` → `- [x]`).
 - **Não existe?** Pergunte ao usuário (`AskUserQuestion`, fallback múltipla escolha) como
@@ -51,13 +52,14 @@ A implementação depende das **tarefas** (Fase 4), idealmente com spec e plano 
   2. **Gerar o arquivo de tarefas (e o que faltar acima) primeiro** — conduzo as
      entrevistas das fases anteriores seguindo `../_shared/sdd/interview-to-tasks.md` (e
      `interview-plan.md` / `interview-specify.md` conforme faltar), salvo os artefatos e só
-     então implemento, marcando o progresso em `docs/tasks/<slug>.md`.
+     então implemento, marcando o progresso em `docs/tasks/<NN-slug>.md`.
   3. **Apontar um arquivo/descrição existente** — checklist informal, issue, design doc.
 
 ## Passo 1 — Selecionar a feature
 
-Slug de `$ARGUMENTS` se veio. Senão, se houver mais de um `docs/tasks/<slug>.md` com
-tarefas pendentes, pergunte qual; se só houver um, confirme em uma linha.
+Slug (ou `NN-slug`, ou só `NN`) de `$ARGUMENTS` se veio. Senão, se houver mais de um
+`docs/tasks/<NN-slug>.md` com tarefas pendentes, pergunte qual (mostre `NN — nome`); se só
+houver um, confirme em uma linha.
 
 ## Passo 2 — Entrevista curta
 
@@ -94,7 +96,7 @@ ordem definida por dependências:
    duplicação) mantendo o teste verde. Em tarefas de UI, confirme nesse passe que o markup
    final usa tokens/classes reais do `DESIGN.md`, não valores hardcoded fora da escala. Rode
    a suíte a cada ciclo.
-6. Se houver `docs/tasks/<slug>.md`, marque a tarefa como concluída (troque `- [ ]` por
+6. Se houver `docs/tasks/<NN-slug>.md`, marque a tarefa como concluída (troque `- [ ]` por
    `- [x]` no checkbox do `T-XX`).
 
 Se o teste não passar depois do número de tentativas combinado, pare essa tarefa, registre
