@@ -37,8 +37,8 @@ Depois de criar ou atualizar os symlinks, rode `/reload-skills` no Claude Code p
 
 | Skill | Descrição |
 |---|---|
-| [`blueprint`](./blueprint/) | **Fase 0 (opcional), em 3 etapas independentes.** **Projeto** — a partir de um tema ou ideia vaga, explora ideias de software, converge para um único projeto e gera uma descrição completa em `docs/blueprint/PROJECT.md`. **Arquitetura** — entrevista sobre stack técnica, padrões arquiteturais e convenções de código → `docs/blueprint/ARCHITECTURE.md`. **Design** — monta o design system do projeto (entrevista do zero, análise da codebase ou referências externas) → `docs/blueprint/DESIGN.md`. Alimenta o `/setup-project` e o `/constitute`, que pulam perguntas já respondidas. |
-| [`setup-project`](./setup-project/) | Gera um único arquivo de contexto para agentes de IA — `AGENTS.md` ou `CLAUDE.md`, à escolha do usuário — com visão geral, stack, convenções, docs e comandos; mediante confirmação, inclui também um mapa de onde ficam os artefatos de cada etapa e as regras de conduta obrigatórias para agentes. Pode conduzir a 1ª fase do fluxo SDD (constituição) na mesma execução. |
+| [`blueprint`](./blueprint/) | **Fase 0 (opcional), em 3 etapas independentes.** **Projeto** — a partir de um tema ou ideia vaga, explora ideias de software, converge para um único projeto e gera uma descrição completa em `docs/blueprint/PROJECT.md`. **Arquitetura** — entrevista sobre stack técnica, padrões arquiteturais e convenções de código → `docs/blueprint/ARCHITECTURE.md`. **Design** — monta o design system do projeto (entrevista do zero, análise da codebase ou referências externas) → `docs/blueprint/DESIGN.md`. Alimenta o `/onboard` e o `/constitute`, que pulam perguntas já respondidas. |
+| [`onboard`](./onboard/) | Gera um único arquivo de contexto para agentes de IA — `AGENTS.md` ou `CLAUDE.md`, à escolha do usuário — com visão geral, stack, convenções, docs e comandos; mediante confirmação, inclui também um mapa de onde ficam os artefatos de cada etapa e as regras de conduta obrigatórias para agentes. Pode conduzir a 1ª fase do fluxo SDD (constituição) na mesma execução. |
 
 ### Workflow de desenvolvimento
 

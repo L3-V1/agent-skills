@@ -30,7 +30,7 @@ código.
 | "Tenho uma ideia vaga, quero explorar antes de formalizar" | `/blueprint` (Etapa 1 — Projeto) | `docs/blueprint/PROJECT.md` |
 | "Já sei o projeto, falta decidir stack/arquitetura/convenções" | `/blueprint` (Etapa 2 — Arquitetura) | `docs/blueprint/ARCHITECTURE.md` |
 | "Preciso do design system antes de construir telas" | `/blueprint` (Etapa 3 — Design) | `docs/blueprint/DESIGN.md` |
-| "Quero documentar o contexto do projeto para agentes de IA" | `/setup-project` | `AGENTS.md` ou `CLAUDE.md` |
+| "Quero documentar o contexto do projeto para agentes de IA" | `/onboard` | `AGENTS.md` ou `CLAUDE.md` |
 | "Preciso formalizar propósito, princípios e as features do projeto" | `/constitute` | `docs/constitution/<slug-do-projeto>.md` |
 | "Preciso definir o QUÊ de uma feature (critérios de aceite)" | `/specify` | `docs/specs/<NN-slug-da-feature>.md` |
 | "Preciso definir o COMO de uma feature (arquitetura/integração)" | `/plan` | `docs/plans/<NN-slug-da-feature>.md` |
@@ -42,8 +42,8 @@ código.
 
 1. `/blueprint` (opcional, mas recomendado para projeto novo) — Projeto →
    Arquitetura → Design.
-2. `/setup-project` — documenta o projeto para agentes de IA; pode encadear a
-   constituição na mesma execução.
+2. `/onboard` — logo após o `/blueprint`, documenta o projeto para agentes de IA;
+   pode encadear a constituição na mesma execução.
 3. `/constitute` — formaliza propósito, princípios e decompõe em features.
 4. Por feature: `/specify` → `/plan` → `/to-tasks` → `/to-tdd`.
 5. `knowledge-base` fica ativa o tempo todo, disparando sozinha quando útil.
@@ -56,7 +56,7 @@ código.
   cada uma roda isolada se o usuário der o contexto necessário; a ordem acima é uma
   recomendação, não uma automação.
 - **"Onde fica documentado o mapa completo de artefatos e skills?"** No `AGENTS.md`/
-  `CLAUDE.md` gerado pelo `/setup-project` (bloco "Mapa de artefatos do projeto"),
+  `CLAUDE.md` gerado pelo `/onboard` (bloco "Mapa de artefatos do projeto"),
   quando o usuário optar por incluí-lo.
 - **"Que skill devo rodar depois de terminar uma feature?"** Volte ao passo 4 para a
   próxima feature (`/specify` → `/plan` → `/to-tasks` → `/to-tdd`).

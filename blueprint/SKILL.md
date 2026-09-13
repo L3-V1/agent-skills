@@ -11,7 +11,7 @@ Você foi invocado via `/blueprint`. NUNCA dispare esta skill por conta própria
 > Reúne, antes de qualquer código ou constituição formal, os três documentos que
 > descrevem um projeto: o que ele é (Projeto), com que stack e padrões é construído
 > (Arquitetura) e como se apresenta visualmente (Design). Os três alimentam o
-> `/constitute` e o `/setup-project`.
+> `/onboard` (etapa seguinte recomendada) e o `/constitute`.
 
 ## Visão geral
 
@@ -323,9 +323,10 @@ Ao concluir (ou interromper) o fluxo, informe ao usuário, de forma objetiva:
 
 - Quais das três etapas foram concluídas nesta execução e quais ficaram pendentes.
 - Quais arquivos foram criados/atualizados/sobrescritos em `docs/blueprint/`.
-- Que o próximo passo é `/constitute` (consome `PROJECT.md` e pula perguntas já
-  respondidas) ou `/setup-project` (documenta o projeto para agentes de IA e pode
-  encadear a constituição).
+- Que o próximo passo recomendado é `/onboard` (documenta o projeto para agentes de
+  IA e pode encadear a constituição na mesma execução); quem preferir pular direto
+  para a constituição pode rodar `/constitute` (consome `PROJECT.md` e pula
+  perguntas já respondidas).
 - Que o `DESIGN.md`, além de alimentar as duas skills acima, é consumido adiante por
   `/plan` (vira a seção "Conformidade com o design" da feature) e por `/to-tdd` (guia a
   implementação da UI).

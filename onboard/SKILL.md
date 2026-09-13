@@ -1,12 +1,12 @@
 ---
-name: setup-project
-description: "Gera a documentação de contexto do projeto para agentes de IA num único arquivo, `AGENTS.md` ou `CLAUDE.md` (o usuário escolhe qual): visão geral, stack, convenções, docs auxiliares, comandos de setup/execução e, mediante confirmação do usuário, um mapa de onde ficam os artefatos de cada etapa do fluxo SDD e as regras de conduta para agentes — podendo inclusive já encadear a 1ª etapa (constituição). Invocada explicitamente pelo usuário via /setup-project."
+name: onboard
+description: "Gera a documentação de contexto do projeto para agentes de IA num único arquivo, `AGENTS.md` ou `CLAUDE.md` (o usuário escolhe qual): visão geral, stack, convenções, docs auxiliares, comandos de setup/execução e, mediante confirmação do usuário, um mapa de onde ficam os artefatos de cada etapa do fluxo SDD e as regras de conduta para agentes — podendo inclusive já encadear a 1ª etapa (constituição). Invocada explicitamente pelo usuário via /onboard."
 disable-model-invocation: true
 ---
 
-# Setup Project
+# Onboard
 
-Você foi invocado via `/setup-project`. NUNCA dispare esta skill por conta própria.
+Você foi invocado via `/onboard`. NUNCA dispare esta skill por conta própria.
 
 > Versão enxuta e agnóstica de agente do `/init`: gera um único arquivo de contexto
 > — `AGENTS.md` ou `CLAUDE.md`, à escolha do usuário — em vez de assumir sempre o
@@ -116,7 +116,7 @@ referem-se todos à feature `checkout` (ID `02`).
 | Artefato | Local | Skill que produz |
 |---|---|---|
 | Descrição do projeto, arquitetura e design (fase 0, opcional) | `docs/blueprint/PROJECT.md`, `ARCHITECTURE.md`, `DESIGN.md` | `/blueprint` |
-| Constituição (propósito + features do projeto) | `docs/constitution/<slug-do-projeto>.md` | `/constitute`, `/setup-project` |
+| Constituição (propósito + features do projeto) | `docs/constitution/<slug-do-projeto>.md` | `/constitute`, `/onboard` |
 | Especificação da feature (critérios de aceite EARS) | `docs/specs/<NN-slug-da-feature>.md` | `/specify` |
 | Plano técnico da feature | `docs/plans/<NN-slug-da-feature>.md` | `/plan` |
 | Tarefas atômicas + progresso da implementação | `docs/tasks/<NN-slug-da-feature>.md` | `/to-tasks` (produz), `/to-tdd` (atualiza progresso) |
